@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="../assets/favicon/safari-pinned-tab.svg" color="#2c7744">
+    <link rel="shortcut icon" href="../assets/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#2c7744">
+    <meta name="msapplication-config" content="../assets/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#2c7744">
+    
+    <title>Premium Indonesian Tea Products - Black Tea & Green Tea | TropicaFarm</title>
+    <meta name="description" content="Discover TropicaFarm's premium Indonesian tea products. High-quality Black Tea and Green Tea sourced directly from sustainable plantations. Available for global wholesale.">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Swiper.js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2c7744',
+                        secondary: '#f9a825',
+                        accent: '#1a5c30',
+                        light: '#f8f9fa',
+                        dark: '#212529'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .hero-tea { 
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-tea video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+        .hero-tea::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .hero-tea .container {
+            position: relative;
+            z-index: 2;
+        }
+        .swiper-button-next, .swiper-button-prev {
+            color: #2c7744;
+        }
+        .swiper-pagination-bullet-active {
+            background: #2c7744;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800">
+    <!-- Header (reuse from index.html but adjust paths) -->
+    <header class="bg-white shadow-md fixed w-full z-40 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="../" class="flex items-center space-x-2">
+                <i class="fas fa-leaf text-primary text-2xl"></i>
+                <span class="text-2xl font-bold text-primary">TropicaFarm</span>
+            </a>
+            <nav class="hidden md:flex space-x-6">
+                <a href="../" class="font-medium hover:text-primary">Home</a>
+                <a href="../#about" class="font-medium hover:text-primary">About Us</a>
+                <a href="../#products" class="font-medium hover:text-primary">Products</a>
+                <a href="../#contact" class="font-medium hover:text-primary">Contact</a>
+            </nav>
+            <a href="https://wa.me/6281212560026?text=Hello%20TropicaFarm%2C%20I%20am%20interested%20in%20your%20tea%20products" target="_blank" class="hidden md:inline-flex bg-primary hover:bg-accent text-white px-4 py-2 rounded-lg transition duration-300">
+                <i class="fab fa-whatsapp mr-2"></i> Order Now
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-tea min-h-[80vh] flex items-center text-white pt-20">
+        <video autoplay muted loop playsinline>
+            <source src="../assets/videos/tea-harvesting.mp4" type="video/mp4">
+        </video>
+        <div class="container mx-auto px-6 py-20">
+            <div class="max-w-3xl">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">Two Decades of Excellence in Tea Production</h1>
+                <p class="text-xl mb-8 leading-relaxed">Trusted by global partners for consistently delivering premium Indonesian tea since 2004. Our expertise ensures exceptional quality in every harvest.</p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="https://wa.me/6281212560026?text=Hello%20TropicaFarm%2C%20I%20am%20interested%20in%20your%20tea%20products" target="_blank" class="bg-primary hover:bg-accent text-white px-8 py-4 rounded-xl transition duration-300 inline-flex items-center">
+                        <i class="fab fa-whatsapp text-xl mr-2"></i> Order Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Tea Products -->
+    <section class="py-20 bg-light">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl font-bold text-primary mb-6">About Our Tea Products</h2>
+                <p class="text-gray-600 text-lg leading-relaxed mb-12">Discover why global partners choose us for their premium tea sourcing needs.</p>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <div class="text-primary text-3xl mb-4">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Natural & Premium Quality</h3>
+                        <p class="text-gray-600">Finest quality Indonesian tea, naturally grown in pristine highlands and processed under strict quality control standards</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <div class="text-primary text-3xl mb-4">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Competitive & Sustainable</h3>
+                        <p class="text-gray-600">Market-competitive pricing with guaranteed year-round supply through our extensive plantation network</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <div class="text-primary text-3xl mb-4">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Diverse Tea Selection</h3>
+                        <p class="text-gray-600">Comprehensive range of tea varieties including green, black, and specialized blends to meet market demands</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <div class="text-primary text-3xl mb-4">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Flexible Packaging</h3>
+                        <p class="text-gray-600">Customizable packaging solutions tailored to your specific requirements and market needs</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Black Tea Section -->
+    <section id="black-tea" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-12">
+                <!-- Image Gallery -->
+                <div class="lg:w-1/2">
+                    <div class="swiper product-swiper rounded-2xl overflow-hidden shadow-lg">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="../assets/images/black-tea-1.jpg" alt="Premium Indonesian Black Tea - Main View" class="w-full h-[500px] object-cover">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="../assets/images/black-tea-2.jpg" alt="Black Tea Processing" class="w-full h-[500px] object-cover">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="../assets/images/black-tea-3.jpg" alt="Black Tea Packaging" class="w-full h-[500px] object-cover">
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+
+                <!-- Product Information -->
+                <div class="lg:w-1/2">
+                    <span class="bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium">Best Seller</span>
+                    <h2 class="text-4xl font-bold text-primary mt-4 mb-6">Black Tea</h2>
+                    <p class="text-gray-600 text-lg mb-8">Our premium black tea offers a rich, full-bodied flavor with malty notes and a smooth finish. Carefully processed from mature tea leaves, it's perfect for various applications from premium tea bags to ready-to-drink beverages.</p>
+
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Production Capacity</h4>
+                            <p class="text-gray-600">180 tons/month</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Minimum Order</h4>
+                            <p class="text-gray-600">1 ton</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Packaging</h4>
+                            <p class="text-gray-600">25kg bags</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Shelf Life</h4>
+                            <p class="text-gray-600">24 months</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-3 mb-8">
+                        <span class="bg-gray-100 px-4 py-2 rounded-full text-sm">High Antioxidants</span>
+                        <span class="bg-gray-100 px-4 py-2 rounded-full text-sm">Bold Flavor</span>
+                        <span class="bg-gray-100 px-4 py-2 rounded-full text-sm">Loose Leaf</span>
+                        <span class="bg-gray-100 px-4 py-2 rounded-full text-sm">Bulk Supply</span>
+                    </div>
+
+                    <a href="https://wa.me/6281212560026?text=Hello%20TropicaFarm%2C%20I%20am%20interested%20in%20your%20Black%20Tea%20products" target="_blank" class="bg-primary hover:bg-accent text-white px-8 py-4 rounded-xl transition duration-300 inline-flex items-center">
+                        <i class="fab fa-whatsapp text-xl mr-2"></i> Order Black Tea
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Green Tea Section -->
+    <section id="green-tea" class="py-20 bg-light">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-12">
+                <!-- Product Information -->
+                <div class="lg:w-1/2">
+                    <span class="bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium">Premium</span>
+                    <h2 class="text-4xl font-bold text-primary mt-4 mb-6">Green Tea</h2>
+                    <p class="text-gray-600 text-lg mb-8">Our green tea provides a delicate, refreshing flavor with grassy notes and a subtle sweetness. Minimally processed to preserve natural benefits and flavor, perfect for premium tea products and health-conscious markets.</p>
+
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Production Capacity</h4>
+                            <p class="text-gray-600">180 tons/month</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Minimum Order</h4>
+                            <p class="text-gray-600">1 ton</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Packaging</h4>
+                            <p class="text-gray-600">25kg bags</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Shelf Life</h4>
+                            <p class="text-gray-600">24 months</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-3 mb-8">
+                        <span class="bg-gray-100 px-4 py-2 rounded-full text-sm">Low Caffeine</span>
+                        <span class="bg-gray-100 px-4 py-2 rounded-full text-sm">Fresh Aroma</span>
+                        <span class="bg-gray-100 px-4 py-2 rounded-full text-sm">Premium Grade</span>
+                        <span class="bg-gray-100 px-4 py-2 rounded-full text-sm">Bulk Supply</span>
+                    </div>
+
+                    <a href="https://wa.me/6281212560026?text=Hello%20TropicaFarm%2C%20I%20am%20interested%20in%20your%20Green%20Tea%20products" target="_blank" class="bg-primary hover:bg-accent text-white px-8 py-4 rounded-xl transition duration-300 inline-flex items-center">
+                        <i class="fab fa-whatsapp text-xl mr-2"></i> Order Green Tea
+                    </a>
+                </div>
+
+                <!-- Image Gallery -->
+                <div class="lg:w-1/2">
+                    <div class="swiper product-swiper rounded-2xl overflow-hidden shadow-lg">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="../assets/images/green-tea-1.jpg" alt="Premium Indonesian Green Tea - Main View" class="w-full h-[500px] object-cover">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="../assets/images/green-tea-2.jpg" alt="Green Tea Processing" class="w-full h-[500px] object-cover">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="../assets/images/green-tea-3.jpg" alt="Green Tea Packaging" class="w-full h-[500px] object-cover">
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Order Section -->
+    <section id="how-to-order" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-6">How to Order</h2>
+                <p class="text-gray-600 text-lg max-w-3xl mx-auto">We've simplified the ordering process to ensure a smooth experience for our clients. Follow these steps to place your order:</p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-8 mb-16">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-comments text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">1. Initial Contact</h3>
+                    <p class="text-gray-600">Reach out via WhatsApp or email to discuss your requirements</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-file-contract text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">2. Quote & Sample</h3>
+                    <p class="text-gray-600">Receive detailed quotation and request product samples</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-handshake text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">3. Confirm Order</h3>
+                    <p class="text-gray-600">Place your order and complete the payment process</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-shipping-fast text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">4. Delivery</h3>
+                    <p class="text-gray-600">Track your order through our reliable shipping network</p>
+                </div>
+            </div>
+
+            <!-- Delivery Experience -->
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="rounded-2xl overflow-hidden shadow-lg">
+                    <img src="../assets/images/delivery-1.jpg" alt="Tea products being prepared for shipping" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="font-semibold mb-2">Quality Packaging</h4>
+                        <p class="text-gray-600">Products are carefully packed to maintain freshness during transit</p>
+                    </div>
+                </div>
+                <div class="rounded-2xl overflow-hidden shadow-lg">
+                    <img src="../assets/images/delivery-2.jpg" alt="Container loading process" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="font-semibold mb-2">Efficient Loading</h4>
+                        <p class="text-gray-600">Professional handling for safe and secure transportation</p>
+                    </div>
+                </div>
+                <div class="rounded-2xl overflow-hidden shadow-lg">
+                    <img src="../assets/images/delivery-3.jpg" alt="Products arriving at destination" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="font-semibold mb-2">Global Delivery</h4>
+                        <p class="text-gray-600">Reliable shipping to destinations worldwide</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="https://wa.me/6281212560026?text=Hello%20TropicaFarm%2C%20I%20would%20like%20to%20know%20more%20about%20ordering%20process" target="_blank" class="bg-primary hover:bg-accent text-white px-8 py-4 rounded-xl transition duration-300 inline-flex items-center">
+                    <i class="fab fa-whatsapp text-xl mr-2"></i> Start Your Order
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section class="py-20 bg-light">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-primary mb-6">Our Certifications</h2>
+                <p class="text-gray-600 text-lg max-w-3xl mx-auto">We maintain the highest standards of quality and safety, backed by international certifications:</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
+                <img src="../assets/images/cert-iso.png" alt="ISO 22000 Certification" class="h-24 object-contain grayscale hover:grayscale-0 transition duration-300">
+                <img src="../assets/images/cert-haccp.png" alt="HACCP Certification" class="h-24 object-contain grayscale hover:grayscale-0 transition duration-300">
+                <img src="../assets/images/cert-halal.png" alt="Halal Certification" class="h-24 object-contain grayscale hover:grayscale-0 transition duration-300">
+                <img src="../assets/images/cert-organic.png" alt="Organic Certification" class="h-24 object-contain grayscale hover:grayscale-0 transition duration-300">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (reuse from index.html but adjust paths) -->
+    <footer class="bg-[#1e2124] text-gray-300 py-16">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <p>&copy; 2025 TropicaFarm. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Swiper
+        const swiper = new Swiper('.product-swiper', {
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html> 
