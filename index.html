@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TropicFarm - Premium Tea & Essential Oils</title>
+    <meta name="description" content="TropicFarm offers premium Indonesian tea and essential oils for global markets. Explore our Black Tea, Green Tea, Nutmeg Oil, and Patchouli Oil.">
+    <meta name="keywords" content="tea, essential oils, black tea, green tea, nutmeg oil, patchouli oil, Indonesian exports">
+    <meta name="author" content="TropicFarm">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2c7744',
+                        secondary: '#f9a825',
+                        accent: '#1a5c30',
+                        light: '#f8f9fa',
+                        dark: '#212529'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+        .hero { 
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('https://images.rove.me/w_1920,q_85/mnlwgk0fyzdzksvv0edq/java-tea-harvest.jpg') center/cover no-repeat; 
+        }
+        .floating-cta { 
+            position: fixed; 
+            bottom: 20px; 
+            right: 20px; 
+            z-index: 1000; 
+        }
+        .statistics-bg {
+            background: linear-gradient(rgba(44, 119, 68, 0.9), rgba(26, 92, 48, 0.9)), 
+                        url('https://images.unsplash.com/photo-1546445317-29f4545e9d53') center/cover no-repeat;
+        }
+        .product-img {
+            height: 250px;
+            transition: transform 0.3s ease;
+        }
+        .product-card:hover .product-img {
+            transform: scale(1.05);
+        }
+        .mobile-menu {
+            transition: transform 0.3s ease-in-out;
+        }
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 overflow-x-hidden">
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed top-0 right-0 w-64 h-full bg-white shadow-lg transform translate-x-full mobile-menu z-50">
+        <div class="p-6">
+            <button id="closeMenu" class="text-2xl text-gray-600 mb-8"><i class="fas fa-times"></i></button>
+            <nav class="flex flex-col space-y-4">
+                <a href="#" class="font-medium text-primary hover:text-accent">Home</a>
+                <a href="#about" class="font-medium hover:text-primary">About Us</a>
+                <a href="#tea-products" class="font-medium hover:text-primary">Tea Products</a>
+                <a href="#essential-oils" class="font-medium hover:text-primary">Essential Oils</a>
+                <a href="#stats" class="font-medium hover:text-primary">Our Impact</a>
+                <a href="#testimonials" class="font-medium hover:text-primary">Testimonials</a>
+                <a href="#contact" class="font-medium hover:text-primary">Contact</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-white shadow-md fixed w-full z-40 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-2">
+                <i class="fas fa-leaf text-primary text-2xl"></i>
+                <span class="text-2xl font-bold text-primary">TropicFarm</span>
+            </a>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#" class="font-medium hover:text-primary">Home</a>
+                <a href="#about" class="font-medium hover:text-primary">About Us</a>
+                <a href="#tea-products" class="font-medium hover:text-primary">Tea Products</a>
+                <a href="#essential-oils" class="font-medium hover:text-primary">Essential Oils</a>
+                <a href="#stats" class="font-medium hover:text-primary">Our Impact</a>
+                <a href="#testimonials" class="font-medium hover:text-primary">Testimonials</a>
+                <a href="#contact" class="font-medium hover:text-primary">Contact</a>
+            </nav>
+            <button id="menuButton" class="md:hidden text-2xl text-primary"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero h-screen flex items-center text-white pt-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">Premium Indonesian Tea & Essential Oils</h1>
+            <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto">Discover the finest Black Tea, Green Tea, Nutmeg Oil, and Patchouli Oil sourced sustainably from Indonesian farms.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contact" class="bg-primary hover:bg-accent text-white px-8 py-3 rounded-lg transition duration-300 font-medium flex items-center justify-center">
+                    <i class="fas fa-envelope mr-2"></i> Request a Quote
+                </a>
+                <a href="#products" class="bg-transparent hover:bg-white/20 border-2 border-white text-white px-8 py-3 rounded-lg transition duration-300 font-medium flex items-center justify-center">
+                    <i class="fas fa-box-open mr-2"></i> Explore Products
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <div class="relative">
+                        <img src="https://sip-exim.co.id/uploads/filemanager/Ekspor%20Produk%20Teh%203.jpg" alt="Tea Plantation" class="rounded-lg shadow-xl">
+                        <div class="absolute -bottom-4 -right-4 bg-primary text-white p-6 rounded-lg shadow-lg hidden md:block">
+                            <p class="text-3xl font-bold">20+</p>
+                            <p class="text-sm">Years of Experience</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 mt-8 md:mt-0">
+                    <h2 class="text-4xl font-bold text-primary mb-6">About Tropica Farmindo</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">Tropica Farmindo is a leading exporter of premium Indonesian tea and essential oils. With over two decades of experience, we ensure the highest quality products for our global partners.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-start">
+                            <div class="bg-primary/10 p-3 rounded-full mr-4">
+                                <i class="fas fa-leaf text-primary"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg">Premium Quality</h3>
+                                <p class="text-gray-600">Carefully selected and processed for exceptional quality.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-primary/10 p-3 rounded-full mr-4">
+                                <i class="fas fa-globe text-primary"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg">Global Export</h3>
+                                <p class="text-gray-600">Ready to serve international markets with premium quality products.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-primary/10 p-3 rounded-full mr-4">
+                                <i class="fas fa-certificate text-primary"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg">Certified Organic</h3>
+                                <p class="text-gray-600">Sustainable farming practices with organic certification.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-primary/10 p-3 rounded-full mr-4">
+                                <i class="fas fa-handshake text-primary"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg">Fair Trade</h3>
+                                <p class="text-gray-600">Supporting local farmers with fair compensation.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#contact" class="inline-flex items-center text-primary font-medium hover:text-accent transition">
+                        Learn more about our story <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tea Products Section -->
+    <section id="tea-products" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">Our Premium Tea Products</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">Hand-picked and expertly processed teas from the lush highlands of Indonesia, bringing exceptional flavor to your cup.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden product-card transform transition hover:shadow-2xl">
+                    <div class="overflow-hidden">
+                        <img src="https://images.tokopedia.net/blog-tokopedia-com/uploads/2021/06/1.-Kandungan-Teh-Hitam.jpg" alt="Black Tea" class="w-full product-img object-cover">
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-2xl font-bold text-primary">Black Tea</h3>
+                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Best Seller</span>
+                        </div>
+                        <p class="text-gray-600 mb-6 leading-relaxed">Our black tea offers a rich, full-bodied flavor with malty notes and a smooth finish. Harvested from mature leaves and fully oxidized for the perfect cup.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">High Antioxidants</span>
+                            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Bold Flavor</span>
+                            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Loose Leaf</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="#contact" class="text-primary hover:text-accent font-medium flex items-center">
+                                Request a Quote <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                            <span class="text-sm text-gray-500">Available in bulk quantities</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden product-card transform transition hover:shadow-2xl">
+                    <div class="overflow-hidden">
+                        <img src="https://asset.kompas.com/crops/4s36mP-Lm6XEYRTlJTZJmpcg-zE=/173x96:1327x865/1200x800/data/photo/2022/03/16/623214af859f3.jpg" alt="Green Tea" class="w-full product-img object-cover">
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-2xl font-bold text-primary">Green Tea</h3>
+                            <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-sm font-medium">Organic</span>
+                        </div>
+                        <p class="text-gray-600 mb-6 leading-relaxed">Our green tea provides a delicate, refreshing flavor with grassy notes and a subtle sweetness. Minimally processed to preserve natural benefits and flavor.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Low Caffeine</span>
+                            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Fresh Aroma</span>
+                            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Premium Grade</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="#contact" class="text-primary hover:text-accent font-medium flex items-center">
+                                Request a Quote <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                            <span class="text-sm text-gray-500">Available in bulk quantities</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section id="stats" class="py-16 statistics-bg text-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-4xl font-bold mb-2">200+</div>
+                    <p>Hectares of Farmland</p>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold mb-2">Global</div>
+                    <p>Market Ready</p>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold mb-2">5K+</div>
+                    <p>Farmers Supported</p>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold mb-2">100%</div>
+                    <p>Sustainable Practices</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Essential Oils Section -->
+    <section id="essential-oils" class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">Pure Essential Oils</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">Premium distilled essential oils extracted from Indonesian-grown plants, ideal for fragrances, cosmetics, and aromatherapy.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden product-card transform transition hover:shadow-2xl h-full">
+                    <div class="overflow-hidden">
+                        <img src="https://inaexport.id/uploads/Eksportir_Product/Image/17956/1675420737_Nutmeg%20Oil,%20Direct%20from%20Farmer-Indonesia_003%20Nutmeg%20Oil.jpg" alt="Nutmeg Oil" class="w-full product-img object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-bold text-primary">Nutmeg Oil</h3>
+                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Premium</span>
+                        </div>
+                        <p class="text-gray-600 mb-6 leading-relaxed">Steam-distilled from Myristica fragrans seeds, our nutmeg oil is rich in aroma compounds with a warm, spicy scent.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Food Grade</span>
+                            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">100% Pure</span>
+                        </div>
+                        <a href="#contact" class="text-primary hover:text-accent font-medium flex items-center">
+                            Request a Quote <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden product-card transform transition hover:shadow-2xl h-full">
+                    <div class="overflow-hidden">
+                        <img src="https://inaexport.id/uploads/Eksportir_Product/Image/17959/1744818776_Patchouli%20Oil,%20Direct%20from%20Farmer-Indonesia_Patchouli%20Oil_Wide%20(1).jpg" alt="Patchouli Oil" class="w-full product-img object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-bold text-primary">Patchouli Oil</h3>
+                            <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-sm font-medium">Best Selling</span>
+                        </div>
+                        <p class="text-gray-600 mb-6 leading-relaxed">Aged for enhanced aroma, our patchouli oil offers a rich, earthy scent perfect for fine fragrances and cosmetics.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Cosmetic Grade</span>
+                            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Dark Amber</span>
+                        </div>
+                        <a href="#contact" class="text-primary hover:text-accent font-medium flex items-center">
+                            Request a Quote <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">What Our Clients Say</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">Discover why global partners choose Tropica Farmindo for their premium tea and essential oil needs.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                    <div class="text-yellow-400 flex mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">"The quality of Tropica Farmindo's black tea is exceptional. Their consistent supply and attention to quality standards have made them our preferred supplier for five years running."</p>
+                    <div class="flex items-center">
+                        <div class="bg-gray-200 h-12 w-12 rounded-full flex items-center justify-center text-primary font-bold mr-3">JD</div>
+                        <div>
+                            <h4 class="font-semibold">John Doyle</h4>
+                            <p class="text-sm text-gray-500">Tea Importer, UK</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                    <div class="text-yellow-400 flex mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">"We've been using Tropica's patchouli oil in our luxury fragrance line for years. The depth and quality of their oils are unmatched in the market."</p>
+                    <div class="flex items-center">
+                        <div class="bg-gray-200 h-12 w-12 rounded-full flex items-center justify-center text-primary font-bold mr-3">SM</div>
+                        <div>
+                            <h4 class="font-semibold">Sophie Martin</h4>
+                            <p class="text-sm text-gray-500">Perfumer, France</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                    <div class="text-yellow-400 flex mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">"Tropica Farmindo's organic certification and sustainable practices align perfectly with our brand values. Their green tea has been a cornerstone of our product line."</p>
+                    <div class="flex items-center">
+                        <div class="bg-gray-200 h-12 w-12 rounded-full flex items-center justify-center text-primary font-bold mr-3">RK</div>
+                        <div>
+                            <h4 class="font-semibold">Rachel Kim</h4>
+                            <p class="text-sm text-gray-500">Organic Tea Brand, USA</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-primary text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">Ready to Discover Premium Indonesian Products?</h2>
+            <p class="mb-8 max-w-2xl mx-auto">Contact us today to discuss your tea and essential oil requirements. We offer competitive pricing for bulk orders.</p>
+            <a href="#contact" class="bg-white text-primary hover:bg-gray-100 px-8 py-3 rounded-lg transition duration-300 font-medium inline-flex items-center">
+                <i class="fas fa-paper-plane mr-2"></i> Get in Touch
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row gap-12">
+                <div class="md:w-1/2">
+                    <h2 class="text-4xl font-bold text-primary mb-6">Get in Touch</h2>
+                    <p class="text-gray-600 mb-8">Fill out the form and our team will get back to you within 24 hours.</p>
+                    
+                    <form class="space-y-6" id="contactForm">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-gray-700 mb-2 font-medium">Name</label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 mb-2 font-medium">Email</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="company" class="block text-gray-700 mb-2 font-medium">Company</label>
+                            <input type="text" id="company" name="company" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition">
+                        </div>
+                        <div>
+                            <label for="product" class="block text-gray-700 mb-2 font-medium">Product Interest</label>
+                            <select id="product" name="product" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition">
+                                <option value="">Select a product</option>
+                                <option value="black-tea">Black Tea</option>
+                                <option value="green-tea">Green Tea</option>
+                                <option value="nutmeg-oil">Nutmeg Oil</option>
+                                <option value="patchouli-oil">Patchouli Oil</option>
+                                <option value="organic-patchouli">Organic Patchouli Oil</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 mb-2 font-medium">Message</label>
+                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-primary hover:bg-accent text-white px-8 py-3 rounded-lg transition duration-300 flex items-center justify-center">
+                            <i class="fas fa-paper-plane mr-2"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+                <div class="md:w-1/2 mt-8 md:mt-0">
+                    <div class="bg-white rounded-lg shadow-lg p-8">
+                        <h3 class="text-2xl font-bold text-primary mb-6">Contact Information</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-primary mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-semibold">Address</h4>
+                                    <p class="text-gray-600">Jl. Plantation Road No. 123, Bandung, Indonesia</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-phone text-primary mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-semibold">Phone</h4>
+                                    <p class="text-gray-600">+62 812 1256 0026</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-envelope text-primary mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-semibold">Email</h4>
+                                    <p class="text-gray-600">meirisa.yusniar@tropicfarm.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/6281212560026?text=Hello%20TropicFarm%2C%20I%20am%20interested%20in%20your%20products" target="_blank" class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-lg flex items-center justify-center shadow-lg transform transition duration-300 hover:scale-105 z-50">
+        <i class="fab fa-whatsapp text-xl mr-2"></i>
+        <span>Chat with us</span>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-[#1e2124] text-gray-300 py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-6">TropicFarm</h3>
+                    <p class="text-gray-400 mb-6">Premium Indonesian tea and essential oils for global markets. Harvested from Indonesia's finest plantations.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="#tea-products" class="text-gray-400 hover:text-white transition">Tea Products</a></li>
+                        <li><a href="#essential-oils" class="text-gray-400 hover:text-white transition">Essential Oils</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-6">Products</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#tea-products" class="text-gray-400 hover:text-white transition">Black Tea</a></li>
+                        <li><a href="#tea-products" class="text-gray-400 hover:text-white transition">Green Tea</a></li>
+                        <li><a href="#essential-oils" class="text-gray-400 hover:text-white transition">Nutmeg Oil</a></li>
+                        <li><a href="#essential-oils" class="text-gray-400 hover:text-white transition">Patchouli Oil</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-6">Contact Us</h3>
+                    <div class="space-y-4">
+                        <p class="flex items-start text-gray-400">
+                            <i class="fas fa-map-marker-alt mt-1.5 mr-3"></i>
+                            <span>Jl. Plantation Road No. 123, Bandung, Indonesia</span>
+                        </p>
+                        <p class="flex items-center text-gray-400">
+                            <i class="fas fa-phone mr-3"></i>
+                            <span>+62 812 1256 0026</span>
+                        </p>
+                        <p class="flex items-center text-gray-400">
+                            <i class="fas fa-envelope mr-3"></i>
+                            <span>info@tropicfarm.com</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 TropicFarm. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        const menuButton = document.getElementById('menuButton');
+        const closeMenu = document.getElementById('closeMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            mobileMenu.style.transform = 'translateX(0)';
+        });
+
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            mobileMenu.style.transform = 'translateX(100%)';
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>
