@@ -102,7 +102,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.4);
             z-index: 1;
         }
         .hero-tea .container {
@@ -114,6 +114,58 @@
         }
         .swiper-pagination-bullet-active {
             background: #2c7744;
+        }
+        /* Image Popup Styles */
+        .image-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .image-popup.active {
+            display: flex;
+        }
+        .popup-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90vh;
+        }
+        .popup-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+        .close-popup {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.2);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .close-popup:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .gallery-image {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .gallery-image:hover {
+            transform: scale(1.02);
         }
         /* Header Styles */
         #navbar {
@@ -153,6 +205,24 @@
             background: #2c7744;
             border: none;
         }
+        .order-button {
+            background: rgba(255, 255, 255, 0.95);
+            color: #2c7744;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+        .order-button:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .order-button i {
+            transition: transform 0.3s ease;
+        }
+        .order-button:hover i {
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body class="font-sans text-gray-800">
@@ -164,16 +234,16 @@
                 <span class="text-2xl font-bold logo-text">TropicaFarm</span>
             </a>
             <div class="flex items-center space-x-6">
-                <nav class="hidden md:flex space-x-6">
+                <!-- <nav class="hidden md:flex space-x-6">
                     <a href="../index.html" class="nav-link">Home</a>
                     <a href="../#about" class="nav-link">About</a>
                     <a href="../#products" class="nav-link">Products</a>
                     <a href="../#contact" class="nav-link">Contact</a>
-                </nav>
-                <a href="https://wa.me/6281212560026?text=Hello%20TropicaFarm%2C%20I%20am%20interested%20in%20your%20tea%20products" target="_blank" class="order-button text-white px-6 py-2 rounded-lg transition duration-300 flex items-center space-x-2">
+                </nav> -->
+                <!-- <a href="https://wa.me/6281212560026?text=Hello%20TropicaFarm%2C%20I%20am%20interested%20in%20your%20tea%20products" target="_blank" class="order-button text-white px-6 py-2 rounded-lg transition duration-300 flex items-center space-x-2">
                     <i class="fab fa-whatsapp"></i>
                     <span class="hidden md:inline">Order Now</span>
-                </a>
+                </a> -->
             </div>
         </div>
     </header>
@@ -188,8 +258,8 @@
                 <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">Two Decades of Excellence in Tea Production</h1>
                 <p class="text-lg mb-6 leading-relaxed">Trusted by global partners for consistently delivering Indonesian tea since 2004.</p>
                 <div class="flex flex-wrap gap-4">
-                    <a href="https://wa.me/6281212560026?text=Hello%20TropicaFarm%2C%20I%20am%20interested%20in%20your%20tea%20products" target="_blank" class="bg-primary hover:bg-accent text-white px-8 py-3 rounded-xl transition duration-300 inline-flex items-center">
-                        <i class="fab fa-whatsapp text-xl mr-2"></i> Order Now
+                    <a href="https://wa.me/6281212560026?text=Hello%20TropicaFarm%2C%20I%20am%20interested%20in%20your%20tea%20products" target="_blank" class="order-button px-8 py-3 rounded-xl transition duration-300 inline-flex items-center">
+                        <i class="fab fa-whatsapp text-xl font-bold mr-2"></i> Order Now
                     </a>
                 </div>
             </div>
@@ -408,19 +478,45 @@
                 <p class="text-gray-600 max-w-3xl mx-auto">Our streamlined ordering process ensures quality and satisfaction at every step:</p>
             </div>
 
-            <div class="max-w-3xl mx-auto mb-12">
-                <div class="relative">
-                    <!-- Timeline line -->
-                    <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gray-200"></div>
-                    
-                    <!-- Steps -->
-                    <div class="space-y-8">
+            <div class="flex flex-col lg:flex-row gap-12">
+                <!-- Gallery Section -->
+                <div class="lg:w-1/2">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="col-span-2">
+                            <img src="../assets/images/export-bulk-tea-indonesia.jpg" alt="Bulk Tea Export from Indonesia" class="w-full h-64 object-cover rounded-lg shadow-lg gallery-image" onclick="openImagePopup(this.src, this.alt)">
+                        </div>
+                        <div>
+                            <img src="../assets/images/tea-harvesting.jpg" alt="Tea Harvesting Process" class="w-full h-48 object-cover rounded-lg shadow-lg gallery-image" onclick="openImagePopup(this.src, this.alt)">
+                        </div>
+                        <div>
+                            <img src="../assets/images/tea-sorting.jpg" alt="Tea Sorting Process" class="w-full h-48 object-cover rounded-lg shadow-lg gallery-image" onclick="openImagePopup(this.src, this.alt)">
+                        </div>
+                        <div class="col-span-2">
+                            <img src="../assets/images/container-shipment-indonesia.jpg" alt="Export Container Tea Indonesia" class="w-full h-64 object-cover rounded-lg shadow-lg gallery-image" onclick="openImagePopup(this.src, this.alt)">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Popup -->
+                <div class="image-popup" id="imagePopup">
+                    <div class="popup-content">
+                        <span class="close-popup" onclick="closeImagePopup()">&times;</span>
+                        <img id="popupImage" src="" alt="">
+                    </div>
+                </div>
+
+                <!-- Timeline Section -->
+                <div class="lg:w-1/2">
+                    <div class="space-y-8 relative">
+                        <!-- Vertical Line -->
+                        <div class="absolute left-6 top-0 bottom-0 w-0.5 bg-primary/20"></div>
+                        
                         <!-- Step 1 -->
-                        <div class="relative flex items-center">
-                            <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white z-10">
-                                <i class="fas fa-comments text-sm"></i>
+                        <div class="flex items-start relative">
+                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mr-4 flex-shrink-0">
+                                <i class="fas fa-comments text-lg"></i>
                             </div>
-                            <div class="ml-auto w-5/12 pl-6">
+                            <div>
                                 <h3 class="text-lg font-medium mb-1">Initial Contact</h3>
                                 <p class="text-gray-600 text-sm mb-2">Contact us with your specific requirements</p>
                                 <a href="https://wa.me/6281212560026?text=Hello%20TropicaFarm%2C%20I%20would%20like%20to%20discuss%20tea%20products" target="_blank" class="inline-flex items-center text-primary hover:text-accent text-sm font-medium">
@@ -430,22 +526,22 @@
                         </div>
 
                         <!-- Step 2 -->
-                        <div class="relative flex items-center">
-                            <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white z-10">
-                                <i class="fas fa-coffee text-sm"></i>
+                        <div class="flex items-start relative">
+                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mr-4 flex-shrink-0">
+                                <i class="fas fa-coffee text-lg"></i>
                             </div>
-                            <div class="mr-auto w-5/12 pr-6 text-right">
+                            <div>
                                 <h3 class="text-lg font-medium mb-1">Product Discussion</h3>
                                 <p class="text-gray-600 text-sm">Discuss aroma, taste, and appearance specifications</p>
                             </div>
                         </div>
 
                         <!-- Step 3 -->
-                        <div class="relative flex items-center">
-                            <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-primary/60 rounded-full flex items-center justify-center text-white z-10">
-                                <i class="fas fa-box-open text-sm"></i>
+                        <div class="flex items-start relative">
+                            <div class="w-12 h-12 bg-primary/60 rounded-full flex items-center justify-center text-white mr-4 flex-shrink-0">
+                                <i class="fas fa-box-open text-lg"></i>
                             </div>
-                            <div class="ml-auto w-5/12 pl-6">
+                            <div>
                                 <div class="flex items-center gap-2 mb-1">
                                     <h3 class="text-lg font-medium">Sample Submission</h3>
                                     <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded-full">Optional</span>
@@ -455,47 +551,47 @@
                         </div>
 
                         <!-- Step 4 -->
-                        <div class="relative flex items-center">
-                            <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-primary/60 rounded-full flex items-center justify-center text-white z-10">
-                                <i class="fas fa-check-circle text-sm"></i>
+                        <div class="flex items-start relative">
+                            <div class="w-12 h-12 bg-primary/60 rounded-full flex items-center justify-center text-white mr-4 flex-shrink-0">
+                                <i class="fas fa-check-circle text-lg"></i>
                             </div>
-                            <div class="mr-auto w-5/12 pr-6 text-right">
-                                <div class="flex items-center justify-end gap-2 mb-1">
-                                    <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded-full">Optional</span>
+                            <div>
+                                <div class="flex items-center gap-2 mb-1">
                                     <h3 class="text-lg font-medium">Sample Approval</h3>
+                                    <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded-full">Optional</span>
                                 </div>
                                 <p class="text-gray-600 text-sm">Review and approve our sample match, or proceed with our standard quality</p>
                             </div>
                         </div>
 
                         <!-- Step 5 -->
-                        <div class="relative flex items-center">
-                            <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white z-10">
-                                <i class="fas fa-file-signature text-sm"></i>
+                        <div class="flex items-start relative">
+                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mr-4 flex-shrink-0">
+                                <i class="fas fa-file-signature text-lg"></i>
                             </div>
-                            <div class="ml-auto w-5/12 pl-6">
+                            <div>
                                 <h3 class="text-lg font-medium mb-1">Order Confirmation</h3>
                                 <p class="text-gray-600 text-sm">Sign sales order and complete payment</p>
                             </div>
                         </div>
 
                         <!-- Step 6 -->
-                        <div class="relative flex items-center">
-                            <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white z-10">
-                                <i class="fas fa-industry text-sm"></i>
+                        <div class="flex items-start relative">
+                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mr-4 flex-shrink-0">
+                                <i class="fas fa-industry text-lg"></i>
                             </div>
-                            <div class="mr-auto w-5/12 pr-6 text-right">
+                            <div>
                                 <h3 class="text-lg font-medium mb-1">Production</h3>
                                 <p class="text-gray-600 text-sm">We prepare your order with care</p>
                             </div>
                         </div>
 
                         <!-- Step 7 -->
-                        <div class="relative flex items-center">
-                            <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white z-10">
-                                <i class="fas fa-shipping-fast text-sm"></i>
+                        <div class="flex items-start relative">
+                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mr-4 flex-shrink-0">
+                                <i class="fas fa-shipping-fast text-lg"></i>
                             </div>
-                            <div class="ml-auto w-5/12 pl-6">
+                            <div>
                                 <h3 class="text-lg font-medium mb-1">Shipment</h3>
                                 <p class="text-gray-600 text-sm">Products ready for delivery</p>
                             </div>
@@ -504,35 +600,7 @@
                 </div>
             </div>
 
-            <!-- Production Experience Gallery -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-                <div class="relative group overflow-hidden rounded-lg shadow">
-                    <img src="../assets/images/tea-premium.jpg" alt="Tea Premium" class="w-full h-48 object-cover transform group-hover:scale-105 transition duration-300">
-                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                        <p class="text-white text-center px-4 text-sm">Custom Aroma</p>
-                    </div>
-                </div>
-                <div class="relative group overflow-hidden rounded-lg shadow">
-                    <img src="../assets/images/tea-variant.jpg" alt="Tea Variant" class="w-full h-48 object-cover transform group-hover:scale-105 transition duration-300">
-                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                        <p class="text-white text-center px-4 text-sm">Tea Variety</p>
-                    </div>
-                </div>
-                <div class="relative group overflow-hidden rounded-lg shadow">
-                    <img src="../assets/images/tea-bulk-packaging.jpg" alt="Tea Export" class="w-full h-48 object-cover transform group-hover:scale-105 transition duration-300">
-                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                        <p class="text-white text-center px-4 text-sm">Bulk Packaging</p>
-                    </div>
-                </div>
-                <div class="relative group overflow-hidden rounded-lg shadow">
-                    <img src="../assets/images/tea-loading.jpeg" alt="Loading Process" class="w-full h-48 object-cover transform group-hover:scale-105 transition duration-300">
-                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                        <p class="text-white text-center px-4 text-sm">Loading Bulk</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center">
+            <div class="text-center mt-12">
                 <a href="https://wa.me/6281212560026?text=Hello%20TropicaFarm%2C%20I%20would%20like%20to%20know%20more%20about%20ordering%20process" target="_blank" class="bg-primary hover:bg-accent text-white px-6 py-2 rounded-lg transition duration-300 inline-flex items-center">
                     <i class="fab fa-whatsapp text-lg mr-2"></i> Start Your Order
                 </a>
@@ -596,6 +664,36 @@
                 delay: 5000,
                 disableOnInteraction: false,
             },
+        });
+
+        // Image Popup Functions
+        function openImagePopup(src, alt) {
+            const popup = document.getElementById('imagePopup');
+            const popupImage = document.getElementById('popupImage');
+            popupImage.src = src;
+            popupImage.alt = alt;
+            popup.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeImagePopup() {
+            const popup = document.getElementById('imagePopup');
+            popup.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close popup when clicking outside the image
+        document.getElementById('imagePopup').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeImagePopup();
+            }
+        });
+
+        // Close popup with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeImagePopup();
+            }
         });
     </script>
 
