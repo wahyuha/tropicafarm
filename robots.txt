@@ -1,0 +1,16 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Disallow admin and private directories
+Disallow: /admin/
+Disallow: /private/
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /includes/
+
+# Sitemap location
+Sitemap: https://tropicafarm.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 10 
