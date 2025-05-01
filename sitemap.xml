@@ -21,12 +21,12 @@
     </url>
 
     <!-- Essential Oils -->
-    <!-- <url>
+    <url>
         <loc>https://tropicafarm.com/products/essential-oils.html</loc>
         <lastmod>2024-03-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
-    </url> -->
+    </url>
 
     <!-- About Section -->
     <url>
@@ -37,12 +37,12 @@
     </url>
 
     <!-- Products Section -->
-    <!-- <url>
+    <url>
         <loc>https://tropicafarm.com/#products</loc>
         <lastmod>2024-03-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
-    </url> -->
+    </url>
 
     <!-- Contact Section -->
     <url>
