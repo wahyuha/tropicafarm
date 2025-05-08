@@ -153,6 +153,13 @@
             background: #2c7744;
             border: none;
         }
+        #navbar .logo-svg {
+            filter: brightness(0) invert(1);
+            transition: filter 0.3s ease;
+        }
+        #navbar.scrolled .logo-svg {
+            filter: none;
+        }
     </style>
 
     <!-- Schema.org structured data -->
@@ -239,7 +246,7 @@
     <header id="navbar" class="fixed w-full z-40 transition-all duration-300">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <a href="../index.html" class="flex items-center space-x-2 group">
-                <i class="fas fa-leaf logo-icon text-2xl"></i>
+                <img src="/assets/images/logo.svg" alt="TropicaFarm Logo" class="h-8 w-8 logo-svg">
                 <span class="text-2xl font-bold logo-text">TropicaFarm</span>
             </a>
             <div class="flex items-center space-x-6">
