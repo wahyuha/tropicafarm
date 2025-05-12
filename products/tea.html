@@ -240,6 +240,18 @@
         .order-button:hover i {
             transform: scale(1.1);
         }
+        .variant-card {
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+        .variant-card:hover {
+            box-shadow: 0 8px 32px rgba(44, 119, 68, 0.18), 0 1.5px 8px rgba(44, 119, 68, 0.10);
+        }
+        .variant-card .variant-thumb {
+            transition: transform 0.3s;
+        }
+        .variant-card:hover .variant-thumb {
+            transform: scale(1.08);
+        }
     </style>
 </head>
 <body class="font-sans text-gray-800">
@@ -427,10 +439,10 @@
                 <h3 class="text-2xl font-bold text-primary mb-6">Black Tea Variants</h3>
                 <div class="flex flex-wrap gap-4 justify-center md:justify-start">
                     <!-- PF (Pekoe Fannings) -->
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px]" onclick="openVariantPopup('PF (Pekoe Fannings)', 'Quick-brewing, strong flavored tea, perfect for commercial tea bags.', '/assets/images/black-tea-pf.jpg')">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px] variant-card" onclick="openVariantPopup('PF (Pekoe Fannings)', 'Quick-brewing, strong flavored tea, perfect for commercial tea bags.', '/assets/images/black-tea-pf.jpg')">
                         <div class="flex flex-col">
                             <div class="h-48">
-                                <img src="/assets/images/black-tea-pf-thumbnail.jpg" alt="Black Tea PF" class="w-full h-full object-cover">
+                                <img src="/assets/images/black-tea-pf-thumbnail.jpg" alt="Black Tea PF" class="w-full h-full object-cover variant-thumb">
                             </div>
                             <div class="p-4">
                                 <h4 class="font-bold text-primary text-center">PF (Pekoe Fannings)</h4>
@@ -439,10 +451,10 @@
                     </div>
 
                     <!-- OP (Orange Pekoe) -->
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px]" onclick="openVariantPopup('OP (Orange Pekoe)', 'Whole tea leaves offering delicate flavor and lighter body.', '/assets/images/black-tea-op.jpg')">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px] variant-card" onclick="openVariantPopup('OP (Orange Pekoe)', 'Whole tea leaves offering delicate flavor and lighter body.', '/assets/images/black-tea-op.jpg')">
                         <div class="flex flex-col">
                             <div class="h-48">
-                                <img src="/assets/images/black-tea-op-thumbnail.jpg" alt="Black Tea OP" class="w-full h-full object-cover">
+                                <img src="/assets/images/black-tea-op-thumbnail.jpg" alt="Black Tea OP" class="w-full h-full object-cover variant-thumb">
                             </div>
                             <div class="p-4">
                                 <h4 class="font-bold text-primary text-center">OP (Orange Pekoe)</h4>
@@ -451,10 +463,10 @@
                     </div>
 
                     <!-- BOP (Broken Orange Pekoe) -->
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px]" onclick="openVariantPopup('BOP (Broken Orange Pekoe)', 'Strong, robust flavor ideal for breakfast blends.', '/assets/images/black-tea-bop.jpg')">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px] variant-card" onclick="openVariantPopup('BOP (Broken Orange Pekoe)', 'Strong, robust flavor ideal for breakfast blends.', '/assets/images/black-tea-bop.jpg')">
                         <div class="flex flex-col">
                             <div class="h-48">
-                                <img src="/assets/images/black-tea-bop-thumbnail.jpg" alt="Black Tea BOP" class="w-full h-full object-cover">
+                                <img src="/assets/images/black-tea-bop-thumbnail.jpg" alt="Black Tea BOP" class="w-full h-full object-cover variant-thumb">
                             </div>
                             <div class="p-4">
                                 <h4 class="font-bold text-primary text-center">BOP (Broken Orange Pekoe)</h4>
@@ -463,10 +475,10 @@
                     </div>
 
                     <!-- BOPF (Broken Orange Pekoe Fannings) -->
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px]" onclick="openVariantPopup('BOPF (Broken Orange Pekoe Fannings)', 'Strong, full-bodied brew with bright reddish liquor.', '/assets/images/black-tea-bopf.jpg')">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px] variant-card" onclick="openVariantPopup('BOPF (Broken Orange Pekoe Fannings)', 'Strong, full-bodied brew with bright reddish liquor.', '/assets/images/black-tea-bopf.jpg')">
                         <div class="flex flex-col">
                             <div class="h-48">
-                                <img src="/assets/images/black-tea-bopf-thumbnail.jpg" alt="Black Tea BOPF" class="w-full h-full object-cover">
+                                <img src="/assets/images/black-tea-bopf-thumbnail.jpg" alt="Black Tea BOPF" class="w-full h-full object-cover variant-thumb">
                             </div>
                             <div class="p-4">
                                 <h4 class="font-bold text-primary text-center">BOPF (Broken Orange Pekoe Fannings)</h4>
@@ -475,10 +487,10 @@
                     </div>
 
                     <!-- Dust -->
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px]" onclick="openVariantPopup('Dust', 'Very strong, brisk cup for mass-market tea bags.', '/assets/images/black-tea-dust.jpg')">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px] variant-card" onclick="openVariantPopup('Dust', 'Very strong, brisk cup for mass-market tea bags.', '/assets/images/black-tea-dust.jpg')">
                         <div class="flex flex-col">
                             <div class="h-48">
-                                <img src="/assets/images/black-tea-dust-thumbnail.jpg" alt="Black Tea Dust" class="w-full h-full object-cover">
+                                <img src="/assets/images/black-tea-dust-thumbnail.jpg" alt="Black Tea Dust" class="w-full h-full object-cover variant-thumb">
                             </div>
                             <div class="p-4">
                                 <h4 class="font-bold text-primary text-center">Dust</h4>
