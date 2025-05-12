@@ -424,13 +424,13 @@
             </div>
             <!-- Tea Variants -->
             <div class="mt-12">
-                <h3 class="text-2xl font-bold text-primary mb-6">Available Variants</h3>
+                <h3 class="text-2xl font-bold text-primary mb-6">Black Tea Variants</h3>
                 <div class="flex flex-wrap gap-4 justify-center md:justify-start">
                     <!-- PF (Pekoe Fannings) -->
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px]" onclick="openVariantPopup('PF (Pekoe Fannings)', 'Quick-brewing, strong flavored tea, perfect for commercial tea bags.', '/assets/images/black-tea-pf.jpg')">
                         <div class="flex flex-col">
                             <div class="h-48">
-                                <img src="/assets/images/black-tea-pf.jpg" alt="Black Tea PF" class="w-full h-full object-cover">
+                                <img src="/assets/images/black-tea-pf-thumbnail.jpg" alt="Black Tea PF" class="w-full h-full object-cover">
                             </div>
                             <div class="p-4">
                                 <h4 class="font-bold text-primary text-center">PF (Pekoe Fannings)</h4>
@@ -442,7 +442,7 @@
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px]" onclick="openVariantPopup('OP (Orange Pekoe)', 'Whole tea leaves offering delicate flavor and lighter body.', '/assets/images/black-tea-op.jpg')">
                         <div class="flex flex-col">
                             <div class="h-48">
-                                <img src="/assets/images/black-tea-op.jpg" alt="Black Tea OP" class="w-full h-full object-cover">
+                                <img src="/assets/images/black-tea-op-thumbnail.jpg" alt="Black Tea OP" class="w-full h-full object-cover">
                             </div>
                             <div class="p-4">
                                 <h4 class="font-bold text-primary text-center">OP (Orange Pekoe)</h4>
@@ -454,7 +454,7 @@
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px]" onclick="openVariantPopup('BOP (Broken Orange Pekoe)', 'Strong, robust flavor ideal for breakfast blends.', '/assets/images/black-tea-bop.jpg')">
                         <div class="flex flex-col">
                             <div class="h-48">
-                                <img src="/assets/images/black-tea-bop.jpg" alt="Black Tea BOP" class="w-full h-full object-cover">
+                                <img src="/assets/images/black-tea-bop-thumbnail.jpg" alt="Black Tea BOP" class="w-full h-full object-cover">
                             </div>
                             <div class="p-4">
                                 <h4 class="font-bold text-primary text-center">BOP (Broken Orange Pekoe)</h4>
@@ -466,7 +466,7 @@
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px]" onclick="openVariantPopup('BOPF (Broken Orange Pekoe Fannings)', 'Strong, full-bodied brew with bright reddish liquor.', '/assets/images/black-tea-bopf.jpg')">
                         <div class="flex flex-col">
                             <div class="h-48">
-                                <img src="/assets/images/black-tea-bopf.jpg" alt="Black Tea BOPF" class="w-full h-full object-cover">
+                                <img src="/assets/images/black-tea-bopf-thumbnail.jpg" alt="Black Tea BOPF" class="w-full h-full object-cover">
                             </div>
                             <div class="p-4">
                                 <h4 class="font-bold text-primary text-center">BOPF (Broken Orange Pekoe Fannings)</h4>
@@ -478,7 +478,7 @@
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px]" onclick="openVariantPopup('Dust', 'Very strong, brisk cup for mass-market tea bags.', '/assets/images/black-tea-dust.jpg')">
                         <div class="flex flex-col">
                             <div class="h-48">
-                                <img src="/assets/images/black-tea-dust.jpg" alt="Black Tea Dust" class="w-full h-full object-cover">
+                                <img src="/assets/images/black-tea-dust-thumbnail.jpg" alt="Black Tea Dust" class="w-full h-full object-cover">
                             </div>
                             <div class="p-4">
                                 <h4 class="font-bold text-primary text-center">Dust</h4>
@@ -498,8 +498,12 @@
             </button>
             <div class="flex flex-col md:flex-row">
                 <!-- Image Section -->
-                <div class="md:w-1/2 h-[300px] md:h-[600px]">
-                    <img id="variantPopupImage" src="" alt="" class="w-full h-full object-cover">
+                <div class="md:w-1/2 h-[300px] md:h-[600px] relative flex items-center justify-center bg-gray-50">
+                    <button id="variantPopupLeft" class="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full p-2 shadow-md" style="display:none"><i class="fas fa-chevron-left text-xl"></i></button>
+                    <img id="variantPopupImage" src="" alt="" class="w-full h-full object-cover rounded-xl">
+                    <button id="variantPopupRight" class="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full p-2 shadow-md" style="display:none"><i class="fas fa-chevron-right text-xl"></i></button>
+                    <!-- Thumbnails -->
+                    <div id="variantPopupThumbnails" class="absolute left-4 bottom-4 flex gap-2 z-20"></div>
                 </div>
                 <!-- Content Section -->
                 <div class="md:w-1/2 p-6 md:p-8 flex flex-col">
@@ -509,8 +513,8 @@
                         <h4 class="font-semibold text-gray-800 mb-3">Characteristics:</h4>
                         <div id="variantPopupTags" class="flex flex-wrap gap-2"></div>
                     </div>
-                    <a id="variantPopupWhatsApp" href="#" target="_blank" class="bg-primary hover:bg-accent text-white px-8 py-4 rounded-xl transition duration-300 inline-flex items-center mt-auto">
-                        <i class="fab fa-whatsapp text-xl mr-2"></i> Inquire Now
+                    <a id="variantPopupWhatsApp" href="#" target="_blank" class="bg-primary hover:bg-accent text-white px-8 py-4 rounded-xl transition duration-300 inline-flex items-center mt-auto mx-auto">
+                        <i class="fab fa-whatsapp text-xl mr-2"></i> Request a Quote
                     </a>
                 </div>
             </div>
@@ -806,6 +810,32 @@
         });
 
         // Variant Popup Functions
+        const variantImages = {
+            'PF (Pekoe Fannings)': [
+                {full: '/assets/images/black-tea-pf.jpg', thumb: '/assets/images/black-tea-pf-thumbnail.jpg'},
+                {full: '/assets/images/black-tea-pf-brewed.jpg', thumb: '/assets/images/black-tea-pf-brewed-thumbnail.jpg'}
+            ],
+            'OP (Orange Pekoe)': [
+                {full: '/assets/images/black-tea-op.jpg', thumb: '/assets/images/black-tea-op-thumbnail.jpg'},
+                {full: '/assets/images/black-tea-op-brewed.jpg', thumb: '/assets/images/black-tea-op-brewed-thumbnail.jpg'}
+            ],
+            'BOP (Broken Orange Pekoe)': [
+                {full: '/assets/images/black-tea-bop.jpg', thumb: '/assets/images/black-tea-bop-thumbnail.jpg'},
+                {full: '/assets/images/black-tea-bop-brewed.jpg', thumb: '/assets/images/black-tea-bop-brewed-thumbnail.jpg'}
+            ],
+            'BOPF (Broken Orange Pekoe Fannings)': [
+                {full: '/assets/images/black-tea-bopf.jpg', thumb: '/assets/images/black-tea-bopf-thumbnail.jpg'},
+                {full: '/assets/images/black-tea-bopf-brewed.jpg', thumb: '/assets/images/black-tea-bopf-brewed-thumbnail.jpg'}
+            ],
+            'Dust': [
+                {full: '/assets/images/black-tea-dust.jpg', thumb: '/assets/images/black-tea-dust-thumbnail.jpg'},
+                {full: '/assets/images/black-tea-dust-brewed.jpg', thumb: '/assets/images/black-tea-dust-brewed-thumbnail.jpg'}
+            ]
+        };
+
+        let currentVariant = '';
+        let currentImageIndex = 0;
+
         function openVariantPopup(title, description, imageSrc) {
             const popup = document.getElementById('variantPopup');
             const popupImage = document.getElementById('variantPopupImage');
@@ -813,16 +843,17 @@
             const popupDescription = document.getElementById('variantPopupDescription');
             const popupWhatsApp = document.getElementById('variantPopupWhatsApp');
             const popupTags = document.getElementById('variantPopupTags');
+            const thumbnails = document.getElementById('variantPopupThumbnails');
+            const leftBtn = document.getElementById('variantPopupLeft');
+            const rightBtn = document.getElementById('variantPopupRight');
 
-            // Set basic content
-            popupImage.src = imageSrc;
-            popupImage.alt = title;
+            // Set content
             popupTitle.textContent = title;
             popupDescription.textContent = description;
             popupWhatsApp.href = `https://wa.me/6282246632200?text=Hello%20TropicaFarm%2C%20I%20am%20interested%20in%20Black%20Tea%20${encodeURIComponent(title)}`;
 
-            // Set characteristics based on variant
-            popupTags.innerHTML = ''; // Clear existing tags
+            // Set characteristics
+            popupTags.innerHTML = '';
             const characteristics = getCharacteristics(title);
             characteristics.forEach(char => {
                 const tag = document.createElement('span');
@@ -831,10 +862,65 @@
                 popupTags.appendChild(tag);
             });
 
+            // Set images
+            currentVariant = title;
+            currentImageIndex = 0;
+            updateVariantPopupImage();
+
+            // Thumbnails
+            thumbnails.innerHTML = '';
+            const imgs = variantImages[title] || [{full: imageSrc, thumb: imageSrc}];
+            imgs.forEach((img, idx) => {
+                const thumb = document.createElement('img');
+                thumb.src = img.thumb;
+                thumb.alt = title + ' thumbnail';
+                thumb.className = 'w-12 h-12 object-cover rounded-lg border-2 cursor-pointer ' + (idx === 0 ? 'border-primary' : 'border-transparent') + ' bg-white shadow';
+                thumb.onclick = () => { currentImageIndex = idx; updateVariantPopupImage(); };
+                thumbnails.appendChild(thumb);
+            });
+
+            // Show/hide arrows
+            if (imgs.length > 1) {
+                leftBtn.style.display = 'block';
+                rightBtn.style.display = 'block';
+            } else {
+                leftBtn.style.display = 'none';
+                rightBtn.style.display = 'none';
+            }
+
             popup.classList.remove('hidden');
             popup.classList.add('flex');
             document.body.style.overflow = 'hidden';
         }
+
+        function updateVariantPopupImage() {
+            const popupImage = document.getElementById('variantPopupImage');
+            const thumbnails = document.getElementById('variantPopupThumbnails');
+            const imgs = variantImages[currentVariant] || [];
+            if (imgs.length) {
+                popupImage.src = imgs[currentImageIndex].full;
+                // Highlight selected thumbnail
+                Array.from(thumbnails.children).forEach((thumb, idx) => {
+                    thumb.classList.toggle('border-primary', idx === currentImageIndex);
+                    thumb.classList.toggle('border-transparent', idx !== currentImageIndex);
+                });
+            }
+        }
+
+        document.getElementById('variantPopupLeft').onclick = function() {
+            const imgs = variantImages[currentVariant] || [];
+            if (imgs.length) {
+                currentImageIndex = (currentImageIndex - 1 + imgs.length) % imgs.length;
+                updateVariantPopupImage();
+            }
+        };
+        document.getElementById('variantPopupRight').onclick = function() {
+            const imgs = variantImages[currentVariant] || [];
+            if (imgs.length) {
+                currentImageIndex = (currentImageIndex + 1) % imgs.length;
+                updateVariantPopupImage();
+            }
+        };
 
         function getCharacteristics(variant) {
             const characteristics = {
