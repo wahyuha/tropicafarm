@@ -410,9 +410,6 @@
                             <div class="swiper-slide">
                                 <img src="/assets/images/tea-brewed.jpg" alt="Black Tea Brewed" class="w-full h-[500px] object-cover">
                             </div>
-                            <div class="swiper-slide">
-                                <img src="/assets/images/tea-shoots.jpg" alt="Tea Shoots" class="w-full h-[500px] object-cover">
-                            </div>
                         </div>
                         <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>
@@ -576,9 +573,25 @@
     <section id="green-tea" class="py-20 bg-light">
         <div class="container mx-auto px-6">
             <div class="flex flex-col lg:flex-row gap-12">
+                <!-- Image Gallery -->
+                <div class="lg:w-1/2">
+                    <div class="swiper product-swiper rounded-2xl overflow-hidden shadow-lg">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="/assets/images/green-tea.jpg" alt="Indonesian Green Tea - Main View" class="w-full h-[500px] object-cover">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="/assets/images/green-tea-roasted.jpg" alt="Green Tea Roasted" class="w-full h-[500px] object-cover">
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+
                 <!-- Product Information -->
                 <div class="lg:w-1/2">
-                    <!-- <span class="bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium">Premium</span> -->
                     <h2 class="text-4xl font-bold text-primary mt-4 mb-6">Green Tea</h2>
                     <p class="text-gray-600 text-lg mb-8">Our high-quality green tea provides a delicate, refreshing flavor with grassy notes and a subtle sweetness. Minimally processed to preserve natural benefits and flavor, perfect for tea products and health-conscious markets.</p>
 
@@ -609,25 +622,89 @@
                         <span class="bg-gray-100 px-4 py-2 rounded-full text-sm">Bulk Supply</span>
                     </div>
 
-                    <a href="https://wa.me/6282246632200?text=Hello%20TropicaFarm%2C%20I%20am%20interested%20in%20your%20Green%20Tea%20products" target="_blank" class="bg-primary hover:bg-accent text-white px-8 py-4 rounded-xl transition duration-300 inline-flex items-center">
+                    <a href="https://wa.me/6282246632200?text=Hello%20TropicaFarm%2C%20I%20am%20interested%20in%20your%20Green%20Tea%20products" target="_blank" class="bg-primary hover:bg-accent text-white px-8 py-4 rounded-xl transition duration-300 inline-flex items-center mb-12">
                         <i class="fab fa-whatsapp text-xl mr-2"></i> Order Green Tea
                     </a>
                 </div>
+            </div>
 
-                <!-- Image Gallery -->
-                <div class="lg:w-1/2">
-                    <div class="swiper product-swiper rounded-2xl overflow-hidden shadow-lg">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img src="/assets/images/green-tea.jpg" alt="Premium Indonesian Green Tea - Main View" class="w-full h-[500px] object-cover">
+            <!-- Tea Variants -->
+            <div class="mt-12">
+                <h3 class="text-2xl font-bold text-primary mb-6">Green Tea Variants</h3>
+                <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                    <!-- Chun Mee -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px] variant-card" onclick='openVariantPopup("Chun Mee", "Chun Mee, meaning \"Precious Eyebrows\" is a Chinese green tea with hand-rolled leaves, offering a medium-bodied infusion with slight fruity tartness.", "/assets/images/green-tea-chun-mee.jpg")'>
+                        <div class="flex flex-col relative">
+                            <div class="h-48 relative">
+                                <img src="/assets/images/green-tea-chun-mee-thumbnail.jpg" alt="Green Tea Chun Mee" class="w-full h-full object-cover variant-thumb">
+                                <span class="variant-hover-overlay">
+                                    <span class="view-detail-text">View Detail</span>
+                                </span>
                             </div>
-                            <div class="swiper-slide">
-                                <img src="/assets/images/green-tea-roasted.jpg" alt="Green Tea Roasted" class="w-full h-[500px] object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-primary text-center">Chun Mee</h4>
                             </div>
                         </div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-pagination"></div>
+                    </div>
+
+                    <!-- Fannings -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px] variant-card" onclick="openVariantPopup('Fannings', 'Fannings are small tea leaf particles left after higher grades are gathered, brewing quickly to produce a strong, flavorful cup.', '/assets/images/green-tea-fannings.jpg')">
+                        <div class="flex flex-col relative">
+                            <div class="h-48 relative">
+                                <img src="/assets/images/green-tea-fannings-thumbnail.jpg" alt="Green Tea Fannings" class="w-full h-full object-cover variant-thumb">
+                                <span class="variant-hover-overlay">
+                                    <span class="view-detail-text">View Detail</span>
+                                </span>
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-bold text-primary text-center">Fannings</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gun Powder -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px] variant-card" onclick="openVariantPopup('Gun Powder', 'Gunpowder tea consists of green tea leaves rolled into small pellets, resembling gunpowder grains, yielding a bold, slightly smoky flavor.', '/assets/images/green-tea-gun-powder.jpg')">
+                        <div class="flex flex-col relative">
+                            <div class="h-48 relative">
+                                <img src="/assets/images/green-tea-gun-powder-thumbnail.jpg" alt="Green Tea Gun Powder" class="w-full h-full object-cover variant-thumb">
+                                <span class="variant-hover-overlay">
+                                    <span class="view-detail-text">View Detail</span>
+                                </span>
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-bold text-primary text-center">Gun Powder</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pekoe Super -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px] variant-card" onclick="openVariantPopup('Pekoe Super', 'Pekoe Super is a high-grade green tea with long, needle-like leaves, producing a bright green, flowery, and sweet infusion.', '/assets/images/green-tea-pekoe-super.jpg')">
+                        <div class="flex flex-col relative">
+                            <div class="h-48 relative">
+                                <img src="/assets/images/green-tea-pekoe-super-thumbnail.jpg" alt="Green Tea Pekoe Super" class="w-full h-full object-cover variant-thumb">
+                                <span class="variant-hover-overlay">
+                                    <span class="view-detail-text">View Detail</span>
+                                </span>
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-bold text-primary text-center">Pekoe Super</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sow Mee -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px] variant-card" onclick="openVariantPopup('Sow Mee', 'Sow Mee is a type of white tea made from mature leaves and buds, offering a naturally sweet aroma and mellow character.', '/assets/images/green-tea-sow-mee.jpg')">
+                        <div class="flex flex-col relative">
+                            <div class="h-48 relative">
+                                <img src="/assets/images/green-tea-sow-mee-thumbnail.jpg" alt="Green Tea Sow Mee" class="w-full h-full object-cover variant-thumb">
+                                <span class="variant-hover-overlay">
+                                    <span class="view-detail-text">View Detail</span>
+                                </span>
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-bold text-primary text-center">Sow Mee</h4>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -862,6 +939,7 @@
 
         // Variant Popup Functions
         const variantImages = {
+            // Black Tea variants
             'PF (Pekoe Fannings)': [
                 {full: '/assets/images/black-tea-pf.jpg', thumb: '/assets/images/black-tea-pf-thumbnail.jpg'},
                 {full: '/assets/images/black-tea-pf-brewed.jpg', thumb: '/assets/images/black-tea-pf-brewed-thumbnail.jpg'}
@@ -881,6 +959,27 @@
             'Dust': [
                 {full: '/assets/images/black-tea-dust.jpg', thumb: '/assets/images/black-tea-dust-thumbnail.jpg'},
                 {full: '/assets/images/black-tea-dust-brewed.jpg', thumb: '/assets/images/black-tea-dust-brewed-thumbnail.jpg'}
+            ],
+            // Green Tea variants
+            'Chun Mee': [
+                {full: '/assets/images/green-tea-chun-mee.jpg', thumb: '/assets/images/green-tea-chun-mee-thumbnail.jpg'},
+                {full: '/assets/images/green-tea-chun-mee-brewed.jpg', thumb: '/assets/images/green-tea-chun-mee-brewed-thumbnail.jpg'}
+            ],
+            'Fannings': [
+                {full: '/assets/images/green-tea-fannings.jpg', thumb: '/assets/images/green-tea-fannings-thumbnail.jpg'},
+                {full: '/assets/images/green-tea-fannings-brewed.jpg', thumb: '/assets/images/green-tea-fannings-brewed-thumbnail.jpg'}
+            ],
+            'Gun Powder': [
+                {full: '/assets/images/green-tea-gun-powder.jpg', thumb: '/assets/images/green-tea-gun-powder-thumbnail.jpg'},
+                {full: '/assets/images/green-tea-gun-powder-brewed.jpg', thumb: '/assets/images/green-tea-gun-powder-brewed-thumbnail.jpg'}
+            ],
+            'Pekoe Super': [
+                {full: '/assets/images/green-tea-pekoe-super.jpg', thumb: '/assets/images/green-tea-pekoe-super-thumbnail.jpg'},
+                {full: '/assets/images/green-tea-pekoe-super-brewed.jpg', thumb: '/assets/images/green-tea-pekoe-super-brewed-thumbnail.jpg'}
+            ],
+            'Sow Mee': [
+                {full: '/assets/images/green-tea-sow-mee.jpg', thumb: '/assets/images/green-tea-sow-mee-thumbnail.jpg'},
+                {full: '/assets/images/green-tea-sow-mee-brewed.jpg', thumb: '/assets/images/green-tea-sow-mee-brewed-thumbnail.jpg'}
             ]
         };
 
@@ -901,7 +1000,7 @@
             // Set content
             popupTitle.textContent = title;
             popupDescription.textContent = description;
-            popupWhatsApp.href = `https://wa.me/6282246632200?text=Hello%20TropicaFarm%2C%20I%20am%20interested%20in%20Black%20Tea%20${encodeURIComponent(title)}`;
+            popupWhatsApp.href = `https://wa.me/6282246632200?text=Hello%20TropicaFarm%2C%20I%20am%20interested%20in%20Green%20Tea%20${encodeURIComponent(title)}`;
 
             // Set characteristics
             popupTags.innerHTML = '';
@@ -975,11 +1074,18 @@
 
         function getCharacteristics(variant) {
             const characteristics = {
+                // Black Tea characteristics
                 'PF (Pekoe Fannings)': ['Bold, Robust Flavor', 'Floral Sweetness', 'Malty Undertones', 'Astringent'],
                 'OP (Orange Pekoe)': ['Smooth, Full-Bodied Flavor', 'Subtle Floral and Fruity Notes', 'Light Astringency', 'Bright'],
                 'BOP (Broken Orange Pekoe)': ['Bold, Robust Flavor', 'Malty', 'Noticeable Astringency Due To High Tannin Content'],
                 'BOPF (Broken Orange Pekoe Fannings)': ['Bold, Robust Flavor', 'Floral Sweetness', 'Malty Undertones', 'Astringent', 'Aromatic'],
-                'Dust': ['Bold, Robust', 'Malty Notes', 'Astringent', 'Bitter']
+                'Dust': ['Bold, Robust', 'Malty Notes', 'Astringent', 'Bitter'],
+                // Green Tea characteristics
+                'Chun Mee': ['Light', 'Fresh', 'Bitter', 'Vegetal With a Clean Slightly Sweet Finish'],
+                'Fannings': ['Vegetal', 'Robust Flavor', 'Bitter', 'Slight Astringent'],
+                'Gun Powder': ['Fresh', 'Vegetal', 'Slightly Sweet', 'Umami', 'Astringent', 'Bitter'],
+                'Pekoe Super': ['Delicate', 'Floral', 'Slightly Sweet', 'Bitter with a Hint of Astringent'],
+                'Sow Mee': ['Similar to Chun Mee But Slightly More Vegetal Flavor', 'Rougher Texture']
             };
             return characteristics[variant] || [];
         }
