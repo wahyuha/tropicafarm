@@ -711,6 +711,148 @@
         </div>
     </section>
 
+    <!-- Specialty Tea Section -->
+    <section id="specialty-tea" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-12">
+                <!-- Image Gallery -->
+                <div class="lg:w-1/2">
+                    <div class="swiper product-swiper rounded-2xl overflow-hidden shadow-lg">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="/assets/images/specialty-tea-oolong.jpg" alt="Specialty Tea Oolong" class="w-full h-[500px] object-cover">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="/assets/images/specialty-tea-jasmine.jpg" alt="Specialty Tea Jasmine" class="w-full h-[500px] object-cover">
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+
+                <!-- Product Information -->
+                <div class="lg:w-1/2">
+                    <h2 class="text-4xl font-bold text-primary mt-4 mb-6">Specialty Tea</h2>
+                    <p class="text-gray-600 text-lg mb-8">Discover our premium specialty teas, each offering unique flavors and aromas. From the partially oxidized Oolong to the fragrant Jasmine and our signature Grey Dragon, experience the finest Indonesian tea craftsmanship.</p>
+
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Production Capacity</h4>
+                            <p class="text-gray-600">50 tons/month</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Minimum Order</h4>
+                            <p class="text-gray-600">1 ton</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Packaging</h4>
+                            <p class="text-gray-600">25kg kraft paper bags</p>
+                            <p class="text-gray-400 text-xs mt-1 font-normal">Custom packaging available upon request</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Shelf Life</h4>
+                            <p class="text-gray-600">24 months</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-3 mb-8">
+                        <span class="bg-gray-100 px-4 py-2 rounded-full text-sm">Premium Quality</span>
+                        <span class="bg-gray-100 px-4 py-2 rounded-full text-sm">Unique Flavors</span>
+                        <span class="bg-gray-100 px-4 py-2 rounded-full text-sm">Artisanal Process</span>
+                        <span class="bg-gray-100 px-4 py-2 rounded-full text-sm">Bulk Supply</span>
+                    </div>
+
+                    <a href="https://wa.me/6282246632200?text=Hello%20TropicaFarm%2C%20I%20am%20interested%20in%20your%20Specialty%20Tea%20products" target="_blank" class="bg-primary hover:bg-accent text-white px-8 py-4 rounded-xl transition duration-300 inline-flex items-center mb-12">
+                        <i class="fab fa-whatsapp text-xl mr-2"></i> Order Specialty Tea
+                    </a>
+                </div>
+            </div>
+
+            <!-- Tea Variants -->
+            <div class="mt-12">
+                <h3 class="text-2xl font-bold text-primary mb-6">Specialty Tea Variants</h3>
+                <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                    <!-- Oolong -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px] variant-card" onclick='openVariantPopup("Oolong", "Oolong tea is partially oxidized, offering a flavor profile between green and black teas, ranging from light and floral to rich and toasty.", "/assets/images/specialty-tea-oolong.jpg")'>
+                        <div class="flex flex-col relative">
+                            <div class="h-48 relative">
+                                <img src="/assets/images/specialty-tea-oolong-thumbnail.jpg" alt="Specialty Tea Oolong" class="w-full h-full object-cover variant-thumb">
+                                <span class="variant-hover-overlay">
+                                    <span class="view-detail-text">View Detail</span>
+                                </span>
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-bold text-primary text-center">Oolong</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Jasmine -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px] variant-card" onclick='openVariantPopup("Jasmine", "Jasmine tea is scented with fresh jasmine blossoms, imparting a delicate floral aroma and flavor.", "/assets/images/specialty-tea-jasmine.jpg")'>
+                        <div class="flex flex-col relative">
+                            <div class="h-48 relative">
+                                <img src="/assets/images/specialty-tea-jasmine-thumbnail.jpg" alt="Specialty Tea Jasmine" class="w-full h-full object-cover variant-thumb">
+                                <span class="variant-hover-overlay">
+                                    <span class="view-detail-text">View Detail</span>
+                                </span>
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-bold text-primary text-center">Jasmine</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Grey Dragon -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px] variant-card" onclick="openVariantPopup('Grey Dragon', 'An Indonesian oolong from West Java\'s highlands, Grey Dragon features elegant, needle-like leaves with a sweet, fruity aroma and a light malt note.', '/assets/images/specialty-tea-grey-dragon.jpg')">
+                        <div class="flex flex-col relative">
+                            <div class="h-48 relative">
+                                <img src="/assets/images/specialty-tea-grey-dragon-thumbnail.jpg" alt="Specialty Tea Grey Dragon" class="w-full h-full object-cover variant-thumb">
+                                <span class="variant-hover-overlay">
+                                    <span class="view-detail-text">View Detail</span>
+                                </span>
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-bold text-primary text-center">Grey Dragon</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- White Peony -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px] variant-card" onclick="openVariantPopup('White Peony', 'White Peony is a white tea made from unopened buds and young leaves, producing a sweet, mild flavor with floral notes.', '/assets/images/specialty-tea-white-peony.jpg')">
+                        <div class="flex flex-col relative">
+                            <div class="h-48 relative">
+                                <img src="/assets/images/specialty-tea-white-peony-thumbnail.jpg" alt="Specialty Tea White Peony" class="w-full h-full object-cover variant-thumb">
+                                <span class="variant-hover-overlay">
+                                    <span class="view-detail-text">View Detail</span>
+                                </span>
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-bold text-primary text-center">White Peony</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- White Tea -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px] variant-card" onclick="openVariantPopup('White Tea', 'White tea is the least processed tea, harvested before the leaves fully open, resulting in a delicate flavor and high antioxidant content.', '/assets/images/specialty-tea-white.jpg')">
+                        <div class="flex flex-col relative">
+                            <div class="h-48 relative">
+                                <img src="/assets/images/specialty-tea-white-tea-thumbnail.jpg" alt="Specialty Tea White" class="w-full h-full object-cover variant-thumb">
+                                <span class="variant-hover-overlay">
+                                    <span class="view-detail-text">View Detail</span>
+                                </span>
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-bold text-primary text-center">White Tea</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- How to Order Section -->
     <section id="how-to-order" class="py-16">
         <div class="container mx-auto px-6">
@@ -980,6 +1122,22 @@
             'Sow Mee': [
                 {full: '/assets/images/green-tea-sow-mee.jpg', thumb: '/assets/images/green-tea-sow-mee-thumbnail.jpg'},
                 {full: '/assets/images/green-tea-sow-mee-brewed.jpg', thumb: '/assets/images/green-tea-sow-mee-brewed-thumbnail.jpg'}
+            ],
+            // Specialty Tea variants
+            'Oolong': [
+                {full: '/assets/images/specialty-tea-oolong.jpg', thumb: '/assets/images/specialty-tea-oolong-thumbnail.jpg'}
+            ],
+            'Jasmine': [
+                {full: '/assets/images/specialty-tea-jasmine.jpg', thumb: '/assets/images/specialty-tea-jasmine-thumbnail.jpg'}
+            ],
+            'Grey Dragon': [
+                {full: '/assets/images/specialty-tea-grey-dragon.jpg', thumb: '/assets/images/specialty-tea-grey-dragon-thumbnail.jpg'}
+            ],
+            'White Peony': [
+                {full: '/assets/images/specialty-tea-white-peony.jpg', thumb: '/assets/images/specialty-tea-white-peony-thumbnail.jpg'}
+            ],
+            'White Tea': [
+                {full: '/assets/images/specialty-tea-white-tea.jpg', thumb: '/assets/images/specialty-tea-white-tea-thumbnail.jpg'}
             ]
         };
 
@@ -1085,7 +1243,13 @@
                 'Fannings': ['Vegetal', 'Robust Flavor', 'Bitter', 'Slight Astringent'],
                 'Gun Powder': ['Fresh', 'Vegetal', 'Slightly Sweet', 'Umami', 'Astringent', 'Bitter'],
                 'Pekoe Super': ['Delicate', 'Floral', 'Slightly Sweet', 'Bitter with a Hint of Astringent'],
-                'Sow Mee': ['Similar to Chun Mee But Slightly More Vegetal Flavor', 'Rougher Texture']
+                'Sow Mee': ['Similar to Chun Mee But Slightly More Vegetal Flavor', 'Rougher Texture'],
+                // Specialty Tea characteristics
+                'Oolong': ['Floral', 'Sweet', 'Fruitty', 'Nutty', 'Astringent'],
+                'Jasmine': ['Floral', 'Sweet', 'Vegetal', 'Slight Astringent'],
+                'Grey Dragon': ['Floral', 'Fruity', 'Smooth', 'Delicate', 'Low Astringent'],
+                'White Peony': ['Floral', 'Sweet', 'Vegetal', 'Slight Astringent'],
+                'White Tea': ['Delicate', 'Floral', 'Sweet', 'Smooth', 'Slight Astringent']
             };
             return characteristics[variant] || [];
         }
