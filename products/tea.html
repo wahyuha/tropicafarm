@@ -109,18 +109,23 @@
         }
 
         .variant-card {
-            transition: box-shadow 0.3s, transform 0.3s;
+            transition: all 0.4s ease;
             position: relative;
+            cursor: pointer;
+            background: linear-gradient(145deg, #ffffff, #f8f9fa);
+            border: 1px solid rgba(229, 231, 235, 0.6);
         }
         .variant-card:hover {
-            box-shadow: 0 8px 32px rgba(44, 119, 68, 0.18), 0 1.5px 8px rgba(44, 119, 68, 0.10);
-            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(44, 119, 68, 0.12), 0 8px 20px rgba(44, 119, 68, 0.08);
+            transform: translateY(-2px);
+            border-color: rgba(44, 119, 68, 0.2);
         }
         .variant-card .variant-thumb {
-            transition: transform 0.3s;
+            transition: all 0.4s ease;
+            filter: brightness(1) saturate(1);
         }
         .variant-card:hover .variant-thumb {
-            transform: scale(1.08);
+            filter: brightness(1.1) saturate(1.2);
         }
         .variant-card .variant-hover-overlay {
             position: absolute;
@@ -282,64 +287,76 @@
                             </p>
                         </div>
 
-                        <!-- Product Specs -->
-                        <div class="grid md:grid-cols-5 gap-6 mb-12 bg-white/60 backdrop-blur-sm p-8 rounded-2xl border border-amber-200">
-                            <div class="text-center">
-                                <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                                    <i class="fas fa-industry text-amber-600 text-xl"></i>
+                        <!-- Product Specs - Compact -->
+                        <div class="mb-8">
+                            <details class="group">
+                                <summary class="cursor-pointer text-center text-gray-600 hover:text-gray-800 transition-colors">
+                                    <span class="text-sm font-medium">View Product Specifications</span>
+                                    <i class="fas fa-chevron-down ml-2 text-xs group-open:rotate-180 transition-transform"></i>
+                                </summary>
+                                <div class="mt-4 grid md:grid-cols-5 gap-4 bg-white/40 backdrop-blur-sm p-6 rounded-xl border border-amber-200/50">
+                                    <div class="text-center">
+                                        <div class="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                                            <i class="fas fa-industry text-amber-600 text-sm"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-800 text-sm mb-1">Monthly Capacity</h4>
+                                        <p class="text-gray-600 text-sm font-medium">75 tons</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                                            <i class="fas fa-balance-scale text-amber-600 text-sm"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-800 text-sm mb-1">Minimum Order</h4>
+                                        <p class="text-gray-600 text-sm font-medium">20 kg</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                                            <i class="fas fa-box text-amber-600 text-sm"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-800 text-sm mb-1">Packaging</h4>
+                                        <p class="text-gray-600 text-sm font-medium">40kg/50kg</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                                            <i class="fas fa-clock text-amber-600 text-sm"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-800 text-sm mb-1">Shelf Life</h4>
+                                        <p class="text-gray-600 text-sm font-medium">24 months</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                                            <i class="fas fa-certificate text-amber-600 text-sm"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-800 text-sm mb-1">Certifications</h4>
+                                        <p class="text-gray-600 text-sm font-medium">HACCP</p>
+                                    </div>
                                 </div>
-                                <h4 class="font-semibold text-gray-800 mb-2">Monthly Capacity</h4>
-                                <p class="text-gray-600 text-lg font-medium">75 tons</p>
-                                <p class="text-xs text-gray-500 mt-1">All variants</p>
-                            </div>
-                            <div class="text-center">
-                                <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                                    <i class="fas fa-balance-scale text-amber-600 text-xl"></i>
-                                </div>
-                                <h4 class="font-semibold text-gray-800 mb-2">Minimum Order</h4>
-                                <p class="text-gray-600 text-lg font-medium">20 kg</p>
-                                <p class="text-xs text-gray-500 mt-1">FOB Semarang Port</p>
-                            </div>
-                            <div class="text-center">
-                                <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                                    <i class="fas fa-box text-amber-600 text-xl"></i>
-                                </div>
-                                <h4 class="font-semibold text-gray-800 mb-2">Packaging</h4>
-                                <p class="text-gray-600 text-lg font-medium">40kg/50kg</p>
-                                <p class="text-xs text-gray-500 mt-1">Jute or PP bags</p>
-                            </div>
-                            <div class="text-center">
-                                <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                                    <i class="fas fa-clock text-amber-600 text-xl"></i>
-                                </div>
-                                <h4 class="font-semibold text-gray-800 mb-2">Shelf Life</h4>
-                                <p class="text-gray-600 text-lg font-medium">24 months</p>
-                                <p class="text-xs text-gray-500 mt-1">Proper storage</p>
-                            </div>
-                            <div class="text-center">
-                                <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                                    <i class="fas fa-certificate text-amber-600 text-xl"></i>
-                                </div>
-                                <h4 class="font-semibold text-gray-800 mb-2">Certifications</h4>
-                                <p class="text-gray-600 text-lg font-medium">HACCP</p>
-                                <p class="text-xs text-gray-500 mt-1">ISO standards</p>
-                            </div>
+                            </details>
                         </div>
 
                         <!-- Black Tea Variants -->
-                        <h4 class="text-2xl font-bold text-primary mb-8 text-center">Black Tea Variants</h4>
-                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                        <div class="text-center mb-12">
+                            <h4 class="text-3xl font-bold text-primary mb-4">Our Black Tea Variants</h4>
+                            <p class="text-gray-600 text-lg">Click on any variant to explore its unique characteristics and brewing profile</p>
+                        </div>
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
                             <!-- PF (Pekoe Fannings) -->
-                            <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer variant-card" onclick="openVariantPopup('PF (Pekoe Fannings)', 'Quick-brewing, strong flavored tea, perfect for commercial tea bags.', '/assets/images/black-tea-pf.jpg')">
+                            <div class="bg-white rounded-2xl shadow-lg overflow-hidden group cursor-pointer variant-card relative" onclick="openVariantPopup('PF (Pekoe Fannings)', 'Quick-brewing, strong flavored tea, perfect for commercial tea bags.', '/assets/images/black-tea-pf.jpg')">
+                                <!-- Click indicator -->
+                                <div class="absolute top-3 right-3 z-10 bg-white/90 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                                    <i class="fas fa-mouse-pointer text-primary text-sm"></i>
+                                </div>
                                 <div class="relative">
-                                    <div class="h-40 relative overflow-hidden">
+                                    <div class="h-48 relative overflow-hidden rounded-t-2xl">
                                         <img src="/assets/images/black-tea-pf-thumbnail.jpg" alt="Black Tea PF" class="w-full h-full object-cover variant-thumb">
                                         <span class="variant-hover-overlay">
-                                            <span class="view-detail-text">View Detail</span>
+                                            <span class="view-detail-text">Explore This Variant</span>
+                                            <i class="fas fa-arrow-right mt-2 text-white"></i>
                                         </span>
                                     </div>
-                                    <div class="p-4">
-                                        <h5 class="font-bold text-primary text-center text-sm">PF (Pekoe Fannings)</h5>
+                                    <div class="p-5">
+                                        <h5 class="font-bold text-primary text-center text-base mb-2">PF (Pekoe Fannings)</h5>
+                                        <p class="text-xs text-gray-500 text-center leading-relaxed">Quick-brewing & Commercial Grade</p>
                                     </div>
                                 </div>
                             </div>
@@ -440,53 +457,59 @@
                             </p>
                         </div>
 
-                        <!-- Product Specs -->
-                        <div class="grid md:grid-cols-5 gap-6 mb-12 bg-white/60 backdrop-blur-sm p-8 rounded-2xl border border-emerald-200">
-                            <div class="text-center">
-                                <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                                    <i class="fas fa-industry text-emerald-600 text-xl"></i>
+                        <!-- Product Specs - Compact -->
+                        <div class="mb-8">
+                            <details class="group">
+                                <summary class="cursor-pointer text-center text-gray-600 hover:text-gray-800 transition-colors">
+                                    <span class="text-sm font-medium">View Product Specifications</span>
+                                    <i class="fas fa-chevron-down ml-2 text-xs group-open:rotate-180 transition-transform"></i>
+                                </summary>
+                                <div class="mt-4 grid md:grid-cols-5 gap-4 bg-white/40 backdrop-blur-sm p-6 rounded-xl border border-emerald-200/50">
+                                    <div class="text-center">
+                                        <div class="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                                            <i class="fas fa-industry text-emerald-600 text-sm"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-800 text-sm mb-1">Monthly Capacity</h4>
+                                        <p class="text-gray-600 text-sm font-medium">50 tons</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                                            <i class="fas fa-balance-scale text-emerald-600 text-sm"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-800 text-sm mb-1">Minimum Order</h4>
+                                        <p class="text-gray-600 text-sm font-medium">1 ton</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                                            <i class="fas fa-box text-emerald-600 text-sm"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-800 text-sm mb-1">Packaging</h4>
+                                        <p class="text-gray-600 text-sm font-medium">40kg/50kg</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                                            <i class="fas fa-clock text-emerald-600 text-sm"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-800 text-sm mb-1">Shelf Life</h4>
+                                        <p class="text-gray-600 text-sm font-medium">24 months</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                                            <i class="fas fa-leaf text-emerald-600 text-sm"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-800 text-sm mb-1">Antioxidants</h4>
+                                        <p class="text-gray-600 text-sm font-medium">High EGCG</p>
+                                    </div>
                                 </div>
-                                <h4 class="font-semibold text-gray-800 mb-2">Monthly Capacity</h4>
-                                <p class="text-gray-600 text-lg font-medium">50 tons</p>
-                                <p class="text-xs text-gray-500 mt-1">All variants</p>
-                            </div>
-                            <div class="text-center">
-                                <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                                    <i class="fas fa-balance-scale text-emerald-600 text-xl"></i>
-                                </div>
-                                <h4 class="font-semibold text-gray-800 mb-2">Minimum Order</h4>
-                                <p class="text-gray-600 text-lg font-medium">1 ton</p>
-                                <p class="text-xs text-gray-500 mt-1">FOB Semarang Port</p>
-                            </div>
-                            <div class="text-center">
-                                <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                                    <i class="fas fa-box text-emerald-600 text-xl"></i>
-                                </div>
-                                <h4 class="font-semibold text-gray-800 mb-2">Packaging</h4>
-                                <p class="text-gray-600 text-lg font-medium">40kg/50kg</p>
-                                <p class="text-xs text-gray-500 mt-1">Jute or PP bags</p>
-                            </div>
-                            <div class="text-center">
-                                <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                                    <i class="fas fa-clock text-emerald-600 text-xl"></i>
-                                </div>
-                                <h4 class="font-semibold text-gray-800 mb-2">Shelf Life</h4>
-                                <p class="text-gray-600 text-lg font-medium">24 months</p>
-                                <p class="text-xs text-gray-500 mt-1">Proper storage</p>
-                            </div>
-                            <div class="text-center">
-                                <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                                    <i class="fas fa-leaf text-emerald-600 text-xl"></i>
-                                </div>
-                                <h4 class="font-semibold text-gray-800 mb-2">Antioxidants</h4>
-                                <p class="text-gray-600 text-lg font-medium">High EGCG</p>
-                                <p class="text-xs text-gray-500 mt-1">Natural preservatives</p>
-                            </div>
+                            </details>
                         </div>
 
                         <!-- Green Tea Variants -->
-                        <h4 class="text-2xl font-bold text-primary mb-8 text-center">Green Tea Variants</h4>
-                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                        <div class="text-center mb-12">
+                            <h4 class="text-3xl font-bold text-primary mb-4">Our Green Tea Variants</h4>
+                            <p class="text-gray-600 text-lg">Discover the refreshing world of our green tea collection</p>
+                        </div>
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
                             <!-- Chun Mee -->
                             <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer variant-card" onclick='openVariantPopup("Chun Mee", "Chun Mee, meaning \"Precious Eyebrows\" is a Chinese green tea with hand-rolled leaves, offering a medium-bodied infusion with slight fruity tartness.", "/assets/images/green-tea-chun-mee.jpg")'>
                                 <div class="relative">
@@ -590,53 +613,59 @@
                             </p>
                         </div>
 
-                        <!-- Product Specs -->
-                        <div class="grid md:grid-cols-5 gap-6 mb-12 bg-white/60 backdrop-blur-sm p-8 rounded-2xl border border-amber-200">
-                            <div class="text-center">
-                                <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                                    <i class="fas fa-industry text-amber-600 text-xl"></i>
+                        <!-- Product Specs - Compact -->
+                        <div class="mb-8">
+                            <details class="group">
+                                <summary class="cursor-pointer text-center text-gray-600 hover:text-gray-800 transition-colors">
+                                    <span class="text-sm font-medium">View Product Specifications</span>
+                                    <i class="fas fa-chevron-down ml-2 text-xs group-open:rotate-180 transition-transform"></i>
+                                </summary>
+                                <div class="mt-4 grid md:grid-cols-5 gap-4 bg-white/40 backdrop-blur-sm p-6 rounded-xl border border-amber-200/50">
+                                    <div class="text-center">
+                                        <div class="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                                            <i class="fas fa-industry text-amber-600 text-sm"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-800 text-sm mb-1">Monthly Capacity</h4>
+                                        <p class="text-gray-600 text-sm font-medium">25 tons</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                                            <i class="fas fa-balance-scale text-amber-600 text-sm"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-800 text-sm mb-1">Minimum Order</h4>
+                                        <p class="text-gray-600 text-sm font-medium">500 kg</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                                            <i class="fas fa-box text-amber-600 text-sm"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-800 text-sm mb-1">Packaging</h4>
+                                        <p class="text-gray-600 text-sm font-medium">25kg bags</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                                            <i class="fas fa-clock text-amber-600 text-sm"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-800 text-sm mb-1">Shelf Life</h4>
+                                        <p class="text-gray-600 text-sm font-medium">36 months</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                                            <i class="fas fa-star text-amber-600 text-sm"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-800 text-sm mb-1">Grade</h4>
+                                        <p class="text-gray-600 text-sm font-medium">Premium</p>
+                                    </div>
                                 </div>
-                                <h4 class="font-semibold text-gray-800 mb-2">Monthly Capacity</h4>
-                                <p class="text-gray-600 text-lg font-medium">25 tons</p>
-                                <p class="text-xs text-gray-500 mt-1">Premium grades</p>
-                            </div>
-                            <div class="text-center">
-                                <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                                    <i class="fas fa-balance-scale text-amber-600 text-xl"></i>
-                                </div>
-                                <h4 class="font-semibold text-gray-800 mb-2">Minimum Order</h4>
-                                <p class="text-gray-600 text-lg font-medium">500 kg</p>
-                                <p class="text-xs text-gray-500 mt-1">Premium packaging</p>
-                            </div>
-                            <div class="text-center">
-                                <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                                    <i class="fas fa-box text-amber-600 text-xl"></i>
-                                </div>
-                                <h4 class="font-semibold text-gray-800 mb-2">Packaging</h4>
-                                <p class="text-gray-600 text-lg font-medium">25kg bags</p>
-                                <p class="text-xs text-gray-500 mt-1">Vacuum sealed</p>
-                            </div>
-                            <div class="text-center">
-                                <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                                    <i class="fas fa-clock text-amber-600 text-xl"></i>
-                                </div>
-                                <h4 class="font-semibold text-gray-800 mb-2">Shelf Life</h4>
-                                <p class="text-gray-600 text-lg font-medium">36 months</p>
-                                <p class="text-xs text-gray-500 mt-1">Whole leaf quality</p>
-                            </div>
-                            <div class="text-center">
-                                <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                                    <i class="fas fa-star text-amber-600 text-xl"></i>
-                                </div>
-                                <h4 class="font-semibold text-gray-800 mb-2">Grade</h4>
-                                <p class="text-gray-600 text-lg font-medium">Premium</p>
-                                <p class="text-xs text-gray-500 mt-1">Hand-picked</p>
-                            </div>
+                            </details>
                         </div>
 
                         <!-- Loose Leaf Tea Variants -->
-                        <h4 class="text-2xl font-bold text-primary mb-8 text-center">Loose Leaf Tea Variants</h4>
-                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                        <div class="text-center mb-12">
+                            <h4 class="text-3xl font-bold text-primary mb-4">Our Loose Leaf Tea Variants</h4>
+                            <p class="text-gray-600 text-lg">Premium specialty teas for the discerning tea connoisseur</p>
+                        </div>
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
                             <!-- Oolong -->
                             <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer variant-card" onclick='openVariantPopup("Oolong", "Oolong tea is partially oxidized, offering a flavor profile between green and black teas, ranging from light and floral to rich and toasty.", "/assets/images/specialty-tea-oolong.jpg")'>
                                 <div class="relative">
@@ -749,53 +778,59 @@
                             </p>
                         </div>
 
-                        <!-- Product Specs -->
-                        <div class="grid md:grid-cols-5 gap-6 mb-12 bg-white/60 backdrop-blur-sm p-8 rounded-2xl border border-green-200">
-                            <div class="text-center">
-                                <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                                    <i class="fas fa-industry text-green-600 text-xl"></i>
+                        <!-- Product Specs - Compact -->
+                        <div class="mb-8">
+                            <details class="group">
+                                <summary class="cursor-pointer text-center text-gray-600 hover:text-gray-800 transition-colors">
+                                    <span class="text-sm font-medium">View Product Specifications</span>
+                                    <i class="fas fa-chevron-down ml-2 text-xs group-open:rotate-180 transition-transform"></i>
+                                </summary>
+                                <div class="mt-4 grid md:grid-cols-5 gap-4 bg-white/40 backdrop-blur-sm p-6 rounded-xl border border-green-200/50">
+                                    <div class="text-center">
+                                        <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                                            <i class="fas fa-industry text-green-600 text-sm"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-800 text-sm mb-1">Monthly Capacity</h4>
+                                        <p class="text-gray-600 text-sm font-medium">5 tons</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                                            <i class="fas fa-balance-scale text-green-600 text-sm"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-800 text-sm mb-1">Minimum Order</h4>
+                                        <p class="text-gray-600 text-sm font-medium">100 kg</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                                            <i class="fas fa-box text-green-600 text-sm"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-800 text-sm mb-1">Packaging</h4>
+                                        <p class="text-gray-600 text-sm font-medium">20kg boxes</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                                            <i class="fas fa-snowflake text-green-600 text-sm"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-800 text-sm mb-1">Storage</h4>
+                                        <p class="text-gray-600 text-sm font-medium">-18°C</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                                            <i class="fas fa-award text-green-600 text-sm"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-800 text-sm mb-1">Mesh Size</h4>
+                                        <p class="text-gray-600 text-sm font-medium">200-300</p>
+                                    </div>
                                 </div>
-                                <h4 class="font-semibold text-gray-800 mb-2">Monthly Capacity</h4>
-                                <p class="text-gray-600 text-lg font-medium">5 tons</p>
-                                <p class="text-xs text-gray-500 mt-1">Stone-ground</p>
-                            </div>
-                            <div class="text-center">
-                                <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                                    <i class="fas fa-balance-scale text-green-600 text-xl"></i>
-                                </div>
-                                <h4 class="font-semibold text-gray-800 mb-2">Minimum Order</h4>
-                                <p class="text-gray-600 text-lg font-medium">100 kg</p>
-                                <p class="text-xs text-gray-500 mt-1">Bulk packaging</p>
-                            </div>
-                            <div class="text-center">
-                                <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                                    <i class="fas fa-box text-green-600 text-xl"></i>
-                                </div>
-                                <h4 class="font-semibold text-gray-800 mb-2">Packaging</h4>
-                                <p class="text-gray-600 text-lg font-medium">20kg boxes</p>
-                                <p class="text-xs text-gray-500 mt-1">Airtight sealed</p>
-                            </div>
-                            <div class="text-center">
-                                <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                                    <i class="fas fa-snowflake text-green-600 text-xl"></i>
-                                </div>
-                                <h4 class="font-semibold text-gray-800 mb-2">Storage</h4>
-                                <p class="text-gray-600 text-lg font-medium">-18°C</p>
-                                <p class="text-xs text-gray-500 mt-1">Frozen storage</p>
-                            </div>
-                            <div class="text-center">
-                                <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                                    <i class="fas fa-award text-green-600 text-xl"></i>
-                                </div>
-                                <h4 class="font-semibold text-gray-800 mb-2">Mesh Size</h4>
-                                <p class="text-gray-600 text-lg font-medium">200-300</p>
-                                <p class="text-xs text-gray-500 mt-1">Ultra-fine powder</p>
-                            </div>
+                            </details>
                         </div>
 
                         <!-- Matcha Variants -->
-                        <h4 class="text-2xl font-bold text-primary mb-8 text-center">Matcha Powder Grades</h4>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="text-center mb-12">
+                            <h4 class="text-3xl font-bold text-primary mb-4">Our Matcha Powder Grades</h4>
+                            <p class="text-gray-600 text-lg">From ceremonial grade to culinary applications</p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
                             <!-- Ceremonial Grade -->
                             <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer variant-card relative border-2 border-green-400" onclick="openVariantPopup('Ceremonial Grade Matcha', 'The highest quality matcha made from the youngest tea leaves. Perfect for traditional tea ceremony with sweet, smooth taste and vibrant green color.', '/assets/images/green-tea-chun-mee.jpg')">
                                 <!-- Premium Badge -->
