@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17055870584"></script>
@@ -7,13 +7,12 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'AW-17055870584');
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="vercel" content="toolbar=off">
-    
+
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
@@ -24,7 +23,7 @@
     <meta name="msapplication-TileColor" content="#2c7744">
     <meta name="msapplication-config" content="/assets/favicon/browserconfig.xml">
     <meta name="theme-color" content="#2c7744">
-    
+
     <!-- Primary Meta Tags -->
     <title>Black Tea & Green Tea Wholesale Indonesia | Reliable Tea Exporter | TropicaFarm</title>
     <meta name="description" content="Reliable Indonesian wholesale tea supplier. High-quality black tea and green tea direct from Java plantations. Bulk quantities available for global importers. Competitive FOB prices, ISO certified, sustainable sourcing.">
@@ -62,21 +61,15 @@
     <link rel="alternate" hreflang="en" href="https://tropicafarm.com/products/tea.html">
     <link rel="alternate" hreflang="id" href="https://tropicafarm.com/id/products/tea.html">
     <link rel="alternate" hreflang="x-default" href="https://tropicafarm.com/products/tea.html">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Swiper.js -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        primary: '#2c7744',
+                        primary: '#1f6306',
                         secondary: '#f9a825',
                         accent: '#1a5c30',
                         light: '#f8f9fa',
@@ -89,163 +82,39 @@
             }
         }
     </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        html { scroll-behavior: smooth; }
-        .hero-tea { 
-            position: relative;
-            overflow: hidden;
-            min-height: 40vh;
+        * {
+            font-family: 'Figtree', sans-serif;
         }
-        .hero-tea video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 0;
+
+        .hero-gradient {
+            background: linear-gradient(90deg, #0e2207 0%, rgba(14, 34, 7, 0) 100%);
         }
-        .hero-tea::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.1);
-            z-index: 1;
+
+        .hero-bg {
+            background-image: url('/assets/images/java-tea-harvest.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
-        .hero-tea .container {
-            position: relative;
-            z-index: 2;
-        }
-        .swiper-button-next, .swiper-button-prev {
-            color: #2c7744;
-        }
-        .swiper-pagination-bullet-active {
-            background: #2c7744;
-        }
-        /* Image Popup Styles */
-        .image-popup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-        .image-popup.active {
-            display: flex;
-        }
-        .popup-content {
-            position: relative;
-            max-width: 90%;
-            max-height: 90vh;
-        }
-        .popup-content img {
-            max-width: 100%;
-            max-height: 90vh;
-            object-fit: contain;
-        }
-        .close-popup {
-            position: absolute;
-            top: -40px;
-            right: 0;
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
-            background: rgba(255, 255, 255, 0.2);
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-        .close-popup:hover {
-            background: rgba(255, 255, 255, 0.3);
-        }
-        .gallery-image {
-            cursor: pointer;
+
+        .hover-scale {
             transition: transform 0.3s ease;
         }
-        .gallery-image:hover {
-            transform: scale(1.02);
+
+        .hover-scale:hover {
+            transform: scale(1.05);
         }
-        /* Header Styles */
-        #navbar {
-            background: transparent;
-            transition: all 0.3s ease;
-        }
-        #navbar.scrolled {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(5px);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        #navbar .nav-link {
-            color: white;
-            transition: color 0.3s ease;
-        }
-        #navbar.scrolled .nav-link {
-            color: #6b7280;
-        }
-        #navbar.scrolled .nav-link:hover {
-            color: #2c7744;
-        }
-        #navbar .logo-svg {
-            filter: brightness(0) invert(1);
-            transition: filter 0.3s ease;
-        }
-        #navbar.scrolled .logo-svg {
-            filter: none;
-        }
-        #navbar .logo-text,
-        #navbar .logo-icon {
-            color: white;
-            transition: color 0.3s ease;
-        }
-        #navbar.scrolled .logo-text,
-        #navbar.scrolled .logo-icon {
-            color: #2c7744;
-        }
-        #navbar .order-button {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-        #navbar.scrolled .order-button {
-            background: #2c7744;
-            border: none;
-        }
-        .order-button {
-            background: rgba(255, 255, 255, 0.95);
-            color: #2c7744;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(5px);
-            transition: all 0.3s ease;
-        }
-        .order-button:hover {
-            background: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        .order-button i {
-            transition: transform 0.3s ease;
-        }
-        .order-button:hover i {
-            transform: scale(1.1);
-        }
+
         .variant-card {
             transition: box-shadow 0.3s, transform 0.3s;
             position: relative;
         }
         .variant-card:hover {
             box-shadow: 0 8px 32px rgba(44, 119, 68, 0.18), 0 1.5px 8px rgba(44, 119, 68, 0.10);
+            transform: translateY(-4px);
         }
         .variant-card .variant-thumb {
             transition: transform 0.3s;
@@ -256,7 +125,7 @@
         .variant-card .variant-hover-overlay {
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(30, 41, 59, 0.45); /* dark, semi-transparent */
+            background: rgba(30, 41, 59, 0.45);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -265,6 +134,7 @@
             pointer-events: none;
             transition: opacity 0.2s;
             z-index: 2;
+            border-radius: 0.75rem;
         }
         .variant-card:hover .variant-hover-overlay {
             opacity: 1;
@@ -276,223 +146,497 @@
             letter-spacing: 0.02em;
             text-shadow: 0 2px 8px rgba(0,0,0,0.18);
         }
+
+        /* Variant Popup Styles */
+        .variant-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .variant-popup.active {
+            display: flex;
+        }
+        .popup-content-variant {
+            position: relative;
+            max-width: 90%;
+            max-height: 90vh;
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+        .close-popup-variant {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: #6b7280;
+            font-size: 1.5rem;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.9);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        .close-popup-variant:hover {
+            background: rgba(255, 255, 255, 1);
+            color: #374151;
+        }
     </style>
 </head>
-<body class="font-sans text-gray-800">
-    <!-- Header -->
-    <header id="navbar" class="fixed w-full z-40 transition-all duration-300">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="../index.html" class="flex items-center space-x-2 group">
-                <img src="/assets/images/logo.svg" alt="TropicaFarm Logo" class="h-8 w-8 logo-svg">
-                <span class="text-2xl font-bold logo-text">TropicaFarm</span>
-            </a>
-            <div class="flex items-center space-x-6">
-                <!-- <nav class="hidden md:flex space-x-6">
-                    <a href="../index.html" class="nav-link">Home</a>
-                    <a href="../#about" class="nav-link">About</a>
-                    <a href="../#products" class="nav-link">Products</a>
-                    <a href="../#contact" class="nav-link">Contact</a>
-                </nav> -->
-                <!-- <a href="https://wa.me/6282246632200?text=Hello%20TropicaFarm%2C%20I%20am%20interested%20in%20your%20tea%20products" target="_blank" class="order-button text-white px-6 py-2 rounded-lg transition duration-300 flex items-center space-x-2">
-                    <i class="fab fa-whatsapp"></i>
-                    <span class="hidden md:inline">Order Now</span>
-                </a> -->
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="absolute w-full z-50 border-b border-white/20 bg-transparent">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <a href="../index.html" class="flex items-center space-x-2">
+                        <img src="/assets/images/tropicafarm-logo.png" alt="TropicaFarm Logo" class="w-12 h-12 rounded-full p-1">
+                        <span class="text-2xl font-bold text-white">TropicaFarm</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-white p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../index.html" class="text-white hover:text-yellow-400 text-lg font-bold transition-colors">Home</a>
+                    <a href="../index.html#journey" class="text-white hover:text-yellow-400 text-lg font-bold transition-colors">About Us</a>
+                    <a href="#" class="text-yellow-400 text-lg font-bold border-b-2 border-yellow-400 pb-1">Products</a>
+                </div>
+
+                <!-- Chat Button -->
+                <a href="https://wa.me/6282246632200?text=Hello%20TropicaFarm" target="_blank" class="hidden md:flex bg-primary text-white px-6 py-3 rounded-full font-semibold hover:bg-primary/90 transition-all hover-scale flex items-center justify-center space-x-2">
+                    <span>Chat With Us</span>
+                    <div class="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></div>
+                </a>
             </div>
         </div>
-    </header>
+    </nav>
 
     <!-- Hero Section -->
-    <section class="hero-tea flex items-center text-white pt-20 bg-cover bg-center relative" style="background-image: url('/assets/images/java-tea-harvest.jpg'); min-height: 60vh;">
-      <div class="absolute inset-0 bg-black/10"></div>
-      <div class="container mx-auto px-6 py-0 md:py-10 relative z-10">
-        <div class="max-w-2xl">
-          <h1 class="text-2xl md:text-4xl font-bold mb-6 leading-tight">
-            Tea Wholesale from Indonesia
-          </h1>
-          <p class="text-xl mb-8 leading-relaxed">
-            Exporting black tea and green tea in bulk since 2014.
-          </p>
-          <div class="flex flex-wrap gap-4">
-            <a href="https://wa.me/6282246632200?text=Hello%20TropicaFarm%2C%20I%20am%20interested%20in%20your%20tea%20products" target="_blank" class="order-button px-6 py-3 rounded-xl font-semibold bg-green-700 text-white border border-white hover:bg-green-800 transition duration-300 flex items-center shadow-lg whitespace-nowrap">
-              <i class="fab fa-whatsapp text-xl mr-3"></i> Contact Us
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- About Tea Products -->
-    <section class="py-12 bg-light">
-        <div class="container mx-auto px-6">
-            <div class="max-w-5xl mx-auto">
-                <h2 class="text-4xl font-bold text-primary mb-10 text-center">Why Choose TropicaFarm?</h2>
-                <div class="grid md:grid-cols-4 gap-8 mb-12">
-                    <div class="flex flex-col items-center text-center">
-                        <i class="fas fa-shield-alt text-4xl text-primary mb-4"></i>
-                        <h3 class="font-semibold text-lg mb-2">Certified Quality</h3>
-                        <p class="text-gray-600">ISO, HACCP, and Halal certified. Consistent, export-grade tea for global markets.</p>
-                    </div>
-                    <div class="flex flex-col items-center text-center">
-                        <i class="fas fa-boxes text-4xl text-primary mb-4"></i>
-                        <h3 class="font-semibold text-lg mb-2">Flexible Packaging</h3>
-                        <p class="text-gray-600">Bulk tea in 40kg or 50kg kraft paper bags. Custom packaging and labeling available.</p>
-                    </div>
-                    <div class="flex flex-col items-center text-center">
-                        <i class="fas fa-flask text-4xl text-primary mb-4"></i>
-                        <h3 class="font-semibold text-lg mb-2">Custom Blends</h3>
-                        <p class="text-gray-600">Tailored tea blends to match your market's taste and requirements.</p>
-                    </div>
-                    <div class="flex flex-col items-center text-center">
-                        <i class="fas fa-industry text-4xl text-primary mb-4"></i>
-                        <h3 class="font-semibold text-lg mb-2">High Production Capacity</h3>
-                        <p class="text-gray-600">150 tons monthly to support your bulk orders.</p>
-                    </div>
-                </div>
-                <div class="flex flex-wrap justify-center gap-8">
-                    <!-- Stat blocks removed as requested -->
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Black Tea Section -->
-    <section id="black-tea" class="py-12">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col lg:flex-row gap-12">
-                <!-- Image Gallery -->
-                <div class="lg:w-1/2">
-                    <div class="swiper product-swiper rounded-2xl overflow-hidden shadow-lg">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img src="/assets/images/black-tea-display.jpg" alt="High-quality Indonesian Black Tea - Main View" class="w-full h-[500px] object-cover">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="/assets/images/black-tea-close-up.jpg" alt="Black Tea Close Up" class="w-full h-[500px] object-cover">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="/assets/images/tea-brewed.jpg" alt="Black Tea Brewed" class="w-full h-[500px] object-cover">
-                            </div>
-                        </div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                </div>
-
-                <!-- Product Information -->
-                <div class="lg:w-1/2">
-                    <h2 class="text-4xl font-bold text-primary mt-4 mb-6">Black Tea</h2>
-                    <p class="text-gray-600 text-lg mb-8">Our high-quality black tea offers a rich, full-bodied flavor with malty notes and a smooth finish. Carefully processed from mature tea leaves, it's perfect for various applications from tea bags to ready-to-drink beverages.</p>
-
-                    <div class="grid grid-cols-2 gap-6 mb-8">
-                        <div>
-                            <h4 class="font-semibold text-gray-800 mb-2">Production Capacity</h4>
-                            <p class="text-gray-600">75 tons/month</p>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-gray-800 mb-2">Minimum Order</h4>
-                            <p class="text-gray-600">1 ton</p>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-gray-800 mb-2">Packaging</h4>
-                            <p class="text-gray-600">40kg or 50kg kraft paper bags</p>
-                            <p class="text-gray-400 text-xs mt-1 font-normal">Custom packaging available upon request</p>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-gray-800 mb-2">Shelf Life</h4>
-                            <p class="text-gray-600">24 months</p>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-wrap gap-3 mb-8">
-                        <span class="bg-gray-100 px-4 py-2 rounded-full text-sm">High Antioxidants</span>
-                        <span class="bg-gray-100 px-4 py-2 rounded-full text-sm">Bold Flavor</span>
-                        <span class="bg-gray-100 px-4 py-2 rounded-full text-sm">Loose Leaf</span>
-                        <span class="bg-gray-100 px-4 py-2 rounded-full text-sm">Bulk Supply</span>
-                    </div>
-
-                    <a href="https://wa.me/6282246632200?text=Hello%20TropicaFarm%2C%20I%20am%20interested%20in%20your%20Black%20Tea%20products" target="_blank" class="bg-primary hover:bg-accent text-white px-8 py-4 rounded-xl transition duration-300 inline-flex items-center mb-12">
-                        <i class="fab fa-whatsapp text-xl mr-2"></i> Order Black Tea
+    <section class="relative h-screen max-h-[500px] hero-bg flex items-center">
+        <div class="absolute inset-0 hero-gradient"></div>
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="text-white space-y-6 max-w-3xl">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+                    Tea Wholesale<br>
+                    <span class="text-white">From Indonesia</span>
+                </h1>
+                <p class="text-xl text-gray-200 max-w-2xl">
+                    Discover our premium collection of Indonesian black tea, green tea, and specialty loose leaf teas. 
+                    Direct from West Java plantations to your business.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <a href="https://wa.me/6282246632200?text=Hello%20TropicaFarm%2C%20I%20am%20interested%20in%20your%20tea%20products" target="_blank" class="bg-primary text-white px-8 py-4 rounded-full font-semibold hover:bg-primary/90 transition-all hover-scale flex items-center justify-center space-x-2">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                        <span>Get Quote Now</span>
                     </a>
-
                 </div>
             </div>
-            <!-- Tea Variants -->
-            <div class="mt-12">
-                <h3 class="text-2xl font-bold text-primary mb-6">Black Tea Variants</h3>
-                <div class="flex flex-wrap gap-4 justify-center md:justify-start">
-                    <!-- PF (Pekoe Fannings) -->
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px] variant-card" onclick="openVariantPopup('PF (Pekoe Fannings)', 'Quick-brewing, strong flavored tea, perfect for commercial tea bags.', '/assets/images/black-tea-pf.jpg')">
-                        <div class="flex flex-col relative">
-                            <div class="h-48 relative">
-                                <img src="/assets/images/black-tea-pf-thumbnail.jpg" alt="Black Tea PF" class="w-full h-full object-cover variant-thumb">
-                                <span class="variant-hover-overlay">
-                                    <span class="view-detail-text">View Detail</span>
-                                </span>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="py-20 bg-gradient-to-b from-emerald-50 to-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">Our Tea Collection</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Premium Indonesian teas carefully processed from the finest leaves grown in West Java's highlands. Each variety offers unique characteristics perfect for wholesale and bulk distribution.</p>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="flex flex-col gap-20 max-w-7xl mx-auto">
+
+                <!-- Black Tea Section -->
+                <div id="black-tea" class="relative overflow-hidden rounded-3xl p-8 lg:p-12 bg-gradient-to-br from-amber-50 to-amber-100">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-amber-200/20 rounded-full -mr-32 -mt-32"></div>
+                    <div class="relative z-10">
+                        <!-- Header -->
+                        <div class="text-center mb-12">
+                            <div class="inline-flex items-center gap-2 mb-4">
+                                <div class="w-2 h-8 bg-amber-600 rounded-full"></div>
+                                <span class="text-amber-800 font-medium text-lg">Robust & Malty</span>
                             </div>
-                            <div class="p-4">
-                                <h4 class="font-bold text-primary text-center">PF (Pekoe Fannings)</h4>
+                            <h3 class="text-4xl font-bold text-gray-800 mb-4">Black Tea</h3>
+                            <p class="text-gray-700 leading-relaxed max-w-4xl mx-auto text-lg">
+                                Our premium black teas are meticulously hand-picked from the fertile, volcanic soils of West Java. 
+                                Carefully oxidized to unlock their full-bodied potential, resulting in a rich, malty flavor profile perfect for bulk distribution.
+                            </p>
+                        </div>
+
+                        <!-- Product Specs -->
+                        <div class="grid md:grid-cols-4 gap-6 mb-12 bg-white/50 backdrop-blur-sm p-6 rounded-2xl">
+                            <div class="text-center">
+                                <h4 class="font-semibold text-gray-800 mb-2">Production Capacity</h4>
+                                <p class="text-gray-600 text-lg font-medium">75 tons/month</p>
+                            </div>
+                            <div class="text-center">
+                                <h4 class="font-semibold text-gray-800 mb-2">Minimum Order</h4>
+                                <p class="text-gray-600 text-lg font-medium">1 ton</p>
+                            </div>
+                            <div class="text-center">
+                                <h4 class="font-semibold text-gray-800 mb-2">Packaging</h4>
+                                <p class="text-gray-600 text-lg font-medium">40kg or 50kg bags</p>
+                            </div>
+                            <div class="text-center">
+                                <h4 class="font-semibold text-gray-800 mb-2">Shelf Life</h4>
+                                <p class="text-gray-600 text-lg font-medium">24 months</p>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- OP (Orange Pekoe) -->
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px] variant-card" onclick="openVariantPopup('OP (Orange Pekoe)', 'Whole tea leaves offering delicate flavor and lighter body.', '/assets/images/black-tea-op.jpg')">
-                        <div class="flex flex-col relative">
-                            <div class="h-48 relative">
-                                <img src="/assets/images/black-tea-op-thumbnail.jpg" alt="Black Tea OP" class="w-full h-full object-cover variant-thumb">
-                                <span class="variant-hover-overlay">
-                                    <span class="view-detail-text">View Detail</span>
-                                </span>
+                        <!-- Black Tea Variants -->
+                        <h4 class="text-2xl font-bold text-primary mb-8 text-center">Black Tea Variants</h4>
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                            <!-- PF (Pekoe Fannings) -->
+                            <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer variant-card" onclick="openVariantPopup('PF (Pekoe Fannings)', 'Quick-brewing, strong flavored tea, perfect for commercial tea bags.', '/assets/images/black-tea-pf.jpg')">
+                                <div class="relative">
+                                    <div class="h-40 relative overflow-hidden">
+                                        <img src="/assets/images/black-tea-pf-thumbnail.jpg" alt="Black Tea PF" class="w-full h-full object-cover variant-thumb">
+                                        <span class="variant-hover-overlay">
+                                            <span class="view-detail-text">View Detail</span>
+                                        </span>
+                                    </div>
+                                    <div class="p-4">
+                                        <h5 class="font-bold text-primary text-center text-sm">PF (Pekoe Fannings)</h5>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="p-4">
-                                <h4 class="font-bold text-primary text-center">OP (Orange Pekoe)</h4>
+
+                            <!-- OP (Orange Pekoe) -->
+                            <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer variant-card" onclick="openVariantPopup('OP (Orange Pekoe)', 'Whole tea leaves offering delicate flavor and lighter body.', '/assets/images/black-tea-op.jpg')">
+                                <div class="relative">
+                                    <div class="h-40 relative overflow-hidden">
+                                        <img src="/assets/images/black-tea-op-thumbnail.jpg" alt="Black Tea OP" class="w-full h-full object-cover variant-thumb">
+                                        <span class="variant-hover-overlay">
+                                            <span class="view-detail-text">View Detail</span>
+                                        </span>
+                                    </div>
+                                    <div class="p-4">
+                                        <h5 class="font-bold text-primary text-center text-sm">OP (Orange Pekoe)</h5>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- BOP (Broken Orange Pekoe) -->
+                            <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer variant-card" onclick="openVariantPopup('BOP (Broken Orange Pekoe)', 'Strong, robust flavor ideal for breakfast blends.', '/assets/images/black-tea-bop.jpg')">
+                                <div class="relative">
+                                    <div class="h-40 relative overflow-hidden">
+                                        <img src="/assets/images/black-tea-bop-thumbnail.jpg" alt="Black Tea BOP" class="w-full h-full object-cover variant-thumb">
+                                        <span class="variant-hover-overlay">
+                                            <span class="view-detail-text">View Detail</span>
+                                        </span>
+                                    </div>
+                                    <div class="p-4">
+                                        <h5 class="font-bold text-primary text-center text-sm">BOP (Broken Orange Pekoe)</h5>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- BOPF (Broken Orange Pekoe Fannings) -->
+                            <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer variant-card" onclick="openVariantPopup('BOPF (Broken Orange Pekoe Fannings)', 'Strong, full-bodied brew with bright reddish liquor.', '/assets/images/black-tea-bopf.jpg')">
+                                <div class="relative">
+                                    <div class="h-40 relative overflow-hidden">
+                                        <img src="/assets/images/black-tea-bopf-thumbnail.jpg" alt="Black Tea BOPF" class="w-full h-full object-cover variant-thumb">
+                                        <span class="variant-hover-overlay">
+                                            <span class="view-detail-text">View Detail</span>
+                                        </span>
+                                    </div>
+                                    <div class="p-4">
+                                        <h5 class="font-bold text-primary text-center text-sm">BOPF (Broken Orange Pekoe Fannings)</h5>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Dust -->
+                            <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer variant-card" onclick="openVariantPopup('Dust', 'Very strong, brisk cup for mass-market tea bags.', '/assets/images/black-tea-dust.jpg')">
+                                <div class="relative">
+                                    <div class="h-40 relative overflow-hidden">
+                                        <img src="/assets/images/black-tea-dust-thumbnail.jpg" alt="Black Tea Dust" class="w-full h-full object-cover variant-thumb">
+                                        <span class="variant-hover-overlay">
+                                            <span class="view-detail-text">View Detail</span>
+                                        </span>
+                                    </div>
+                                    <div class="p-4">
+                                        <h5 class="font-bold text-primary text-center text-sm">Dust</h5>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- BOP (Broken Orange Pekoe) -->
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px] variant-card" onclick="openVariantPopup('BOP (Broken Orange Pekoe)', 'Strong, robust flavor ideal for breakfast blends.', '/assets/images/black-tea-bop.jpg')">
-                        <div class="flex flex-col relative">
-                            <div class="h-48 relative">
-                                <img src="/assets/images/black-tea-bop-thumbnail.jpg" alt="Black Tea BOP" class="w-full h-full object-cover variant-thumb">
-                                <span class="variant-hover-overlay">
-                                    <span class="view-detail-text">View Detail</span>
-                                </span>
-                            </div>
-                            <div class="p-4">
-                                <h4 class="font-bold text-primary text-center">BOP (Broken Orange Pekoe)</h4>
-                            </div>
+                        <!-- CTA Button -->
+                        <div class="text-center mt-12">
+                            <a href="https://wa.me/6282246632200?text=Hello%20TropicaFarm%2C%20I%20am%20interested%20in%20your%20Black%20Tea%20products" target="_blank" class="bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-xl transition duration-300 inline-flex items-center font-semibold">
+                                <i class="fab fa-whatsapp text-xl mr-2"></i> Order Black Tea
+                            </a>
                         </div>
                     </div>
+                </div>
 
-                    <!-- BOPF (Broken Orange Pekoe Fannings) -->
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px] variant-card" onclick="openVariantPopup('BOPF (Broken Orange Pekoe Fannings)', 'Strong, full-bodied brew with bright reddish liquor.', '/assets/images/black-tea-bopf.jpg')">
-                        <div class="flex flex-col relative">
-                            <div class="h-48 relative">
-                                <img src="/assets/images/black-tea-bopf-thumbnail.jpg" alt="Black Tea BOPF" class="w-full h-full object-cover variant-thumb">
-                                <span class="variant-hover-overlay">
-                                    <span class="view-detail-text">View Detail</span>
-                                </span>
+                <!-- Green Tea Section -->
+                <div id="green-tea" class="relative overflow-hidden rounded-3xl p-8 lg:p-12 bg-gradient-to-br from-emerald-50 to-emerald-100">
+                    <div class="absolute -left-32 -top-32 w-96 h-96 bg-emerald-200/20 rounded-full"></div>
+                    <div class="relative z-10">
+                        <!-- Header -->
+                        <div class="text-center mb-12">
+                            <div class="inline-flex items-center gap-2 mb-4">
+                                <div class="w-2 h-8 bg-emerald-600 rounded-full"></div>
+                                <span class="text-emerald-800 font-medium text-lg">Fresh & Revitalizing</span>
                             </div>
-                            <div class="p-4">
-                                <h4 class="font-bold text-primary text-center">BOPF (Broken Orange Pekoe Fannings)</h4>
+                            <h3 class="text-4xl font-bold text-gray-800 mb-4">Green Tea</h3>
+                            <p class="text-gray-700 leading-relaxed max-w-4xl mx-auto text-lg">
+                                Experience the refreshing essence of our green teas from West Java's pristine, high-altitude plantations. 
+                                Minimally processed to preserve natural antioxidants and deliver a crisp, healthy brew.
+                            </p>
+                        </div>
+
+                        <!-- Product Specs -->
+                        <div class="grid md:grid-cols-4 gap-6 mb-12 bg-white/50 backdrop-blur-sm p-6 rounded-2xl">
+                            <div class="text-center">
+                                <h4 class="font-semibold text-gray-800 mb-2">Production Capacity</h4>
+                                <p class="text-gray-600 text-lg font-medium">75 tons/month</p>
+                            </div>
+                            <div class="text-center">
+                                <h4 class="font-semibold text-gray-800 mb-2">Minimum Order</h4>
+                                <p class="text-gray-600 text-lg font-medium">1 ton</p>
+                            </div>
+                            <div class="text-center">
+                                <h4 class="font-semibold text-gray-800 mb-2">Packaging</h4>
+                                <p class="text-gray-600 text-lg font-medium">40kg or 50kg bags</p>
+                            </div>
+                            <div class="text-center">
+                                <h4 class="font-semibold text-gray-800 mb-2">Shelf Life</h4>
+                                <p class="text-gray-600 text-lg font-medium">24 months</p>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Dust -->
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px] variant-card" onclick="openVariantPopup('Dust', 'Very strong, brisk cup for mass-market tea bags.', '/assets/images/black-tea-dust.jpg')">
-                        <div class="flex flex-col relative">
-                            <div class="h-48 relative">
-                                <img src="/assets/images/black-tea-dust-thumbnail.jpg" alt="Black Tea Dust" class="w-full h-full object-cover variant-thumb">
-                                <span class="variant-hover-overlay">
-                                    <span class="view-detail-text">View Detail</span>
-                                </span>
+                        <!-- Green Tea Variants -->
+                        <h4 class="text-2xl font-bold text-primary mb-8 text-center">Green Tea Variants</h4>
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                            <!-- Chun Mee -->
+                            <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer variant-card" onclick='openVariantPopup("Chun Mee", "Chun Mee, meaning \"Precious Eyebrows\" is a Chinese green tea with hand-rolled leaves, offering a medium-bodied infusion with slight fruity tartness.", "/assets/images/green-tea-chun-mee.jpg")'>
+                                <div class="relative">
+                                    <div class="h-40 relative overflow-hidden">
+                                        <img src="/assets/images/green-tea-chun-mee-thumbnail.jpg" alt="Green Tea Chun Mee" class="w-full h-full object-cover variant-thumb">
+                                        <span class="variant-hover-overlay">
+                                            <span class="view-detail-text">View Detail</span>
+                                        </span>
+                                    </div>
+                                    <div class="p-4">
+                                        <h5 class="font-bold text-primary text-center text-sm">Chun Mee</h5>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="p-4">
-                                <h4 class="font-bold text-primary text-center">Dust</h4>
+
+                            <!-- Fannings -->
+                            <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer variant-card" onclick="openVariantPopup('Fannings', 'Fannings are small tea leaf particles left after higher grades are gathered, brewing quickly to produce a strong, flavorful cup.', '/assets/images/green-tea-fannings.jpg')">
+                                <div class="relative">
+                                    <div class="h-40 relative overflow-hidden">
+                                        <img src="/assets/images/green-tea-fannings-thumbnail.jpg" alt="Green Tea Fannings" class="w-full h-full object-cover variant-thumb">
+                                        <span class="variant-hover-overlay">
+                                            <span class="view-detail-text">View Detail</span>
+                                        </span>
+                                    </div>
+                                    <div class="p-4">
+                                        <h5 class="font-bold text-primary text-center text-sm">Fannings</h5>
+                                    </div>
+                                </div>
                             </div>
+
+                            <!-- Gun Powder -->
+                            <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer variant-card" onclick="openVariantPopup('Gun Powder', 'Gunpowder tea consists of green tea leaves rolled into small pellets, resembling gunpowder grains, yielding a bold, slightly smoky flavor.', '/assets/images/green-tea-gun-powder.jpg')">
+                                <div class="relative">
+                                    <div class="h-40 relative overflow-hidden">
+                                        <img src="/assets/images/green-tea-gun-powder-thumbnail.jpg" alt="Green Tea Gun Powder" class="w-full h-full object-cover variant-thumb">
+                                        <span class="variant-hover-overlay">
+                                            <span class="view-detail-text">View Detail</span>
+                                        </span>
+                                    </div>
+                                    <div class="p-4">
+                                        <h5 class="font-bold text-primary text-center text-sm">Gun Powder</h5>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Pekoe Super -->
+                            <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer variant-card" onclick="openVariantPopup('Pekoe Super', 'Pekoe Super is a high-grade green tea with long, needle-like leaves, producing a bright green, flowery, and sweet infusion.', '/assets/images/green-tea-pekoe-super.jpg')">
+                                <div class="relative">
+                                    <div class="h-40 relative overflow-hidden">
+                                        <img src="/assets/images/green-tea-pekoe-super-thumbnail.jpg" alt="Green Tea Pekoe Super" class="w-full h-full object-cover variant-thumb">
+                                        <span class="variant-hover-overlay">
+                                            <span class="view-detail-text">View Detail</span>
+                                        </span>
+                                    </div>
+                                    <div class="p-4">
+                                        <h5 class="font-bold text-primary text-center text-sm">Pekoe Super</h5>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Sow Mee -->
+                            <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer variant-card" onclick="openVariantPopup('Sow Mee', 'Sow Mee is a type of white tea made from mature leaves and buds, offering a naturally sweet aroma and mellow character.', '/assets/images/green-tea-sow-mee.jpg')">
+                                <div class="relative">
+                                    <div class="h-40 relative overflow-hidden">
+                                        <img src="/assets/images/green-tea-sow-mee-thumbnail.jpg" alt="Green Tea Sow Mee" class="w-full h-full object-cover variant-thumb">
+                                        <span class="variant-hover-overlay">
+                                            <span class="view-detail-text">View Detail</span>
+                                        </span>
+                                    </div>
+                                    <div class="p-4">
+                                        <h5 class="font-bold text-primary text-center text-sm">Sow Mee</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CTA Button -->
+                        <div class="text-center mt-12">
+                            <a href="https://wa.me/6282246632200?text=Hello%20TropicaFarm%2C%20I%20am%20interested%20in%20your%20Green%20Tea%20products" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl transition duration-300 inline-flex items-center font-semibold">
+                                <i class="fab fa-whatsapp text-xl mr-2"></i> Order Green Tea
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Specialty Tea Section -->
+                <div id="specialty-tea" class="relative overflow-hidden rounded-3xl p-8 lg:p-12 bg-gradient-to-br from-amber-50 to-amber-100/50">
+                    <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-amber-200/20 rounded-full"></div>
+                    <div class="absolute -left-20 -bottom-20 w-64 h-64 bg-amber-100/30 rounded-full"></div>
+                    <div class="relative z-10">
+                        <!-- Header -->
+                        <div class="text-center mb-12">
+                            <div class="inline-flex items-center gap-2 mb-4">
+                                <div class="w-2 h-8 bg-amber-500/80 rounded-full"></div>
+                                <span class="text-amber-800 font-medium text-lg">Pure & Unblended</span>
+                            </div>
+                            <h3 class="text-4xl font-bold text-gray-800 mb-4">Specialty Loose Leaf Tea</h3>
+                            <p class="text-gray-700 leading-relaxed max-w-4xl mx-auto text-lg">
+                                Discover our premium specialty teas, each offering unique flavors and aromas. From partially oxidized Oolong to fragrant Jasmine, 
+                                experience the finest Indonesian tea craftsmanship in whole leaf form.
+                            </p>
+                        </div>
+
+                        <!-- Product Specs -->
+                        <div class="grid md:grid-cols-4 gap-6 mb-12 bg-white/50 backdrop-blur-sm p-6 rounded-2xl">
+                            <div class="text-center">
+                                <h4 class="font-semibold text-gray-800 mb-2">Production Capacity</h4>
+                                <p class="text-gray-600 text-lg font-medium">50 tons/month</p>
+                            </div>
+                            <div class="text-center">
+                                <h4 class="font-semibold text-gray-800 mb-2">Minimum Order</h4>
+                                <p class="text-gray-600 text-lg font-medium">1 ton</p>
+                            </div>
+                            <div class="text-center">
+                                <h4 class="font-semibold text-gray-800 mb-2">Packaging</h4>
+                                <p class="text-gray-600 text-lg font-medium">40kg or 50kg bags</p>
+                            </div>
+                            <div class="text-center">
+                                <h4 class="font-semibold text-gray-800 mb-2">Shelf Life</h4>
+                                <p class="text-gray-600 text-lg font-medium">24 months</p>
+                            </div>
+                        </div>
+
+                        <!-- Specialty Tea Variants -->
+                        <h4 class="text-2xl font-bold text-primary mb-8 text-center">Specialty Tea Variants</h4>
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                            <!-- Oolong -->
+                            <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer variant-card" onclick='openVariantPopup("Oolong", "Oolong tea is partially oxidized, offering a flavor profile between green and black teas, ranging from light and floral to rich and toasty.", "/assets/images/specialty-tea-oolong.jpg")'>
+                                <div class="relative">
+                                    <div class="h-40 relative overflow-hidden">
+                                        <img src="/assets/images/specialty-tea-oolong-thumbnail.jpg" alt="Specialty Tea Oolong" class="w-full h-full object-cover variant-thumb">
+                                        <span class="variant-hover-overlay">
+                                            <span class="view-detail-text">View Detail</span>
+                                        </span>
+                                    </div>
+                                    <div class="p-4">
+                                        <h5 class="font-bold text-primary text-center text-sm">Oolong</h5>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Jasmine -->
+                            <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer variant-card" onclick='openVariantPopup("Jasmine", "Jasmine tea is scented with fresh jasmine blossoms, imparting a delicate floral aroma and flavor.", "/assets/images/specialty-tea-jasmine.jpg")'>
+                                <div class="relative">
+                                    <div class="h-40 relative overflow-hidden">
+                                        <img src="/assets/images/specialty-tea-jasmine-thumbnail.jpg" alt="Specialty Tea Jasmine" class="w-full h-full object-cover variant-thumb">
+                                        <span class="variant-hover-overlay">
+                                            <span class="view-detail-text">View Detail</span>
+                                        </span>
+                                    </div>
+                                    <div class="p-4">
+                                        <h5 class="font-bold text-primary text-center text-sm">Jasmine</h5>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Grey Dragon -->
+                            <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer variant-card" onclick="openVariantPopup('Grey Dragon', 'An Indonesian oolong from West Java\'s highlands, Grey Dragon features elegant, needle-like leaves with a sweet, fruity aroma and a light malt note.', '/assets/images/specialty-tea-grey-dragon.jpg')">
+                                <div class="relative">
+                                    <div class="h-40 relative overflow-hidden">
+                                        <img src="/assets/images/specialty-tea-grey-dragon-thumbnail.jpg" alt="Specialty Tea Grey Dragon" class="w-full h-full object-cover variant-thumb">
+                                        <span class="variant-hover-overlay">
+                                            <span class="view-detail-text">View Detail</span>
+                                        </span>
+                                    </div>
+                                    <div class="p-4">
+                                        <h5 class="font-bold text-primary text-center text-sm">Grey Dragon</h5>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- White Peony -->
+                            <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer variant-card" onclick="openVariantPopup('White Peony', 'White Peony is a white tea made from unopened buds and young leaves, producing a sweet, mild flavor with floral notes.', '/assets/images/specialty-tea-white-peony.jpg')">
+                                <div class="relative">
+                                    <div class="h-40 relative overflow-hidden">
+                                        <img src="/assets/images/specialty-tea-white-peony-thumbnail.jpg" alt="Specialty Tea White Peony" class="w-full h-full object-cover variant-thumb">
+                                        <span class="variant-hover-overlay">
+                                            <span class="view-detail-text">View Detail</span>
+                                        </span>
+                                    </div>
+                                    <div class="p-4">
+                                        <h5 class="font-bold text-primary text-center text-sm">White Peony</h5>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- White Tea -->
+                            <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer variant-card" onclick="openVariantPopup('White Tea', 'White tea is the least processed tea, harvested before the leaves fully open, resulting in a delicate flavor and high antioxidant content.', '/assets/images/specialty-tea-white-tea.jpg')">
+                                <div class="relative">
+                                    <div class="h-40 relative overflow-hidden">
+                                        <img src="/assets/images/specialty-tea-white-tea-thumbnail.jpg" alt="Specialty Tea White" class="w-full h-full object-cover variant-thumb">
+                                        <span class="variant-hover-overlay">
+                                            <span class="view-detail-text">View Detail</span>
+                                        </span>
+                                    </div>
+                                    <div class="p-4">
+                                        <h5 class="font-bold text-primary text-center text-sm">White Tea</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CTA Button -->
+                        <div class="text-center mt-12">
+                            <a href="https://wa.me/6282246632200?text=Hello%20TropicaFarm%2C%20I%20am%20interested%20in%20your%20Specialty%20Tea%20products" target="_blank" class="bg-amber-500/90 hover:bg-amber-600 text-white px-8 py-4 rounded-xl transition duration-300 inline-flex items-center font-semibold">
+                                <i class="fab fa-whatsapp text-xl mr-2"></i> Order Specialty Tea
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -501,29 +645,25 @@
     </section>
 
     <!-- Variant Popup -->
-    <div id="variantPopup" class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-6xl w-full overflow-hidden relative">
-            <button id="variantPopupClose" onclick="closeVariantPopup()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 z-10 bg-white/80 rounded-full p-2 shadow-md">
-                <i class="fas fa-times text-xl"></i>
+    <div id="variantPopup" class="variant-popup">
+        <div class="popup-content-variant max-w-4xl w-full mx-4">
+            <button id="variantPopupClose" onclick="closeVariantPopup()" class="close-popup-variant">
+                <i class="fas fa-times"></i>
             </button>
             <div class="flex flex-col md:flex-row">
                 <!-- Image Section -->
-                <div class="md:w-1/2 h-[300px] md:h-[600px] relative flex items-center justify-center bg-gray-50">
-                    <button id="variantPopupLeft" class="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full p-2 shadow-md" style="display:none"><i class="fas fa-chevron-left text-xl"></i></button>
-                    <img id="variantPopupImage" src="" alt="" class="w-full h-full object-cover rounded-xl">
-                    <button id="variantPopupRight" class="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full p-2 shadow-md" style="display:none"><i class="fas fa-chevron-right text-xl"></i></button>
-                    <!-- Thumbnails -->
-                    <div id="variantPopupThumbnails" class="absolute left-4 bottom-4 flex gap-2 z-20"></div>
+                <div class="md:w-1/2 h-[300px] md:h-[500px] relative">
+                    <img id="variantPopupImage" src="" alt="" class="w-full h-full object-cover">
                 </div>
                 <!-- Content Section -->
                 <div class="md:w-1/2 p-6 md:p-8 flex flex-col">
-                    <h3 id="variantPopupTitle" class="text-2xl font-bold text-primary mb-6 mt-2 md:mt-0"></h3>
-                    <p id="variantPopupDescription" class="text-gray-600 mb-6"></p>
-                    <div id="variantPopupCharacteristics" class="mb-8">
+                    <h3 id="variantPopupTitle" class="text-2xl font-bold text-primary mb-4"></h3>
+                    <p id="variantPopupDescription" class="text-gray-600 mb-6 flex-grow"></p>
+                    <div id="variantPopupCharacteristics" class="mb-6">
                         <h4 class="font-semibold text-gray-800 mb-3">Characteristics:</h4>
                         <div id="variantPopupTags" class="flex flex-wrap gap-2"></div>
                     </div>
-                    <a id="variantPopupWhatsApp" href="#" target="_blank" class="bg-primary hover:bg-accent text-white px-8 py-4 rounded-xl transition duration-300 inline-flex items-center mt-auto mx-auto">
+                    <a id="variantPopupWhatsApp" href="#" target="_blank" class="bg-primary hover:bg-accent text-white px-6 py-3 rounded-xl transition duration-300 inline-flex items-center justify-center">
                         <i class="fab fa-whatsapp text-xl mr-2"></i> Request a Quote
                     </a>
                 </div>
@@ -531,643 +671,27 @@
         </div>
     </div>
 
-    <!-- Green Tea Section -->
-    <section id="green-tea" class="py-12 bg-light">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col lg:flex-row gap-12">
-                <!-- Image Gallery -->
-                <div class="lg:w-1/2">
-                    <div class="swiper product-swiper rounded-2xl overflow-hidden shadow-lg">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img src="/assets/images/green-tea.jpg" alt="Indonesian Green Tea - Main View" class="w-full h-[500px] object-cover">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="/assets/images/green-tea-roasted.jpg" alt="Green Tea Roasted" class="w-full h-[500px] object-cover">
-                            </div>
-                        </div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                </div>
-
-                <!-- Product Information -->
-                <div class="lg:w-1/2">
-                    <h2 class="text-4xl font-bold text-primary mt-4 mb-6">Green Tea</h2>
-                    <p class="text-gray-600 text-lg mb-8">Our high-quality green tea provides a delicate, refreshing flavor with grassy notes and a subtle sweetness. Minimally processed to preserve natural benefits and flavor, perfect for tea products and health-conscious markets.</p>
-
-                    <div class="grid grid-cols-2 gap-6 mb-8">
-                        <div>
-                            <h4 class="font-semibold text-gray-800 mb-2">Production Capacity</h4>
-                            <p class="text-gray-600">75 tons/month</p>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-gray-800 mb-2">Minimum Order</h4>
-                            <p class="text-gray-600">1 ton</p>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-gray-800 mb-2">Packaging</h4>
-                            <p class="text-gray-600">40kg or 50kg kraft paper bags</p>
-                            <p class="text-gray-400 text-xs mt-1 font-normal">Custom packaging available upon request</p>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-gray-800 mb-2">Shelf Life</h4>
-                            <p class="text-gray-600">24 months</p>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-wrap gap-3 mb-8">
-                        <span class="bg-gray-100 px-4 py-2 rounded-full text-sm">Low Caffeine</span>
-                        <span class="bg-gray-100 px-4 py-2 rounded-full text-sm">Fresh Aroma</span>
-                        <span class="bg-gray-100 px-4 py-2 rounded-full text-sm">High-quality Grade</span>
-                        <span class="bg-gray-100 px-4 py-2 rounded-full text-sm">Bulk Supply</span>
-                    </div>
-
-                    <a href="https://wa.me/6282246632200?text=Hello%20TropicaFarm%2C%20I%20am%20interested%20in%20your%20Green%20Tea%20products" target="_blank" class="bg-primary hover:bg-accent text-white px-8 py-4 rounded-xl transition duration-300 inline-flex items-center mb-12">
-                        <i class="fab fa-whatsapp text-xl mr-2"></i> Order Green Tea
-                    </a>
-                </div>
-            </div>
-
-            <!-- Tea Variants -->
-            <div class="mt-12">
-                <h3 class="text-2xl font-bold text-primary mb-6">Green Tea Variants</h3>
-                <div class="flex flex-wrap gap-4 justify-center md:justify-start">
-                    <!-- Chun Mee -->
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px] variant-card" onclick='openVariantPopup("Chun Mee", "Chun Mee, meaning \"Precious Eyebrows\" is a Chinese green tea with hand-rolled leaves, offering a medium-bodied infusion with slight fruity tartness.", "/assets/images/green-tea-chun-mee.jpg")'>
-                        <div class="flex flex-col relative">
-                            <div class="h-48 relative">
-                                <img src="/assets/images/green-tea-chun-mee-thumbnail.jpg" alt="Green Tea Chun Mee" class="w-full h-full object-cover variant-thumb">
-                                <span class="variant-hover-overlay">
-                                    <span class="view-detail-text">View Detail</span>
-                                </span>
-                            </div>
-                            <div class="p-4">
-                                <h4 class="font-bold text-primary text-center">Chun Mee</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Fannings -->
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px] variant-card" onclick="openVariantPopup('Fannings', 'Fannings are small tea leaf particles left after higher grades are gathered, brewing quickly to produce a strong, flavorful cup.', '/assets/images/green-tea-fannings.jpg')">
-                        <div class="flex flex-col relative">
-                            <div class="h-48 relative">
-                                <img src="/assets/images/green-tea-fannings-thumbnail.jpg" alt="Green Tea Fannings" class="w-full h-full object-cover variant-thumb">
-                                <span class="variant-hover-overlay">
-                                    <span class="view-detail-text">View Detail</span>
-                                </span>
-                            </div>
-                            <div class="p-4">
-                                <h4 class="font-bold text-primary text-center">Fannings</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Gun Powder -->
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px] variant-card" onclick="openVariantPopup('Gun Powder', 'Gunpowder tea consists of green tea leaves rolled into small pellets, resembling gunpowder grains, yielding a bold, slightly smoky flavor.', '/assets/images/green-tea-gun-powder.jpg')">
-                        <div class="flex flex-col relative">
-                            <div class="h-48 relative">
-                                <img src="/assets/images/green-tea-gun-powder-thumbnail.jpg" alt="Green Tea Gun Powder" class="w-full h-full object-cover variant-thumb">
-                                <span class="variant-hover-overlay">
-                                    <span class="view-detail-text">View Detail</span>
-                                </span>
-                            </div>
-                            <div class="p-4">
-                                <h4 class="font-bold text-primary text-center">Gun Powder</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Pekoe Super -->
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px] variant-card" onclick="openVariantPopup('Pekoe Super', 'Pekoe Super is a high-grade green tea with long, needle-like leaves, producing a bright green, flowery, and sweet infusion.', '/assets/images/green-tea-pekoe-super.jpg')">
-                        <div class="flex flex-col relative">
-                            <div class="h-48 relative">
-                                <img src="/assets/images/green-tea-pekoe-super-thumbnail.jpg" alt="Green Tea Pekoe Super" class="w-full h-full object-cover variant-thumb">
-                                <span class="variant-hover-overlay">
-                                    <span class="view-detail-text">View Detail</span>
-                                </span>
-                            </div>
-                            <div class="p-4">
-                                <h4 class="font-bold text-primary text-center">Pekoe Super</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Sow Mee -->
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px] variant-card" onclick="openVariantPopup('Sow Mee', 'Sow Mee is a type of white tea made from mature leaves and buds, offering a naturally sweet aroma and mellow character.', '/assets/images/green-tea-sow-mee.jpg')">
-                        <div class="flex flex-col relative">
-                            <div class="h-48 relative">
-                                <img src="/assets/images/green-tea-sow-mee-thumbnail.jpg" alt="Green Tea Sow Mee" class="w-full h-full object-cover variant-thumb">
-                                <span class="variant-hover-overlay">
-                                    <span class="view-detail-text">View Detail</span>
-                                </span>
-                            </div>
-                            <div class="p-4">
-                                <h4 class="font-bold text-primary text-center">Sow Mee</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Specialty Tea Section -->
-    <section id="specialty-tea" class="py-12">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col lg:flex-row gap-12">
-                <!-- Image Gallery -->
-                <div class="lg:w-1/2">
-                    <div class="swiper product-swiper rounded-2xl overflow-hidden shadow-lg">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img src="/assets/images/specialty-tea-oolong.jpg" alt="Specialty Tea Oolong" class="w-full h-[500px] object-cover">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="/assets/images/specialty-tea-jasmine.jpg" alt="Specialty Tea Jasmine" class="w-full h-[500px] object-cover">
-                            </div>
-                        </div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                </div>
-
-                <!-- Product Information -->
-                <div class="lg:w-1/2">
-                    <h2 class="text-4xl font-bold text-primary mt-4 mb-6">Specialty Tea</h2>
-                    <p class="text-gray-600 text-lg mb-8">Discover our reliable specialty teas, each offering unique flavors and aromas. From the partially oxidized Oolong to the fragrant Jasmine and our signature Grey Dragon, experience the finest Indonesian tea craftsmanship.</p>
-
-                    <div class="grid grid-cols-2 gap-6 mb-8">
-                        <div>
-                            <h4 class="font-semibold text-gray-800 mb-2">Production Capacity</h4>
-                            <p class="text-gray-600">50 tons/month</p>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-gray-800 mb-2">Minimum Order</h4>
-                            <p class="text-gray-600">1 ton</p>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-gray-800 mb-2">Packaging</h4>
-                            <p class="text-gray-600">40kg or 50kg kraft paper bags</p>
-                            <p class="text-gray-400 text-xs mt-1 font-normal">Custom packaging available upon request</p>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-gray-800 mb-2">Shelf Life</h4>
-                            <p class="text-gray-600">24 months</p>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-wrap gap-3 mb-8">
-                        <span class="bg-gray-100 px-4 py-2 rounded-full text-sm">Reliable Quality</span>
-                        <span class="bg-gray-100 px-4 py-2 rounded-full text-sm">Unique Flavors</span>
-                        <span class="bg-gray-100 px-4 py-2 rounded-full text-sm">Artisanal Process</span>
-                        <span class="bg-gray-100 px-4 py-2 rounded-full text-sm">Bulk Supply</span>
-                    </div>
-
-                    <a href="https://wa.me/6282246632200?text=Hello%20TropicaFarm%2C%20I%20am%20interested%20in%20your%20Specialty%20Tea%20products" target="_blank" class="bg-primary hover:bg-accent text-white px-8 py-4 rounded-xl transition duration-300 inline-flex items-center mb-12">
-                        <i class="fab fa-whatsapp text-xl mr-2"></i> Order Specialty Tea
-                    </a>
-                </div>
-            </div>
-
-            <!-- Tea Variants -->
-            <div class="mt-12">
-                <h3 class="text-2xl font-bold text-primary mb-6">Specialty Tea Variants</h3>
-                <div class="flex flex-wrap gap-4 justify-center md:justify-start">
-                    <!-- Oolong -->
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px] variant-card" onclick='openVariantPopup("Oolong", "Oolong tea is partially oxidized, offering a flavor profile between green and black teas, ranging from light and floral to rich and toasty.", "/assets/images/specialty-tea-oolong.jpg")'>
-                        <div class="flex flex-col relative">
-                            <div class="h-48 relative">
-                                <img src="/assets/images/specialty-tea-oolong-thumbnail.jpg" alt="Specialty Tea Oolong" class="w-full h-full object-cover variant-thumb">
-                                <span class="variant-hover-overlay">
-                                    <span class="view-detail-text">View Detail</span>
-                                </span>
-                            </div>
-                            <div class="p-4">
-                                <h4 class="font-bold text-primary text-center">Oolong</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Jasmine -->
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px] variant-card" onclick='openVariantPopup("Jasmine", "Jasmine tea is scented with fresh jasmine blossoms, imparting a delicate floral aroma and flavor.", "/assets/images/specialty-tea-jasmine.jpg")'>
-                        <div class="flex flex-col relative">
-                            <div class="h-48 relative">
-                                <img src="/assets/images/specialty-tea-jasmine-thumbnail.jpg" alt="Specialty Tea Jasmine" class="w-full h-full object-cover variant-thumb">
-                                <span class="variant-hover-overlay">
-                                    <span class="view-detail-text">View Detail</span>
-                                </span>
-                            </div>
-                            <div class="p-4">
-                                <h4 class="font-bold text-primary text-center">Jasmine</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Grey Dragon -->
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px] variant-card" onclick="openVariantPopup('Grey Dragon', 'An Indonesian oolong from West Java\'s highlands, Grey Dragon features elegant, needle-like leaves with a sweet, fruity aroma and a light malt note.', '/assets/images/specialty-tea-grey-dragon.jpg')">
-                        <div class="flex flex-col relative">
-                            <div class="h-48 relative">
-                                <img src="/assets/images/specialty-tea-grey-dragon-thumbnail.jpg" alt="Specialty Tea Grey Dragon" class="w-full h-full object-cover variant-thumb">
-                                <span class="variant-hover-overlay">
-                                    <span class="view-detail-text">View Detail</span>
-                                </span>
-                            </div>
-                            <div class="p-4">
-                                <h4 class="font-bold text-primary text-center">Grey Dragon</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- White Peony -->
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px] variant-card" onclick="openVariantPopup('White Peony', 'White Peony is a white tea made from unopened buds and young leaves, producing a sweet, mild flavor with floral notes.', '/assets/images/specialty-tea-white-peony.jpg')">
-                        <div class="flex flex-col relative">
-                            <div class="h-48 relative">
-                                <img src="/assets/images/specialty-tea-white-peony-thumbnail.jpg" alt="Specialty Tea White Peony" class="w-full h-full object-cover variant-thumb">
-                                <span class="variant-hover-overlay">
-                                    <span class="view-detail-text">View Detail</span>
-                                </span>
-                            </div>
-                            <div class="p-4">
-                                <h4 class="font-bold text-primary text-center">White Peony</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- White Tea -->
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer w-[200px] variant-card" onclick="openVariantPopup('White Tea', 'White tea is the least processed tea, harvested before the leaves fully open, resulting in a delicate flavor and high antioxidant content.', '/assets/images/specialty-tea-white-tea.jpg')">
-                        <div class="flex flex-col relative">
-                            <div class="h-48 relative">
-                                <img src="/assets/images/specialty-tea-white-tea-thumbnail.jpg" alt="Specialty Tea White" class="w-full h-full object-cover variant-thumb">
-                                <span class="variant-hover-overlay">
-                                    <span class="view-detail-text">View Detail</span>
-                                </span>
-                            </div>
-                            <div class="p-4">
-                                <h4 class="font-bold text-primary text-center">White Tea</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How to Order Section -->
-    <section id="how-to-order" class="py-16">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-primary mb-4">How to Order</h2>
-                <p class="text-gray-600 max-w-3xl mx-auto">Our streamlined ordering process ensures quality and satisfaction at every step:</p>
-            </div>
-
-            <div class="flex flex-col lg:flex-row gap-12">
-                <!-- Gallery Section -->
-                <div class="lg:w-1/2">
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="col-span-2">
-                            <img src="/assets/images/export-bulk-tea-indonesia.jpg" alt="Bulk Tea Export from Indonesia" class="w-full h-64 object-cover rounded-lg shadow-lg gallery-image" onclick="openImagePopup(this.src, this.alt)">
-                        </div>
-                        <div>
-                            <img src="/assets/images/tea-harvesting.jpg" alt="Tea Harvesting Process" class="w-full h-48 object-cover rounded-lg shadow-lg gallery-image" onclick="openImagePopup(this.src, this.alt)">
-                        </div>
-                        <div>
-                            <img src="/assets/images/tea-sorting.jpg" alt="Tea Sorting Process" class="w-full h-48 object-cover rounded-lg shadow-lg gallery-image" onclick="openImagePopup(this.src, this.alt)">
-                        </div>
-                        <div class="col-span-2">
-                            <img src="/assets/images/container-shipment-indonesia.jpg" alt="Export Container Tea Indonesia" class="w-full h-64 object-cover rounded-lg shadow-lg gallery-image" onclick="openImagePopup(this.src, this.alt)">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Image Popup -->
-                <div class="image-popup" id="imagePopup">
-                    <div class="popup-content">
-                        <span class="close-popup" onclick="closeImagePopup()">&times;</span>
-                        <img id="popupImage" src="" alt="">
-                    </div>
-                </div>
-
-                <!-- Timeline Section -->
-                <div class="lg:w-1/2">
-                    <div class="space-y-8 relative">
-                        <!-- Vertical Line -->
-                        <div class="absolute left-6 top-0 bottom-0 w-0.5 bg-primary/20"></div>
-                        
-                        <!-- Step 1 -->
-                        <div class="flex items-start relative">
-                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mr-4 flex-shrink-0">
-                                <i class="fas fa-comments text-lg"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-medium mb-1">Initial Contact</h3>
-                                <p class="text-gray-600 text-sm mb-2">Contact us with your specific requirements</p>
-                                <a href="https://wa.me/6282246632200?text=Hello%20TropicaFarm%2C%20I%20would%20like%20to%20discuss%20tea%20products" target="_blank" class="inline-flex items-center text-primary hover:text-accent text-sm font-medium">
-                                    <i class="fab fa-whatsapp mr-1"></i> Start Discussion
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Step 2 -->
-                        <div class="flex items-start relative">
-                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mr-4 flex-shrink-0">
-                                <i class="fas fa-coffee text-lg"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-medium mb-1">Product Discussion</h3>
-                                <p class="text-gray-600 text-sm">Discuss aroma, taste, and appearance specifications</p>
-                            </div>
-                        </div>
-
-                        <!-- Step 3 -->
-                        <div class="flex items-start relative">
-                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mr-4 flex-shrink-0">
-                                <i class="fas fa-box-open text-lg"></i>
-                            </div>
-                            <div>
-                                <div class="flex items-center gap-2 mb-1">
-                                    <h3 class="text-lg font-medium">Sample Submission</h3>
-                                    <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded-full">Optional</span>
-                                </div>
-                                <p class="text-gray-600 text-sm">Submit your reference sample for matching, or proceed with our standard specifications</p>
-                            </div>
-                        </div>
-
-                        <!-- Step 4 -->
-                        <div class="flex items-start relative">
-                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mr-4 flex-shrink-0">
-                                <i class="fas fa-check-circle text-lg"></i>
-                            </div>
-                            <div>
-                                <div class="flex items-center gap-2 mb-1">
-                                    <h3 class="text-lg font-medium">Sample Approval</h3>
-                                    <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded-full">Optional</span>
-                                </div>
-                                <p class="text-gray-600 text-sm">Review and approve our sample match, or proceed with our standard quality</p>
-                            </div>
-                        </div>
-
-                        <!-- Step 5 -->
-                        <div class="flex items-start relative">
-                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mr-4 flex-shrink-0">
-                                <i class="fas fa-file-signature text-lg"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-medium mb-1">Order Confirmation</h3>
-                                <p class="text-gray-600 text-sm">Sign sales order and complete payment</p>
-                            </div>
-                        </div>
-
-                        <!-- Step 6 -->
-                        <div class="flex items-start relative">
-                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mr-4 flex-shrink-0">
-                                <i class="fas fa-industry text-lg"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-medium mb-1">Production</h3>
-                                <p class="text-gray-600 text-sm">We prepare your order with care</p>
-                            </div>
-                        </div>
-
-                        <!-- Step 7 -->
-                        <div class="flex items-start relative">
-                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mr-4 flex-shrink-0">
-                                <i class="fas fa-shipping-fast text-lg"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-medium mb-1">Shipment</h3>
-                                <p class="text-gray-600 text-sm">Products ready for delivery</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center mt-12">
-                <a href="https://wa.me/6282246632200?text=Hello%20TropicaFarm%2C%20I%20would%20like%20to%20know%20more%20about%20ordering%20process" target="_blank" class="bg-primary hover:bg-accent text-white px-6 py-2 rounded-lg transition duration-300 inline-flex items-center">
-                    <i class="fab fa-whatsapp text-lg mr-2"></i> Start Your Order
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Certificates Section -->
-    <section class="py-12 bg-light">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold text-primary mb-6">Our Certifications</h2>
-                <p class="text-gray-600 text-lg max-w-3xl mx-auto">We maintain the highest standards of quality and safety, backed by international certifications:</p>
-            </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-8 items-center justify-items-center">
-                <img src="/assets/images/100-pure.png" alt="100% Pure" class="h-24 object-contain grayscale hover:grayscale-0 transition duration-300">
-                <img src="/assets/images/haccp.png" alt="HACCP Certification" class="h-24 object-contain grayscale hover:grayscale-0 transition duration-300">
-                <img src="/assets/images/gmo-stamp.png" alt="GMO Stamp" class="h-24 object-contain grayscale hover:grayscale-0 transition duration-300">
-                <img src="/assets/images/pesticide-free.png" alt="Pesticide Free" class="h-24 object-contain grayscale hover:grayscale-0 transition duration-300">
-                <img src="/assets/images/halal-logo.webp" alt="Halal Stamp" class="h-24 object-contain grayscale hover:grayscale-0 transition duration-300">
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="py-12 bg-light">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-primary mb-8 text-center">Frequently Asked Questions</h2>
-            <div class="max-w-4xl mx-auto space-y-6">
-                <div class="bg-white p-6 rounded-xl shadow-lg">
-                    <h3 class="text-xl font-semibold mb-3">What types of black tea do you offer for wholesale?</h3>
-                    <p class="text-gray-600">We offer various black tea grades including PF (Pekoe Fannings), OP (Orange Pekoe), BOP (Broken Orange Pekoe), BOPF (Broken Orange Pekoe Fannings), and Dust. Each grade is suitable for different applications and preferences.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg">
-                    <h3 class="text-xl font-semibold mb-3">What types of green tea do you offer for wholesale?</h3>
-                    <p class="text-gray-600">Our green tea selection includes Chun Mee, Fannings, Gun Powder, Pekoe Super, and Sow Mee. Each variant offers unique characteristics and flavors suitable for different market needs.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg">
-                    <h3 class="text-xl font-semibold mb-3">What is your minimum order quantity and packaging options?</h3>
-                    <p class="text-gray-600">Our minimum order quantity is 1 ton. We offer flexible packaging options with 40kg or 50kg kraft paper bags, depending on the tea variant. Custom packaging solutions are available upon request.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg">
-                    <h3 class="text-xl font-semibold mb-3">Where are your tea plantations located?</h3>
-                    <p class="text-gray-600">Our tea plantations are located in the highlands of West Java, Indonesia, known for producing high-quality tea leaves.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "What types of black tea do you offer for wholesale?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We offer various black tea grades including PF (Pekoe Fannings), OP (Orange Pekoe), BOP (Broken Orange Pekoe), BOPF (Broken Orange Pekoe Fannings), and Dust. Each grade is suitable for different applications and preferences."
-        }
-      }, {
-        "@type": "Question",
-        "name": "What types of green tea do you offer for wholesale?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Our green tea selection includes Chun Mee, Fannings, Gun Powder, Pekoe Super, and Sow Mee. Each variant offers unique characteristics and flavors suitable for different market needs."
-        }
-      }, {
-        "@type": "Question",
-        "name": "What is your minimum order quantity and packaging options?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Our minimum order quantity is 1 ton. We offer flexible packaging options with 40kg or 50kg kraft paper bags, depending on the tea variant. Custom packaging solutions are available upon request."
-        }
-      }, {
-        "@type": "Question",
-        "name": "Where are your tea plantations located?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Our tea plantations are located in the highlands of West Java, Indonesia, known for producing high-quality tea leaves."
-        }
-      }]
-    }
-    </script>
-
-    <!-- Footer (reuse from index.html but adjust paths) -->
-    <footer class="bg-[#1e2124] text-gray-300 py-16">
-        <div class="container mx-auto px-6">
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-12 sm:py-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
                 <p>&copy; 2025 TropicaFarm. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
+    <!-- WhatsApp Floating Button -->
+    <div class="fixed bottom-8 right-8 flex items-center gap-3 z-50">
+        <div class="mr-2 bg-white/90 backdrop-blur-sm text-primary font-medium px-4 py-2 rounded-full shadow-lg whitespace-nowrap transition-all duration-300 transform translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100">
+            Chat with us
+        </div>
+        <a href="https://wa.me/6282246632200?text=Hello%20TropicaFarm%2C%20I%20need%20your%20help" target="_blank" class="group bg-green-500 hover:bg-green-600 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl">
+            <i class="fab fa-whatsapp text-3xl"></i>
+        </a>
+    </div>
+
     <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            const heroSection = document.querySelector('.hero-tea');
-            const heroHeight = heroSection.offsetHeight;
-            
-            if (window.scrollY > heroHeight) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Initialize Swiper
-        const swiper = new Swiper('.product-swiper', {
-            loop: true,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            autoplay: {
-                delay: 5000,
-                disableOnInteraction: false,
-            },
-        });
-
-        // Image Popup Functions
-        function openImagePopup(src, alt) {
-            const popup = document.getElementById('imagePopup');
-            const popupImage = document.getElementById('popupImage');
-            popupImage.src = src;
-            popupImage.alt = alt;
-            popup.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeImagePopup() {
-            const popup = document.getElementById('imagePopup');
-            popup.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        // Close popup when clicking outside the image
-        document.getElementById('imagePopup').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeImagePopup();
-            }
-        });
-
-        // Close popup with Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeImagePopup();
-            }
-        });
-
         // Variant Popup Functions
-        const variantImages = {
-            // Black Tea variants
-            'PF (Pekoe Fannings)': [
-                {full: '/assets/images/black-tea-pf.jpg', thumb: '/assets/images/black-tea-pf-thumbnail.jpg'},
-                {full: '/assets/images/black-tea-pf-brewed.jpg', thumb: '/assets/images/black-tea-pf-brewed-thumbnail.jpg'}
-            ],
-            'OP (Orange Pekoe)': [
-                {full: '/assets/images/black-tea-op.jpg', thumb: '/assets/images/black-tea-op-thumbnail.jpg'},
-                {full: '/assets/images/black-tea-op-brewed.jpg', thumb: '/assets/images/black-tea-op-brewed-thumbnail.jpg'}
-            ],
-            'BOP (Broken Orange Pekoe)': [
-                {full: '/assets/images/black-tea-bop.jpg', thumb: '/assets/images/black-tea-bop-thumbnail.jpg'},
-                {full: '/assets/images/black-tea-bop-brewed.jpg', thumb: '/assets/images/black-tea-bop-brewed-thumbnail.jpg'}
-            ],
-            'BOPF (Broken Orange Pekoe Fannings)': [
-                {full: '/assets/images/black-tea-bopf.jpg', thumb: '/assets/images/black-tea-bopf-thumbnail.jpg'},
-                {full: '/assets/images/black-tea-bopf-brewed.jpg', thumb: '/assets/images/black-tea-bopf-brewed-thumbnail.jpg'}
-            ],
-            'Dust': [
-                {full: '/assets/images/black-tea-dust.jpg', thumb: '/assets/images/black-tea-dust-thumbnail.jpg'},
-                {full: '/assets/images/black-tea-dust-brewed.jpg', thumb: '/assets/images/black-tea-dust-brewed-thumbnail.jpg'}
-            ],
-            // Green Tea variants
-            'Chun Mee': [
-                {full: '/assets/images/green-tea-chun-mee.jpg', thumb: '/assets/images/green-tea-chun-mee-thumbnail.jpg'},
-                {full: '/assets/images/green-tea-chun-mee-brewed.jpg', thumb: '/assets/images/green-tea-chun-mee-brewed-thumbnail.jpg'}
-            ],
-            'Fannings': [
-                {full: '/assets/images/green-tea-fannings.jpg', thumb: '/assets/images/green-tea-fannings-thumbnail.jpg'},
-                {full: '/assets/images/green-tea-fannings-brewed.jpg', thumb: '/assets/images/green-tea-fannings-brewed-thumbnail.jpg'}
-            ],
-            'Gun Powder': [
-                {full: '/assets/images/green-tea-gun-powder.jpg', thumb: '/assets/images/green-tea-gun-powder-thumbnail.jpg'},
-                {full: '/assets/images/green-tea-gun-powder-brewed.jpg', thumb: '/assets/images/green-tea-gun-powder-brewed-thumbnail.jpg'}
-            ],
-            'Pekoe Super': [
-                {full: '/assets/images/green-tea-pekoe-super.jpg', thumb: '/assets/images/green-tea-pekoe-super-thumbnail.jpg'},
-                {full: '/assets/images/green-tea-pekoe-super-brewed.jpg', thumb: '/assets/images/green-tea-pekoe-super-brewed-thumbnail.jpg'}
-            ],
-            'Sow Mee': [
-                {full: '/assets/images/green-tea-sow-mee.jpg', thumb: '/assets/images/green-tea-sow-mee-thumbnail.jpg'},
-                {full: '/assets/images/green-tea-sow-mee-brewed.jpg', thumb: '/assets/images/green-tea-sow-mee-brewed-thumbnail.jpg'}
-            ],
-            // Specialty Tea variants
-            'Oolong': [
-                {full: '/assets/images/specialty-tea-oolong.jpg', thumb: '/assets/images/specialty-tea-oolong-thumbnail.jpg'}
-            ],
-            'Jasmine': [
-                {full: '/assets/images/specialty-tea-jasmine.jpg', thumb: '/assets/images/specialty-tea-jasmine-thumbnail.jpg'}
-            ],
-            'Grey Dragon': [
-                {full: '/assets/images/specialty-tea-grey-dragon.jpg', thumb: '/assets/images/specialty-tea-grey-dragon-thumbnail.jpg'}
-            ],
-            'White Peony': [
-                {full: '/assets/images/specialty-tea-white-peony.jpg', thumb: '/assets/images/specialty-tea-white-peony-thumbnail.jpg'}
-            ],
-            'White Tea': [
-                {full: '/assets/images/specialty-tea-white-tea.jpg', thumb: '/assets/images/specialty-tea-white-tea-thumbnail.jpg'}
-            ]
-        };
-
-        let currentVariant = '';
-        let currentImageIndex = 0;
-
         function openVariantPopup(title, description, imageSrc) {
             const popup = document.getElementById('variantPopup');
             const popupImage = document.getElementById('variantPopupImage');
@@ -1175,14 +699,13 @@
             const popupDescription = document.getElementById('variantPopupDescription');
             const popupWhatsApp = document.getElementById('variantPopupWhatsApp');
             const popupTags = document.getElementById('variantPopupTags');
-            const thumbnails = document.getElementById('variantPopupThumbnails');
-            const leftBtn = document.getElementById('variantPopupLeft');
-            const rightBtn = document.getElementById('variantPopupRight');
 
             // Set content
             popupTitle.textContent = title;
             popupDescription.textContent = description;
-            popupWhatsApp.href = `https://wa.me/6282246632200?text=Hello%20TropicaFarm%2C%20I%20am%20interested%20in%20Green%20Tea%20${encodeURIComponent(title)}`;
+            popupImage.src = imageSrc;
+            popupImage.alt = title;
+            popupWhatsApp.href = `https://wa.me/6282246632200?text=Hello%20TropicaFarm%2C%20I%20am%20interested%20in%20${encodeURIComponent(title)}`;
 
             // Set characteristics
             popupTags.innerHTML = '';
@@ -1194,65 +717,15 @@
                 popupTags.appendChild(tag);
             });
 
-            // Set images
-            currentVariant = title;
-            currentImageIndex = 0;
-            updateVariantPopupImage();
-
-            // Thumbnails
-            thumbnails.innerHTML = '';
-            const imgs = variantImages[title] || [{full: imageSrc, thumb: imageSrc}];
-            imgs.forEach((img, idx) => {
-                const thumb = document.createElement('img');
-                thumb.src = img.thumb;
-                thumb.alt = title + ' thumbnail';
-                thumb.className = 'w-12 h-12 object-cover rounded-lg border-2 cursor-pointer ' + (idx === 0 ? 'border-primary' : 'border-transparent') + ' bg-white shadow';
-                thumb.onclick = () => { currentImageIndex = idx; updateVariantPopupImage(); };
-                thumbnails.appendChild(thumb);
-            });
-
-            // Show/hide arrows
-            if (imgs.length > 1) {
-                leftBtn.style.display = 'block';
-                rightBtn.style.display = 'block';
-            } else {
-                leftBtn.style.display = 'none';
-                rightBtn.style.display = 'none';
-            }
-
-            popup.classList.remove('hidden');
-            popup.classList.add('flex');
+            popup.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
 
-        function updateVariantPopupImage() {
-            const popupImage = document.getElementById('variantPopupImage');
-            const thumbnails = document.getElementById('variantPopupThumbnails');
-            const imgs = variantImages[currentVariant] || [];
-            if (imgs.length) {
-                popupImage.src = imgs[currentImageIndex].full;
-                // Highlight selected thumbnail
-                Array.from(thumbnails.children).forEach((thumb, idx) => {
-                    thumb.classList.toggle('border-primary', idx === currentImageIndex);
-                    thumb.classList.toggle('border-transparent', idx !== currentImageIndex);
-                });
-            }
+        function closeVariantPopup() {
+            const popup = document.getElementById('variantPopup');
+            popup.classList.remove('active');
+            document.body.style.overflow = '';
         }
-
-        document.getElementById('variantPopupLeft').onclick = function() {
-            const imgs = variantImages[currentVariant] || [];
-            if (imgs.length) {
-                currentImageIndex = (currentImageIndex - 1 + imgs.length) % imgs.length;
-                updateVariantPopupImage();
-            }
-        };
-        document.getElementById('variantPopupRight').onclick = function() {
-            const imgs = variantImages[currentVariant] || [];
-            if (imgs.length) {
-                currentImageIndex = (currentImageIndex + 1) % imgs.length;
-                updateVariantPopupImage();
-            }
-        };
 
         function getCharacteristics(variant) {
             const characteristics = {
@@ -1276,13 +749,6 @@
                 'White Tea': ['Delicate', 'Floral', 'Sweet', 'Smooth', 'Slight Astringent']
             };
             return characteristics[variant] || [];
-        }
-
-        function closeVariantPopup() {
-            const popup = document.getElementById('variantPopup');
-            popup.classList.add('hidden');
-            popup.classList.remove('flex');
-            document.body.style.overflow = '';
         }
 
         // Close popup when clicking outside
@@ -1356,4 +822,4 @@
         });
     </script>
 </body>
-</html> 
+</html>
