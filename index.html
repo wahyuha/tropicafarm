@@ -409,8 +409,8 @@
                 <!-- Navigation Links -->
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#" class="text-yellow-400 text-lg font-bold border-b-2 border-yellow-400 pb-1">Home</a>
-                    <a href="#journey" class="text-white hover:text-yellow-400 text-lg font-bold transition-colors">About Us</a>
-                    <a href="#products" class="text-white hover:text-yellow-400 text-lg font-bold transition-colors">Products</a>
+                    <a href="#journey" class="text-white hover:text-yellow-400 text-lg font-bold transition-colors" onclick="scrollToSection(event, 'journey')">About Us</a>
+                    <a href="#products" class="text-white hover:text-yellow-400 text-lg font-bold transition-colors" onclick="scrollToSection(event, 'products')">Products</a>
                     <!-- <a href="#" class="text-white hover:text-yellow-400 text-lg font-bold transition-colors">Free Samples</a> -->
                 </div>
                 
@@ -470,7 +470,7 @@
     <!-- Journey Section -->
     <section class="relative py-4 lg:py-8" id="journey">
         <h2 class="text-3xl text-primary font-bold text-black/90 text-center pb-2">Journey to The Best Tea</h2>
-        <p class="px-4 text-black/70 text-center mb-0 md:mb-8 lg:mb-12 pb-0 sm:pb-12">We bring you Indonesian tea straight from the source, grown with care, crafted with heart, and delivered with a smile. Whether you're a wholesaler, importer, or manufacturer, we're here to connect you with the real taste (and faces) of Indonesia.</p>
+        <p class="px-4 text-black/70 text-center mb-0 md:mb-8 lg:mb-12 pb-0 sm:pb-12">Knowing that West Java is home to Indonesia's top tea producers, we began our journey across West Java, personally selecting the finest tea of each type. Sourced directly, grown with care, and delivered with a genuine Indonesian smile. This is how we bring you the real taste and heart of Indonesia for your quality tea needs</p>
         <div class="absolute inset-0 bg-gradient-to-b from-green-100/80 to-green-300/80 sticky top-0 h-full w-full z-0"></div>
         <div class="max-w-7xl mx-auto relative z-10">
             <!-- The new connecting curve element -->
@@ -542,6 +542,18 @@
             document.body.style.overflow = 'auto';
         }
 
+        // Smooth scroll function
+        function scrollToSection(event, sectionId) {
+            event.preventDefault();
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
         // Close modal when clicking outside
         document.getElementById('youtubeModal').addEventListener('click', function(e) {
             if (e.target === this) {
@@ -563,7 +575,7 @@
             <!-- Section Header -->
             <div class="text-center mb-16">
                 <h2 class="text-4xl font-bold text-primary mb-4">Our Tea Products</h2>
-                <!-- <p class="text-gray-600 max-w-2xl mx-auto">Discover our carefully curated selection of Indonesian teas, each with its unique flavor profile and heritage.</p> -->
+                <p class="text-gray-600 mx-auto">Explore our carefully selected tea portfolio. Every tea listed here meets our stringent quality qualifications, comes with our personal recommendation, and is perfectly designed for global market demands</p>
             </div>
 
             <!-- Products Grid -->
@@ -576,14 +588,14 @@
                         <div class="lg:w-1/2 space-y-6 lg:text-left">
                             <div class="inline-flex items-center gap-2 mb-2">
                                 <div class="w-2 h-8 bg-amber-600 rounded-full"></div>
-                                <span class="text-amber-800 font-medium">Robust & Malty</span>
+                                <span class="text-amber-800 font-medium">Robust & Customizable</span>
                             </div>
                             <h3 class="text-4xl font-bold text-gray-800">Black Tea</h3>
                             <p class="text-gray-700 leading-relaxed">
-                                Step into the world of Indonesian black tea, where robust character meets delightful complexity. Our premium black teas are meticulously hand-picked from the fertile, volcanic soils of West Java, a region renowned for its ideal tea-growing conditions.
+                                Step into the world of Indonesian black tea, where robust character meets delightful complexity. Our premium black teas are meticulously hand picked from the fertile, volcanic soils of West Java, a region renowned for its ideal tea growing conditions.
                             </p>
                             <p class="text-gray-700 leading-relaxed">
-                                We honor the centuries-old traditions of tea processing, carefully oxidizing the leaves to unlock their full-bodied potential. This results in a brew that boasts a rich, often malty flavor profile with a captivating aroma, perfect for a bold morning start or a comforting afternoon escape.
+                                We honor the centuries old traditions of tea processing, carefully oxidizing the leaves to unlock their full bodied potential. This results in a brew that boasts a rich, often malty flavor profile with a captivating aroma, perfect for a bold morning start or a comforting afternoon escape.
                             </p>
                             <a href="/products/tea.html" class="inline-flex items-center px-8 py-4 bg-amber-600 text-white rounded-full font-semibold hover:bg-amber-700 transition-colors group">
                                 <span>View Our Black Tea</span>
@@ -612,16 +624,16 @@
                         <div class="lg:w-1/2 space-y-6 lg:text-left">
                             <div class="inline-flex items-center gap-2 mb-2">
                                 <div class="w-2 h-8 bg-emerald-600 rounded-full"></div>
-                                <span class="text-emerald-800 font-medium">Fresh & Revitalizing</span>
+                                <span class="text-emerald-800 font-medium">Freshness & Authenticity</span>
                             </div>
                             <h3 class="text-4xl font-bold text-gray-800">Green Tea</h3>
                             <p class="text-gray-700 leading-relaxed">
-                                Experience the refreshing and delicate essence of our green teas, a true testament to West Java's natural bounty. Sourced from the pristine, high-altitude plantations nestled in the lush landscapes of West Java, these teas are minimally processed to preserve their inherent freshness and vibrant qualities.
+                                Experience the refreshing and delicate essence of our green teas, a true testament to West Java's natural bounty. Sourced from the pristine, high altitude plantations nestled in the lush landscapes of West Java, these teas are minimally processed to preserve their inherent freshness and vibrant qualities.
                             </p>
                             <p class="text-gray-700 leading-relaxed">
-                                Unlike black tea, our green tea undergoes gentle heating right after harvesting. This careful process halts oxidation, locking in its natural antioxidants, vivid color, and a wonderfully clean taste. The result is a crisp, and incredibly healthy brew that's perfect for a moment of calm reflection or a revitalizing pick-me-up.
+                                Unlike black tea, our green tea undergoes gentle heating right after harvesting. This careful process halts oxidation, locking in its natural antioxidants, vivid color, and a wonderfully clean taste. The result is a crisp, and incredibly healthy brew that's perfect for a moment of calm reflection or a revitalizing pick me up.
                             </p>
-                            <a href="/products/tea.html" class="inline-flex items-center px-8 py-4 bg-emerald-600 text-white rounded-full font-semibold hover:bg-emerald-700 transition-colors group">
+                            <a href="/products/tea.html#green-tea" class="inline-flex items-center px-8 py-4 bg-emerald-600 text-white rounded-full font-semibold hover:bg-emerald-700 transition-colors group">
                                 <span>View Our Green Tea</span>
                                 <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
@@ -649,16 +661,16 @@
                         <div class="lg:w-1/2 space-y-6 lg:text-left">
                             <div class="inline-flex items-center gap-2 mb-2">
                                 <div class="w-2 h-8 bg-amber-500/80 rounded-full"></div>
-                                <span class="text-amber-800 font-medium">Pure & Unblended</span>
+                                <span class="text-amber-800 font-medium">Pure & Distinctive</span>
                             </div>
                             <h3 class="text-4xl font-bold text-gray-800">Loose Leaf Tea</h3>
                             <p class="text-gray-700 leading-relaxed">
-                                We celebrate loose leaf tea as the ultimate way to experience tea. Unlike the crushed leaves found in pre-packaged tea bags, our loose leaf teas are whole and unprocessed. This means every leaf retains its full flavor, rich aroma, and inherent health benefits, delivering a superior cup every time.
+                                We celebrate loose leaf tea as the ultimate way to experience tea. Unlike the crushed leaves found in pre packaged tea bags, our loose leaf teas are whole and unprocessed. This means every leaf retains its full flavor, rich aroma, and inherent health benefits, delivering a superior cup every time.
                             </p>
                             <p class="text-gray-700 leading-relaxed">
                                 Curious about how to brew it? It's simple! You can easily steep our loose leaf teas using a variety of methods: a steeping ball, an infuser, a French press, or a strainer. This approach also offers a great benefit: significantly less waste compared to traditional tea bags. Explore our diverse range of loose leaf options, including Gunpowder, White Tea, Green Tea, Yellow Tea, Black Tea, and Oolong, and discover the full potential of a truly exceptional tea experience.
                             </p>
-                            <a href="/products/tea.html" class="inline-flex items-center px-8 py-4 bg-amber-500/90 text-white rounded-full font-semibold hover:bg-amber-600 transition-colors group">
+                            <a href="/products/tea.html#loose-leaf-tea" class="inline-flex items-center px-8 py-4 bg-amber-500/90 text-white rounded-full font-semibold hover:bg-amber-600 transition-colors group">
                                 <span>View Our Loose Leaf Tea</span>
                                 <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
