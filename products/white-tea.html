@@ -92,26 +92,32 @@
         @media (min-width: 768px) {
             .image-gallery {
                 grid-template-columns: 1fr 1fr 1fr;
+                gap: 0.5rem;
             }
         }
 
         .main-image {
             grid-column: 1 / -1;
+            margin-bottom: 0.5rem;
         }
 
         .thumbnail {
             cursor: pointer;
             transition: all 0.3s ease;
-            border: 2px solid transparent;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
 
         .thumbnail:hover {
             border-color: #1f6306;
             transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(31, 99, 6, 0.15);
         }
 
         .thumbnail.active {
             border-color: #1f6306;
+            box-shadow: 0 4px 12px rgba(31, 99, 6, 0.2);
         }
 
         .sample-cart {
@@ -134,6 +140,48 @@
             opacity: 1;
         }
 
+        .cart-panel {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100vh;
+            background: white;
+            box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+            transition: right 0.3s ease;
+            z-index: 1001;
+            overflow-y: auto;
+        }
+
+        .cart-panel.show {
+            right: 0;
+        }
+
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .cart-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        @media (max-width: 480px) {
+            .cart-panel {
+                width: 100%;
+                right: -100%;
+            }
+        }
+
         .fade-in {
             animation: fadeIn 0.6s ease-in;
         }
@@ -148,7 +196,45 @@
     <!-- Sample Cart Notification -->
     <div id="sampleCart" class="sample-cart">
         <i class="fas fa-check-circle mr-2"></i>
-        Sample added to inquiry list
+        Sample added to cart
+        <button onclick="showCart()" class="ml-3 underline text-sm hover:no-underline">View Cart</button>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div id="cartOverlay" class="cart-overlay" onclick="hideCart()"></div>
+
+    <!-- Cart Panel -->
+    <div id="cartPanel" class="cart-panel">
+        <div class="p-6 border-b border-gray-200">
+            <div class="flex items-center justify-between">
+                <h3 class="text-xl font-bold text-gray-900">Sample Cart</h3>
+                <button onclick="hideCart()" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="p-6">
+            <div id="cartItems" class="space-y-4 mb-6">
+                <!-- Cart items will be added here -->
+            </div>
+            
+            <div class="border-t pt-4">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="font-semibold text-gray-900">Total Items:</span>
+                    <span id="cartCount" class="font-bold text-primary">0</span>
+                </div>
+                
+                <button onclick="proceedToCheckout()" class="w-full bg-primary hover:bg-accent text-white py-3 px-4 rounded-xl font-semibold transition-all mb-3">
+                    <i class="fab fa-whatsapp mr-2"></i>
+                    Proceed to Checkout
+                </button>
+                
+                <button onclick="clearCart()" class="w-full bg-gray-200 hover:bg-gray-300 text-gray-700 py-2 px-4 rounded-xl font-medium transition-all">
+                    Clear Cart
+                </button>
+            </div>
+        </div>
     </div>
 
     <!-- Navigation -->
@@ -494,14 +580,97 @@
         }
 
         // Sample cart functionality
+        let cartItems = [];
+
         function addToSampleCart() {
+            const product = {
+                id: 'white-tea-sample',
+                name: 'White Tea Sample',
+                quantity: '100g',
+                price: 'Sample',
+                image: '/assets/images/specialty-tea-white-tea.jpg'
+            };
+
+            // Check if item already exists
+            const existingItem = cartItems.find(item => item.id === product.id);
+            if (!existingItem) {
+                cartItems.push(product);
+                updateCartDisplay();
+            }
+
             const cart = document.getElementById('sampleCart');
             cart.classList.add('show');
             
             setTimeout(() => {
                 cart.classList.remove('show');
-            }, 3000);
+            }, 4000);
         }
+
+        function showCart() {
+            document.getElementById('cartOverlay').classList.add('show');
+            document.getElementById('cartPanel').classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function hideCart() {
+            document.getElementById('cartOverlay').classList.remove('show');
+            document.getElementById('cartPanel').classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        function updateCartDisplay() {
+            const cartItemsContainer = document.getElementById('cartItems');
+            const cartCount = document.getElementById('cartCount');
+            
+            cartCount.textContent = cartItems.length;
+            
+            if (cartItems.length === 0) {
+                cartItemsContainer.innerHTML = '<p class="text-gray-500 text-center py-8">Your cart is empty</p>';
+                return;
+            }
+
+            cartItemsContainer.innerHTML = cartItems.map(item => `
+                <div class="flex items-center space-x-3 bg-gray-50 rounded-lg p-3">
+                    <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded-lg">
+                    <div class="flex-1">
+                        <h4 class="font-medium text-gray-900">${item.name}</h4>
+                        <p class="text-sm text-gray-600">${item.quantity}</p>
+                        <p class="text-sm font-medium text-primary">${item.price}</p>
+                    </div>
+                    <button onclick="removeFromCart('${item.id}')" class="text-red-500 hover:text-red-700">
+                        <i class="fas fa-trash text-sm"></i>
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function removeFromCart(itemId) {
+            cartItems = cartItems.filter(item => item.id !== itemId);
+            updateCartDisplay();
+        }
+
+        function clearCart() {
+            cartItems = [];
+            updateCartDisplay();
+        }
+
+        function proceedToCheckout() {
+            if (cartItems.length === 0) {
+                alert('Your cart is empty');
+                return;
+            }
+
+            const itemsList = cartItems.map(item => `- ${item.name} (${item.quantity})`).join('\n');
+            const message = `Hello TropicaFarm,\n\nI would like to order the following samples:\n\n${itemsList}\n\nPlease provide pricing and shipping information.`;
+            const encodedMessage = encodeURIComponent(message);
+            
+            window.open(`https://wa.me/6282246632200?text=${encodedMessage}`, '_blank');
+        }
+
+        // Initialize cart display
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartDisplay();
+        });
 
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
