@@ -101,6 +101,65 @@
             margin-bottom: 0.5rem;
         }
 
+        .thumbnails-container {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: flex-start;
+        }
+
+        .thumbnails-container .thumbnail {
+            flex: 0 0 auto;
+            width: 80px;
+            height: 80px;
+        }
+
+        @media (min-width: 768px) {
+            .thumbnails-container .thumbnail {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        .cart-icon {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            background: #1f6306;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .cart-icon:hover {
+            background: #2c7744;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #f9a825;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
         .thumbnail {
             cursor: pointer;
             transition: all 0.3s ease;
@@ -193,6 +252,12 @@
     </style>
 </head>
 <body class="bg-white">
+    <!-- Persistent Cart Icon -->
+    <div id="cartIcon" class="cart-icon" onclick="showCart()">
+        <i class="fas fa-shopping-cart text-xl"></i>
+        <div id="cartBadge" class="cart-badge" style="display: none;">0</div>
+    </div>
+
     <!-- Sample Cart Notification -->
     <div id="sampleCart" class="sample-cart">
         <i class="fas fa-check-circle mr-2"></i>
@@ -293,16 +358,18 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <!-- Image Gallery -->
                 <div class="fade-in">
-                    <div class="image-gallery">
+                    <div class="space-y-4">
                         <!-- Main Image -->
                         <div class="main-image">
                             <img id="mainImage" src="/assets/images/specialty-tea-white-tea.jpg" alt="Premium White Tea" class="w-full h-96 object-cover rounded-2xl shadow-lg">
                         </div>
                         
                         <!-- Thumbnails -->
-                        <img src="/assets/images/specialty-tea-white-tea.jpg" alt="White Tea Leaves" class="thumbnail active h-24 object-cover rounded-lg" onclick="changeMainImage(this.src)">
-                        <img src="/assets/images/specialty-tea-white-tea-thumbnail.jpg" alt="White Tea Close-up" class="thumbnail h-24 object-cover rounded-lg" onclick="changeMainImage('/assets/images/specialty-tea-white-tea.jpg')">
-                        <img src="/assets/images/tea-brewed.jpg" alt="Brewed White Tea" class="thumbnail h-24 object-cover rounded-lg" onclick="changeMainImage(this.src)">
+                        <div class="thumbnails-container">
+                            <img src="/assets/images/specialty-tea-white-tea.jpg" alt="White Tea Leaves" class="thumbnail active object-cover rounded-lg" onclick="changeMainImage(this.src)">
+                            <img src="/assets/images/specialty-tea-white-tea-thumbnail.jpg" alt="White Tea Close-up" class="thumbnail object-cover rounded-lg" onclick="changeMainImage('/assets/images/specialty-tea-white-tea.jpg')">
+                            <img src="/assets/images/tea-brewed.jpg" alt="Brewed White Tea" class="thumbnail object-cover rounded-lg" onclick="changeMainImage(this.src)">
+                        </div>
                     </div>
                 </div>
 
@@ -621,8 +688,17 @@
         function updateCartDisplay() {
             const cartItemsContainer = document.getElementById('cartItems');
             const cartCount = document.getElementById('cartCount');
+            const cartBadge = document.getElementById('cartBadge');
             
             cartCount.textContent = cartItems.length;
+            
+            // Update cart badge
+            if (cartItems.length > 0) {
+                cartBadge.textContent = cartItems.length;
+                cartBadge.style.display = 'flex';
+            } else {
+                cartBadge.style.display = 'none';
+            }
             
             if (cartItems.length === 0) {
                 cartItemsContainer.innerHTML = '<p class="text-gray-500 text-center py-8">Your cart is empty</p>';
