@@ -248,6 +248,71 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        /* Add these styles for the image modal */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            touch-action: pan-y;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            transition: opacity 0.3s ease;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 3rem;
+            cursor: pointer;
+            padding: 1rem;
+            user-select: none;
+            z-index: 2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .nav-arrow:hover {
+            opacity: 1;
+        }
+
+        .nav-arrow.prev {
+            left: 20px;
+        }
+
+        .nav-arrow.next {
+            right: 20px;
+        }
+
+        .main-image {
+            cursor: zoom-in;
+        }
     </style>
 </head>
 <body class="bg-white">
@@ -360,7 +425,7 @@
                     <div class="space-y-4">
                         <!-- Main Image -->
                         <div class="main-image">
-                            <img id="mainImage" src="/assets/images/white-tea-tropicafarm-1.webp" alt="Premium White Tea" class="w-full h-96 object-cover rounded-2xl shadow-lg">
+                            <img id="mainImage" src="/assets/images/white-tea-tropicafarm-1.webp" alt="Premium White Tea" class="w-full h-96 object-cover rounded-2xl shadow-lg" onclick="openModal(this.src)">
                         </div>
                         
                         <!-- Thumbnails -->
@@ -647,117 +712,247 @@
         </a>
     </div>
 
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <div class="nav-arrow prev" onclick="navigateImage(-1)">❮</div>
+        <img id="modalImage" class="modal-content" src="" alt="Enlarged view">
+        <div class="nav-arrow next" onclick="navigateImage(1)">❯</div>
+    </div>
+
     <script>
+        // Store all image sources and current index
+        let imageSources = [];
+        let currentImageIndex = 0;
+
         // Image gallery functionality
         function changeMainImage(src) {
-            document.getElementById('mainImage').src = src;
+            const mainImage = document.getElementById('mainImage');
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            
+            // Update main image source
+            mainImage.src = src;
+            
+            // Update current index
+            currentImageIndex = imageSources.indexOf(src);
             
             // Update active thumbnail
-            document.querySelectorAll('.thumbnail').forEach(thumb => {
-                thumb.classList.remove('active');
-            });
-            event.target.classList.add('active');
+            updateThumbnails();
         }
 
-        // Sample cart functionality
-        let cartItems = [];
+        function updateThumbnails() {
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            thumbnails.forEach((thumb, index) => {
+                if (index === currentImageIndex) {
+                    thumb.classList.add('ring-2', 'ring-primary', 'ring-offset-2');
+                } else {
+                    thumb.classList.remove('ring-2', 'ring-primary', 'ring-offset-2');
+                }
+            });
+        }
 
-        function addToSampleCart() {
-            const product = {
-                id: 'white-tea-sample',
-                name: 'White Tea Sample',
-                quantity: '100g',
-                price: 'Sample',
-                image: '/assets/images/specialty-tea-white-tea.jpg'
-            };
+        // Function to open modal with clicked image
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            
+            // Get all image sources from thumbnails
+            imageSources = Array.from(document.querySelectorAll('.thumbnail')).map(thumb => 
+                thumb.getAttribute('onclick').match(/'([^']+)'/)[1]
+            );
+            
+            // Find current index
+            currentImageIndex = imageSources.indexOf(imageSrc);
+            if (currentImageIndex === -1) currentImageIndex = 0;
+            
+            // Show current image
+            showImageInModal();
+            
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            
+            // Add keyboard event listeners
+            document.addEventListener('keydown', handleKeyDown);
+        }
 
-            // Check if item already exists
-            const existingItem = cartItems.find(item => item.id === product.id);
-            if (!existingItem) {
-                cartItems.push(product);
+        function showImageInModal() {
+            const modalImg = document.getElementById('modalImage');
+            modalImg.style.opacity = '0';
+            
+            setTimeout(() => {
+                modalImg.src = imageSources[currentImageIndex];
+                modalImg.style.opacity = '1';
+                
+                // Update main image and thumbnails
+                const mainImage = document.getElementById('mainImage');
+                mainImage.src = imageSources[currentImageIndex];
+                updateThumbnails();
+            }, 150);
+        }
+
+        function navigateImage(direction) {
+            currentImageIndex += direction;
+            
+            // Loop around if at the end/beginning
+            if (currentImageIndex >= imageSources.length) {
+                currentImageIndex = 0;
+            } else if (currentImageIndex < 0) {
+                currentImageIndex = imageSources.length - 1;
+            }
+            
+            showImageInModal();
+        }
+
+        // Function to close modal
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            
+            // Remove keyboard event listeners
+            document.removeEventListener('keydown', handleKeyDown);
+        }
+
+        function handleKeyDown(e) {
+            if (e.key === 'ArrowLeft') {
+                navigateImage(-1);
+            } else if (e.key === 'ArrowRight') {
+                navigateImage(1);
+            } else if (e.key === 'Escape') {
+                closeModal();
+            }
+        }
+
+        // Close modal when clicking outside the image
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Initialize the main image click handler
+        document.addEventListener('DOMContentLoaded', function() {
+            const mainImage = document.getElementById('mainImage');
+            
+            // Add click handler for main image to open modal
+            mainImage.addEventListener('click', function() {
+                openModal(this.src);
+            });
+            
+            // Initialize thumbnails
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            thumbnails.forEach((thumb, index) => {
+                // Only update main image on thumbnail click, don't open modal
+                thumb.addEventListener('click', function(event) {
+                    event.stopPropagation();
+                    const imgSrc = this.getAttribute('onclick').match(/'([^']+)'/)[1];
+                    changeMainImage(imgSrc);
+                });
+            });
+            
+            // Initialize first thumbnail as active
+            if (thumbnails.length > 0) {
+                thumbnails[0].classList.add('ring-2', 'ring-primary', 'ring-offset-2');
+            }
+            
+            // Sample cart functionality
+            let cartItems = [];
+
+            function addToSampleCart() {
+                const product = {
+                    id: 'white-tea-sample',
+                    name: 'White Tea Sample',
+                    quantity: '100g',
+                    price: 'Sample',
+                    image: '/assets/images/specialty-tea-white-tea.jpg'
+                };
+
+                // Check if item already exists
+                const existingItem = cartItems.find(item => item.id === product.id);
+                if (!existingItem) {
+                    cartItems.push(product);
+                    updateCartDisplay();
+                }
+
+                const cart = document.getElementById('sampleCart');
+                cart.classList.add('show');
+                
+                setTimeout(() => {
+                    cart.classList.remove('show');
+                }, 4000);
+            }
+
+            function showCart() {
+                document.getElementById('cartOverlay').classList.add('show');
+                document.getElementById('cartPanel').classList.add('show');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function hideCart() {
+                document.getElementById('cartOverlay').classList.remove('show');
+                document.getElementById('cartPanel').classList.remove('show');
+                document.body.style.overflow = 'auto';
+            }
+
+            function updateCartDisplay() {
+                const cartItemsContainer = document.getElementById('cartItems');
+                const cartCount = document.getElementById('cartCount');
+                const cartBadge = document.getElementById('cartBadge');
+                
+                cartCount.textContent = cartItems.length;
+                
+                // Update cart badge
+                if (cartItems.length > 0) {
+                    cartBadge.textContent = cartItems.length;
+                    cartBadge.style.display = 'flex';
+                } else {
+                    cartBadge.style.display = 'none';
+                }
+                
+                if (cartItems.length === 0) {
+                    cartItemsContainer.innerHTML = '<p class="text-gray-500 text-center py-8">Your cart is empty</p>';
+                    return;
+                }
+
+                cartItemsContainer.innerHTML = cartItems.map(item => `
+                    <div class="flex items-center space-x-3 bg-gray-50 rounded-lg p-3">
+                        <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded-lg">
+                        <div class="flex-1">
+                            <h4 class="font-medium text-gray-900">${item.name}</h4>
+                            <p class="text-sm text-gray-600">${item.quantity}</p>
+                            <p class="text-sm font-medium text-primary">${item.price}</p>
+                        </div>
+                        <button onclick="removeFromCart('${item.id}')" class="text-red-500 hover:text-red-700">
+                            <i class="fas fa-trash text-sm"></i>
+                        </button>
+                    </div>
+                `).join('');
+            }
+
+            function removeFromCart(itemId) {
+                cartItems = cartItems.filter(item => item.id !== itemId);
                 updateCartDisplay();
             }
 
-            const cart = document.getElementById('sampleCart');
-            cart.classList.add('show');
-            
-            setTimeout(() => {
-                cart.classList.remove('show');
-            }, 4000);
-        }
-
-        function showCart() {
-            document.getElementById('cartOverlay').classList.add('show');
-            document.getElementById('cartPanel').classList.add('show');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function hideCart() {
-            document.getElementById('cartOverlay').classList.remove('show');
-            document.getElementById('cartPanel').classList.remove('show');
-            document.body.style.overflow = 'auto';
-        }
-
-        function updateCartDisplay() {
-            const cartItemsContainer = document.getElementById('cartItems');
-            const cartCount = document.getElementById('cartCount');
-            const cartBadge = document.getElementById('cartBadge');
-            
-            cartCount.textContent = cartItems.length;
-            
-            // Update cart badge
-            if (cartItems.length > 0) {
-                cartBadge.textContent = cartItems.length;
-                cartBadge.style.display = 'flex';
-            } else {
-                cartBadge.style.display = 'none';
-            }
-            
-            if (cartItems.length === 0) {
-                cartItemsContainer.innerHTML = '<p class="text-gray-500 text-center py-8">Your cart is empty</p>';
-                return;
+            function clearCart() {
+                cartItems = [];
+                updateCartDisplay();
             }
 
-            cartItemsContainer.innerHTML = cartItems.map(item => `
-                <div class="flex items-center space-x-3 bg-gray-50 rounded-lg p-3">
-                    <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded-lg">
-                    <div class="flex-1">
-                        <h4 class="font-medium text-gray-900">${item.name}</h4>
-                        <p class="text-sm text-gray-600">${item.quantity}</p>
-                        <p class="text-sm font-medium text-primary">${item.price}</p>
-                    </div>
-                    <button onclick="removeFromCart('${item.id}')" class="text-red-500 hover:text-red-700">
-                        <i class="fas fa-trash text-sm"></i>
-                    </button>
-                </div>
-            `).join('');
-        }
+            function proceedToCheckout() {
+                if (cartItems.length === 0) {
+                    alert('Your cart is empty');
+                    return;
+                }
 
-        function removeFromCart(itemId) {
-            cartItems = cartItems.filter(item => item.id !== itemId);
-            updateCartDisplay();
-        }
-
-        function clearCart() {
-            cartItems = [];
-            updateCartDisplay();
-        }
-
-        function proceedToCheckout() {
-            if (cartItems.length === 0) {
-                alert('Your cart is empty');
-                return;
+                const itemsList = cartItems.map(item => `- ${item.name} (${item.quantity})`).join('\n');
+                const message = `Hello TropicaFarm,\n\nI would like to order the following samples:\n\n${itemsList}\n\nPlease provide pricing and shipping information.`;
+                const encodedMessage = encodeURIComponent(message);
+                
+                window.open(`https://wa.me/6282246632200?text=${encodedMessage}`, '_blank');
             }
 
-            const itemsList = cartItems.map(item => `- ${item.name} (${item.quantity})`).join('\n');
-            const message = `Hello TropicaFarm,\n\nI would like to order the following samples:\n\n${itemsList}\n\nPlease provide pricing and shipping information.`;
-            const encodedMessage = encodeURIComponent(message);
-            
-            window.open(`https://wa.me/6282246632200?text=${encodedMessage}`, '_blank');
-        }
-
-        // Initialize cart display
-        document.addEventListener('DOMContentLoaded', function() {
             updateCartDisplay();
         });
 
