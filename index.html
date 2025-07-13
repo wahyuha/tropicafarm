@@ -388,7 +388,46 @@
     }
 }
 
-
+/* Add these new styles for mobile optimization */
+@media (max-width: 768px) {
+    /* Make Why Choose Us section more compact on mobile */
+    .why-choose-us .grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+    }
+    
+    .why-choose-us .p-6 {
+        padding: 16px !important;
+    }
+    
+    .why-choose-us .w-16, 
+    .why-choose-us .h-16 {
+        width: 40px !important;
+        height: 40px !important;
+    }
+    
+    .why-choose-us .text-2xl {
+        font-size: 1.25rem !important;
+    }
+    
+    .why-choose-us .text-lg {
+        font-size: 1rem !important;
+        margin-bottom: 0.25rem !important;
+    }
+    
+    .why-choose-us .text-sm {
+        font-size: 0.875rem !important;
+        line-height: 1.4;
+    }
+    
+    .why-choose-us .mb-4 {
+        margin-bottom: 0.75rem !important;
+    }
+    
+    .why-choose-us .mb-2 {
+        margin-bottom: 0.25rem !important;
+    }
+}
     </style>
 </head>
 <body class="bg-white">
@@ -730,7 +769,7 @@
     </section>
 
     <!-- Why Choose Us Section -->
-    <section class="relative py-20 overflow-hidden">
+    <section class="relative py-20 overflow-hidden why-choose-us">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0 z-0">
             <img src="/assets/images/indonesian-map-sketch.jpg" alt="Indonesian Map" class="w-full h-full object-cover" loading="lazy">
@@ -924,7 +963,7 @@
 
             <div class="text-center mt-12">
                 <a href="https://wa.me/6282246632200?text=Hello%20TropicaFarm%2C%20I%20would%20like%20to%20know%20more%20about%20ordering%20process" target="_blank" class="bg-primary hover:bg-accent text-white px-6 py-2 rounded-lg transition duration-300 inline-flex items-center">
-                    <i class="fab fa-whatsapp text-lg mr-2"></i> Start Your Order
+                    <i class="fab fa-whatsapp text-lg"></i> Start Your Order
                 </a>
             </div>
         </div>
