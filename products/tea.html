@@ -83,6 +83,7 @@
         }
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="/js/cart.js" defer></script>
 
     <style>
         * {
@@ -191,7 +192,7 @@
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button class="md:hidden text-primary p-2">
+                <button id="mobileMenuButton" class="md:hidden text-primary p-2">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
@@ -202,6 +203,36 @@
                     <a href="../index.html" class="text-gray-700 hover:text-primary text-lg font-bold transition-colors">Home</a>
                     <a href="../index.html#journey" class="text-gray-700 hover:text-primary text-lg font-bold transition-colors">About Us</a>
                     <a href="#" class="text-primary text-lg font-bold border-b-2 border-primary pb-1">Products</a>
+                    
+                    <!-- Cart Icon -->
+                    <div class="relative cursor-pointer group" id="headerCart">
+                        <i class="fas fa-shopping-cart text-gray-700 text-xl"></i>
+                        <span id="cartBadge" class="absolute -top-2 -right-2 bg-primary text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                        <!-- Cart Dropdown -->
+                        <div id="cartDropdown" class="hidden group-hover:block absolute right-0 mt-2 w-72 bg-white rounded-lg shadow-xl z-50 border border-gray-200">
+                            <div class="p-4">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h3 class="font-semibold text-gray-800">Your Cart</h3>
+                                    <button onclick="event.stopPropagation(); document.getElementById('cartDropdown').classList.add('hidden');" class="text-gray-500 hover:text-gray-700">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                                <div id="cartItems" class="max-h-60 overflow-y-auto">
+                                    <!-- Cart items will be populated here -->
+                                    <p class="text-gray-500 text-sm text-center py-4" id="emptyCartMessage">Your cart is empty</p>
+                                </div>
+                                <div id="cartSummary" class="border-t border-gray-200 pt-3 mt-3 hidden">
+                                    <div class="flex justify-between mb-2">
+                                        <span class="font-medium">Total:</span>
+                                        <span id="cartTotal" class="font-bold">$0.00</span>
+                                    </div>
+                                    <button onclick="proceedToCheckout()" class="w-full bg-primary text-white py-2 rounded-lg hover:bg-primary/90 transition-colors">
+                                        Checkout
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Chat Button -->
@@ -212,6 +243,44 @@
             </div>
         </div>
     </nav>
+
+    <!-- Mobile Menu (hidden by default) -->
+    <div id="mobileMenu" class="fixed inset-0 bg-white z-50 flex flex-col items-start p-6 space-y-6 shadow-lg transition-transform duration-300 transform -translate-y-full md:hidden">
+        <button id="closeMobileMenu" class="self-end mb-4 text-gray-700 text-2xl">
+            <i class="fas fa-times"></i>
+        </button>
+        <a href="../index.html" class="text-gray-700 hover:text-primary text-lg font-bold transition-colors w-full">Home</a>
+        <a href="../index.html#journey" class="text-gray-700 hover:text-primary text-lg font-bold transition-colors w-full">About Us</a>
+        <a href="#" class="text-primary text-lg font-bold border-b-2 border-primary pb-1 w-full">Products</a>
+        <!-- Cart Icon (mobile) -->
+        <div class="relative cursor-pointer group mt-2" id="headerCartMobile">
+            <i class="fas fa-shopping-cart text-gray-700 text-xl"></i>
+            <span id="cartBadgeMobile" class="absolute -top-2 -right-2 bg-primary text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+            <!-- Cart Dropdown (mobile) -->
+            <div id="cartDropdownMobile" class="hidden absolute right-0 mt-2 w-72 bg-white rounded-lg shadow-xl z-50 border border-gray-200">
+                <div class="p-4">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="font-semibold text-gray-800">Your Cart</h3>
+                        <button onclick="event.stopPropagation(); document.getElementById('cartDropdownMobile').classList.add('hidden');" class="text-gray-500 hover:text-gray-700">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div id="cartItemsMobile" class="max-h-60 overflow-y-auto">
+                        <p class="text-gray-500 text-sm text-center py-4" id="emptyCartMessageMobile">Your cart is empty</p>
+                    </div>
+                    <div id="cartSummaryMobile" class="border-t border-gray-200 pt-3 mt-3 hidden">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium">Total:</span>
+                            <span id="cartTotalMobile" class="font-bold">$0.00</span>
+                        </div>
+                        <button onclick="proceedToCheckout()" class="w-full bg-primary text-white py-2 rounded-lg hover:bg-primary/90 transition-colors">
+                            Checkout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Breadcrumb -->
     <div class="bg-gray-50 py-4">
@@ -824,6 +893,29 @@
                 closeVariantPopup();
             }
         });
+
+        // Hamburger menu toggle for mobile
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+
+        if (mobileMenuButton && mobileMenu && closeMobileMenu) {
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.remove('-translate-y-full');
+                mobileMenu.classList.add('translate-y-0');
+            });
+            closeMobileMenu.addEventListener('click', function() {
+                mobileMenu.classList.add('-translate-y-full');
+                mobileMenu.classList.remove('translate-y-0');
+            });
+            // Optional: close menu on outside click
+            window.addEventListener('click', function(e) {
+                if (mobileMenu.classList.contains('translate-y-0') && !mobileMenu.contains(e.target) && e.target !== mobileMenuButton) {
+                    mobileMenu.classList.add('-translate-y-full');
+                    mobileMenu.classList.remove('translate-y-0');
+                }
+            });
+        }
     </script>
 
     <!-- Schema.org structured data -->
