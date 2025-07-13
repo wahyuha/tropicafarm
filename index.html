@@ -166,7 +166,7 @@
         .hero-bg {
             background-image: url('/assets/images/indonesian-tea-plantation.jpg');
             background-size: cover;
-            background-position: center;
+            background-position: 60% center;
             background-repeat: no-repeat;
         }
         
@@ -365,6 +365,9 @@
 }
 
 @media (max-width: 768px) {
+    .hero-bg {
+        background-position: 75% center;
+    }
     .connection-container {
         flex-direction: column;
         height: auto;
@@ -575,7 +578,7 @@
             <!-- Section Header -->
             <div class="text-center mb-16">
                 <h2 class="text-4xl font-bold text-primary mb-4">Our Tea Products</h2>
-                <p class="text-gray-600 mx-auto">Explore our carefully selected tea portfolio. Every tea listed here meets our stringent quality qualifications, comes with our personal recommendation, and is perfectly designed for global market demands</p>
+                <p class="text-gray-600 mx-auto">Explore our carefully selected tea portfolio. Every tea listed here meets our qualifications, comes with our personal recommendation, and is perfectly designed for global market demands</p>
             </div>
 
             <!-- Products Grid -->
@@ -585,7 +588,7 @@
                     <div class="absolute top-0 right-0 w-64 h-64 bg-amber-200/20 rounded-full -mr-32 -mt-32"></div>
                     <div class="relative z-10 flex flex-col lg:flex-row items-center gap-8">
                         <!-- Text Content -->
-                        <div class="lg:w-1/2 space-y-6 lg:text-left">
+                        <div class="w-full lg:w-1/2 space-y-6 lg:text-left">
                             <div class="inline-flex items-center gap-2 mb-2">
                                 <div class="w-2 h-8 bg-amber-600 rounded-full"></div>
                                 <span class="text-amber-800 font-medium">Robust & Customizable</span>
@@ -597,6 +600,14 @@
                             <p class="text-gray-700 leading-relaxed">
                                 We honor the centuries old traditions of tea processing, carefully oxidizing the leaves to unlock their full bodied potential. This results in a brew that boasts a rich, often malty flavor profile with a captivating aroma, perfect for a bold morning start or a comforting afternoon escape.
                             </p>
+                            <div class="block lg:hidden col-span-2 row-span-2">
+                                <img 
+                                  src="/assets/images/black-tea-bop.jpg" 
+                                  alt="Black Tea Main" 
+                                  class="rounded-xl shadow-lg w-full md:w-1/2 md:mx-auto h-auto object-cover" 
+                                  loading="lazy"
+                                >
+                            </div>                       
                             <a href="/products/tea.html" class="inline-flex items-center px-8 py-4 bg-amber-600 text-white rounded-full font-semibold hover:bg-amber-700 transition-colors group">
                                 <span>View Our Black Tea</span>
                                 <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -605,11 +616,11 @@
                             </a>
                         </div>
                         <!-- Images -->
-                        <div class="lg:w-1/2 grid grid-cols-2 lg:grid-cols-4 lg:grid-rows-2 gap-4">
+                        <div class="hidden lg:grid lg:w-1/2 grid-cols-2 lg:grid-cols-4 lg:grid-rows-2 gap-4">
                             <div class="col-span-2 row-span-2">
-                                <img src="/assets/images/black-tea-op.jpg" alt="Black Tea Main" class="rounded-xl shadow-lg w-full h-full object-cover" loading="lazy">
+                                <img src="/assets/images/black-tea-bop.jpg" alt="Black Tea Main" class="rounded-xl shadow-lg w-full h-full object-cover" loading="lazy">
                             </div>
-                            <img src="/assets/images/black-tea-bop.jpg" alt="Black Tea Closeup" class="rounded-xl shadow-lg w-full h-auto object-cover aspect-square" loading="lazy">
+                            <img src="/assets/images/black-tea-op.jpg" alt="Black Tea Closeup" class="rounded-xl shadow-lg w-full h-auto object-cover aspect-square" loading="lazy">
                             <img src="/assets/images/black-tea-dust.jpg" alt="Black Tea Leaves" class="rounded-xl shadow-lg w-full h-auto object-cover aspect-square" loading="lazy">
                             <img src="/assets/images/black-tea-pf.jpg" alt="Black Tea PF" class="rounded-xl shadow-lg w-full h-auto object-cover aspect-square" loading="lazy">
                         </div>
@@ -621,7 +632,7 @@
                     <div class="absolute -left-32 -top-32 w-96 h-96 bg-emerald-200/20 rounded-full"></div>
                     <div class="relative z-10 flex flex-col lg:flex-row-reverse items-center gap-8">
                         <!-- Text Content -->
-                        <div class="lg:w-1/2 space-y-6 lg:text-left">
+                        <div class="w-full lg:w-1/2 space-y-6 lg:text-left">
                             <div class="inline-flex items-center gap-2 mb-2">
                                 <div class="w-2 h-8 bg-emerald-600 rounded-full"></div>
                                 <span class="text-emerald-800 font-medium">Freshness & Authenticity</span>
@@ -633,6 +644,14 @@
                             <p class="text-gray-700 leading-relaxed">
                                 Unlike black tea, our green tea undergoes gentle heating right after harvesting. This careful process halts oxidation, locking in its natural antioxidants, vivid color, and a wonderfully clean taste. The result is a crisp, and incredibly healthy brew that's perfect for a moment of calm reflection or a revitalizing pick me up.
                             </p>
+                            <div class="block lg:hidden col-span-2 row-span-2">
+                                <img 
+                                  src="/assets/images/green-tea-chun-mee.jpg" 
+                                  alt="Green Tea Chun Mee" 
+                                  class="rounded-xl shadow-lg w-full md:w-1/2 md:mx-auto h-auto object-cover" 
+                                  loading="lazy"
+                                >
+                            </div> 
                             <a href="/products/tea.html#green-tea" class="inline-flex items-center px-8 py-4 bg-emerald-600 text-white rounded-full font-semibold hover:bg-emerald-700 transition-colors group">
                                 <span>View Our Green Tea</span>
                                 <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -641,7 +660,7 @@
                             </a>
                         </div>
                         <!-- Images -->
-                        <div class="lg:w-1/2 grid grid-cols-2 lg:grid-cols-4 lg:grid-rows-2 gap-4">
+                        <div class="hidden lg:grid lg:w-1/2 grid-cols-2 lg:grid-cols-4 lg:grid-rows-2 gap-4">
                             <div class="col-span-2 row-span-2">
                                 <img src="/assets/images/green-tea-chun-mee.jpg" alt="Green Tea Main" class="rounded-xl shadow-lg w-full h-full object-cover" loading="lazy">
                             </div>
@@ -658,7 +677,7 @@
                     <div class="absolute -left-20 -bottom-20 w-64 h-64 bg-amber-100/30 rounded-full"></div>
                     <div class="relative z-10 flex flex-col lg:flex-row items-center gap-8">
                         <!-- Text Content -->
-                        <div class="lg:w-1/2 space-y-6 lg:text-left">
+                        <div class="w-full lg:w-1/2 space-y-6 lg:text-left">
                             <div class="inline-flex items-center gap-2 mb-2">
                                 <div class="w-2 h-8 bg-amber-500/80 rounded-full"></div>
                                 <span class="text-amber-800 font-medium">Pure & Distinctive</span>
@@ -670,6 +689,14 @@
                             <p class="text-gray-700 leading-relaxed">
                                 Curious about how to brew it? It's simple! You can easily steep our loose leaf teas using a variety of methods: a steeping ball, an infuser, a French press, or a strainer. This approach also offers a great benefit: significantly less waste compared to traditional tea bags. Explore our diverse range of loose leaf options, including Gunpowder, White Tea, Green Tea, Yellow Tea, Black Tea, and Oolong, and discover the full potential of a truly exceptional tea experience.
                             </p>
+                            <div class="block lg:hidden col-span-2 row-span-2">
+                                <img 
+                                  src="/assets/images/white-tea-sample.jpeg" 
+                                  alt="White Tea" 
+                                  class="rounded-xl shadow-lg w-full md:w-1/2 md:mx-auto h-auto object-cover" 
+                                  loading="lazy"
+                                >
+                            </div> 
                             <a href="/products/tea.html#loose-leaf-tea" class="inline-flex items-center px-8 py-4 bg-amber-500/90 text-white rounded-full font-semibold hover:bg-amber-600 transition-colors group">
                                 <span>View Our Loose Leaf Tea</span>
                                 <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -678,12 +705,12 @@
                             </a>
                         </div>
                         <!-- Images -->
-                        <div class="lg:w-1/2 grid grid-cols-2 lg:grid-cols-4 lg:grid-rows-2 gap-4">
+                        <div class="hidden lg:grid lg:w-1/2 grid-cols-2 lg:grid-cols-4 lg:grid-rows-2 gap-4">
                             <div class="col-span-2 row-span-2">
-                                <img src="/assets/images/specialty-tea-jasmine.jpg" alt="Specialty Tea Main" class="rounded-xl shadow-lg w-full h-full object-cover" loading="lazy">
+                                <img src="/assets/images/white-tea-sample.jpeg" alt="Specialty Tea Main" class="rounded-xl shadow-lg w-full h-full object-cover" loading="lazy">
                             </div>
                             <img src="/assets/images/specialty-tea-white-peony.jpg" alt="Specialty Tea Closeup" class="rounded-xl shadow-lg w-full h-auto object-cover aspect-square" loading="lazy">
-                            <img src="/assets/images/specialty-tea-white-tea.jpg" alt="Specialty Tea Leaves" class="rounded-xl shadow-lg w-full h-auto object-cover aspect-square" loading="lazy">
+                            <img src="/assets/images/specialty-tea-jasmine.jpg" alt="Specialty Tea Leaves" class="rounded-xl shadow-lg w-full h-auto object-cover aspect-square" loading="lazy">
                             <img src="/assets/images/specialty-tea-oolong.jpg" alt="Specialty Tea Oolong" class="rounded-xl shadow-lg w-full h-auto object-cover aspect-square" loading="lazy">
                         </div>
                     </div>
@@ -768,7 +795,7 @@
     </section>
 
     <!-- How to Order Section -->
-    <section class="py-16">
+    <section class="py-16 bg-light">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-primary mb-4">How to Order</h2>
@@ -904,7 +931,7 @@
     </section>
 
     <!-- Certificates Section -->
-    <section class="py-12 bg-light">
+    <section class="py-12">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12">
                 <h2 class="text-4xl font-bold text-primary mb-6">Our Certifications</h2>
@@ -922,7 +949,7 @@
     </section>
 
     <!-- Video Gallery Section -->
-    <section class="py-16 bg-white">
+    <section class="py-16 bg-light">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-primary mb-4">Highlights</h2>
@@ -1019,7 +1046,7 @@
             </div>
             <h2 class="text-4xl font-bold mb-4">A Note from Our Founder</h2>
             <p class="text-lg text-gray-200 leading-relaxed mb-8">
-                "At TropicaFarm, it's all about good tea and good people. We grow with our farmers, we vibe with our partners, and we are always up for bold ideas and new collabs. Let's build something great together."
+                "It's all about good tea and good people. We grow with our farmers, we vibe with our partners, and we are always up for bold ideas and new collabs. Let's build something great together"
             </p>
             <p class="text-xl font-semibold text-yellow-400 mb-8">- Meirisa Yusniar, Founder & CEO</p>
             <!-- WhatsApp CTA Button -->
