@@ -209,9 +209,19 @@ window.cart = cart;
 // Proceed to checkout
 function proceedToCheckout() {
     if (cart.cart.length === 0) return;
-    // WhatsApp checkout link (customize as needed)
-    const waUrl = 'https://wa.me/6282246632200?text=Hello%20TropicaFarm%2C%20I%20would%20like%20to%20checkout%20my%20cart';
+
+    // Compose WhatsApp message
+    let message = 'Hello TropicaFarm, I would like to place an order:%0A%0AItems:';
+    cart.cart.forEach(item => {
+        message += `%0A- ${item.name} x ${item.quantity} ($${(item.price * item.quantity).toFixed(2)})`;
+    });
+    message += `%0A%0ATotal: $${cart.getTotal().toFixed(2)}`;
+    message += `%0A%0ACould you please provide information about shipment and payment options?`;
+
+    // WhatsApp redirect
+    const waUrl = `https://wa.me/6282246632200?text=${message}`;
     window.open(waUrl, '_blank');
+
     cart.clearCart();
 }
 
