@@ -79,7 +79,8 @@
         }
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="/js/cart.js" defer></script>
+    <script src="/assets/js/cart.js" defer></script>
+    <link rel="stylesheet" href="/assets/css/cart-drawer.css">
 
     <style>
         * {
@@ -204,30 +205,6 @@
                     <div class="relative cursor-pointer group" id="headerCart">
                         <i class="fas fa-shopping-cart text-gray-700 text-xl"></i>
                         <span id="cartBadge" class="absolute -top-2 -right-2 bg-primary text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
-                        <!-- Cart Dropdown -->
-                        <div id="cartDropdown" class="hidden group-hover:block absolute right-0 mt-2 w-72 bg-white rounded-lg shadow-xl z-50 border border-gray-200">
-                            <div class="p-4">
-                                <div class="flex justify-between items-center mb-4">
-                                    <h3 class="font-semibold text-gray-800">Your Cart</h3>
-                                    <button onclick="event.stopPropagation(); document.getElementById('cartDropdown').classList.add('hidden');" class="text-gray-500 hover:text-gray-700">
-                                        <i class="fas fa-times"></i>
-                                    </button>
-                                </div>
-                                <div id="cartItems" class="max-h-60 overflow-y-auto">
-                                    <!-- Cart items will be populated here -->
-                                    <p class="text-gray-500 text-sm text-center py-4" id="emptyCartMessage">Your cart is empty</p>
-                                </div>
-                                <div id="cartSummary" class="border-t border-gray-200 pt-3 mt-3 hidden">
-                                    <div class="flex justify-between mb-2">
-                                        <span class="font-medium">Total:</span>
-                                        <span id="cartTotal" class="font-bold">$0.00</span>
-                                    </div>
-                                    <button onclick="proceedToCheckout()" class="w-full bg-primary text-white py-2 rounded-lg hover:bg-primary/90 transition-colors">
-                                        Checkout
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -768,6 +745,32 @@
         <a href="https://wa.me/6282246632200?text=Hello%20TropicaFarm%2C%20I%20need%20your%20help" target="_blank" class="group bg-green-500 hover:bg-green-600 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl">
             <i class="fab fa-whatsapp text-3xl"></i>
         </a>
+    </div>
+
+    <!-- Cart Drawer Overlay -->
+    <div id="cartOverlay" class="cart-overlay"></div>
+    <!-- Cart Drawer Panel -->
+    <div id="cartDrawer" class="cart-panel">
+        <div class="p-6 flex flex-col h-full">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="font-semibold text-gray-800 text-lg">Your Cart</h3>
+                <button id="closeCartDrawer" class="text-gray-500 hover:text-gray-700 text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="cartItemsDrawer" class="flex-1 max-h-80 overflow-y-auto mb-4">
+                <p class="text-gray-500 text-sm text-center py-4" id="emptyCartMessageDrawer">Your cart is empty</p>
+            </div>
+            <div id="cartSummaryDrawer" class="border-t border-gray-200 pt-3 mt-3 hidden">
+                <div class="flex justify-between mb-2">
+                    <span class="font-medium">Total:</span>
+                    <span id="cartTotalDrawer" class="font-bold">$0.00</span>
+                </div>
+                <button onclick="proceedToCheckout()" class="w-full bg-primary text-white py-2 rounded-lg hover:bg-primary/90 transition-colors mt-2">
+                    Checkout
+                </button>
+            </div>
+        </div>
     </div>
 
     <script>
