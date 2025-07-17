@@ -3,77 +3,72 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-    
     <!-- Homepage -->
     <url>
         <loc>https://tropicafarm.com/</loc>
-        <lastmod>2024-03-20</lastmod>
+        <lastmod>2025-07-17</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
 
-    <!-- Tea Products -->
+    <!-- Tea Products Listing Page (PLP) -->
     <url>
         <loc>https://tropicafarm.com/products/tea.html</loc>
-        <lastmod>2024-03-20</lastmod>
-        <changefreq>monthly</changefreq>
+        <lastmod>2025-07-17</lastmod>
+        <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
 
-    <!-- Essential Oils -->
+    <!-- Product Detail Pages (PDPs) -->
     <url>
-        <loc>https://tropicafarm.com/products/essential-oils.html</loc>
-        <lastmod>2024-03-20</lastmod>
+        <loc>https://tropicafarm.com/products/green-tea-fannings.html</loc>
+        <lastmod>2025-07-17</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://tropicafarm.com/products/green-tea-gunpowder.html</loc>
+        <lastmod>2025-07-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://tropicafarm.com/products/green-tea-jasmine.html</loc>
+        <lastmod>2025-07-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://tropicafarm.com/products/white-tea.html</loc>
+        <lastmod>2025-07-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
     </url>
 
     <!-- About Section -->
     <url>
         <loc>https://tropicafarm.com/#about</loc>
-        <lastmod>2024-03-20</lastmod>
+        <lastmod>2025-07-17</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.5</priority>
     </url>
 
     <!-- Products Section -->
     <url>
         <loc>https://tropicafarm.com/#products</loc>
-        <lastmod>2024-03-20</lastmod>
+        <lastmod>2025-07-17</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.5</priority>
     </url>
 
     <!-- Contact Section -->
     <url>
         <loc>https://tropicafarm.com/#contact</loc>
-        <lastmod>2024-03-20</lastmod>
+        <lastmod>2025-07-17</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.5</priority>
     </url>
-
-    <!-- Black Tea Section -->
-    <url>
-        <loc>https://tropicafarm.com/products/tea.html#black-tea</loc>
-        <lastmod>2024-03-20</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <!-- Green Tea Section -->
-    <url>
-        <loc>https://tropicafarm.com/products/tea.html#green-tea</loc>
-        <lastmod>2024-03-20</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <!-- How to Order Section -->
-    <url>
-        <loc>https://tropicafarm.com/products/tea.html#how-to-order</loc>
-        <lastmod>2024-03-20</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-</urlset> 
+</urlset>

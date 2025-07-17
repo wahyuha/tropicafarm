@@ -9,8 +9,12 @@ Disallow: /cgi-bin/
 Disallow: /tmp/
 Disallow: /includes/
 
+# Disallow thumbnail images in /assets/images/
+Disallow: /assets/images/*-thumbnail.jpg
+Disallow: /assets/images/*thumb.webp
+
 # Sitemap location
 Sitemap: https://tropicafarm.com/sitemap.xml
 
-# Crawl-delay
-Crawl-delay: 10 
+# Crawl-delay (reduced for better efficiency)
+Crawl-delay: 5 
