@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17055870584"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-17055870584');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="vercel" content="toolbar=off">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#2c7744">
+    <link rel="shortcut icon" href="/assets/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#2c7744">
+    <meta name="msapplication-config" content="/assets/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#2c7744">
+
+    <!-- Primary Meta Tags -->
+    <title>Jasmine Green Tea Indonesia | Premium Tea Export | TropicaFarm</title>
+    <meta name="description" content="Premium Jasmine Green Tea from Indonesia. Naturally scented with fresh jasmine blossoms, offering a captivating floral aroma and refreshing taste. Wholesale export, lab-tested, certified quality. Request samples and detailed specs now.">
+    <meta name="keywords" content="jasmine green tea indonesia, premium jasmine tea, indonesian green tea, scented green tea, wholesale tea supplier, bulk jasmine tea, green tea export, halal tea, HACCP tea, loose leaf jasmine tea, dragon pearls, tea export Indonesia, tea supplier Indonesia, premium loose leaf tea, green tea export price">
+    <meta name="author" content="TropicaFarm">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="language" content="en">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="product">
+    <meta property="og:title" content="Jasmine Green Tea Indonesia | Premium Tea Export">
+    <meta property="og:description" content="Premium Jasmine Green Tea from Indonesia. Naturally scented with fresh jasmine blossoms, offering a captivating floral aroma and refreshing taste. Lab-tested, certified quality.">
+    <meta property="og:image" content="https://tropicafarm.com/assets/images/green-tea-jasmine.jpg">
+    <meta property="og:url" content="https://tropicafarm.com/products/green-tea-jasmine.html">
+    <meta property="og:site_name" content="TropicaFarm">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Jasmine Green Tea Indonesia | Premium Tea Export">
+    <meta name="twitter:description" content="Premium Jasmine Green Tea from Indonesia. Naturally scented with fresh jasmine blossoms, offering a captivating floral aroma and refreshing taste. Lab-tested, certified quality.">
+    <meta name="twitter:image" content="https://tropicafarm.com/assets/images/green-tea-jasmine.jpg">
+
+    <link rel="canonical" href="https://tropicafarm.com/products/green-tea-jasmine.html">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1f6306',
+                        secondary: '#f9a825',
+                        accent: '#1a5c30',
+                        light: '#f8f9fa',
+                        dark: '#212529'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="/assets/js/cart.js" defer></script>
+    <link rel="stylesheet" href="/assets/css/cart-drawer.css">
+    <style>
+        * {
+            font-family: 'Figtree', sans-serif;
+        }
+
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .image-gallery {
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 0.5rem;
+            }
+        }
+
+        .main-image {
+            grid-column: 1 / -1;
+            margin-bottom: 0.5rem;
+        }
+
+        .thumbnails-container {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: flex-start;
+        }
+
+        .thumbnails-container .thumbnail {
+            flex: 0 0 auto;
+            width: 80px;
+            height: 80px;
+        }
+
+        @media (min-width: 768px) {
+            .thumbnails-container .thumbnail {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        .thumbnail {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .thumbnail:hover {
+            border-color: #1f6306;
+            transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(31, 99, 6, 0.15);
+        }
+
+        .thumbnail.active {
+            border-color: #1f6306;
+            box-shadow: 0 4px 12px rgba(31, 99, 6, 0.2);
+        }
+
+        .sample-cart {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #1f6306;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            transform: translateY(-100px);
+            opacity: 0;
+            z-index: 1000;
+        }
+
+        .sample-cart.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Add these styles for the image modal */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            touch-action: pan-y;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            transition: opacity 0.3s ease;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 3rem;
+            cursor: pointer;
+            padding: 1rem;
+            user-select: none;
+            z-index: 2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .nav-arrow:hover {
+            opacity: 1;
+        }
+
+        .nav-arrow.prev {
+            left: 20px;
+        }
+
+        .nav-arrow.next {
+            right: 20px;
+        }
+
+        .main-image {
+            cursor: zoom-in;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <a href="/" class="flex items-center space-x-2">
+                        <img src="/assets/images/tropicafarm-logo.png" alt="TropicaFarm Logo" class="w-10 h-10 rounded-full p-1">
+                        <span class="text-xl font-bold text-primary">TropicaFarm</span>
+                    </a>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="text-gray-700 hover:text-primary text-lg font-medium transition-colors">Home</a>
+                    <a href="../index.html#journey" class="text-gray-700 hover:text-primary text-lg font-medium transition-colors">About</a>
+                    <a href="../products/tea.html" class="text-gray-700 hover:text-primary text-lg font-medium transition-colors">Products</a>
+                    
+                    <!-- Cart Icon -->
+                    <div class="relative cursor-pointer group" id="headerCart">
+                        <i class="fas fa-shopping-cart text-gray-700 text-xl"></i>
+                        <span id="cartBadge" class="absolute -top-2 -right-2 bg-primary text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <button id="mobileMenuButton" class="md:hidden text-gray-700 p-2">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu (hidden by default) -->
+    <div id="mobileMenu" class="fixed inset-0 bg-white z-50 flex flex-col items-start p-6 space-y-6 shadow-lg transition-transform duration-300 transform -translate-y-full md:hidden">
+        <button id="closeMobileMenu" class="self-end mb-4 text-gray-700 text-2xl">
+            <i class="fas fa-times"></i>
+        </button>
+        <a href="/" class="text-gray-700 hover:text-primary text-lg font-bold transition-colors w-full">Home</a>
+        <a href="../index.html#journey" class="text-gray-700 hover:text-primary text-lg font-bold transition-colors w-full">About</a>
+        <a href="../products/tea.html" class="text-primary text-lg font-bold border-b-2 border-primary pb-1 w-full">Products</a>
+        <!-- Cart Icon (mobile) -->
+        <div class="relative cursor-pointer group mt-2" id="headerCartMobile">
+            <i class="fas fa-shopping-cart text-gray-700 text-xl"></i>
+            <span id="cartBadgeMobile" class="absolute -top-2 -right-2 bg-primary text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+            <!-- Cart Dropdown (mobile) -->
+            <div id="cartDropdownMobile" class="hidden absolute right-0 mt-2 w-72 bg-white rounded-lg shadow-xl z-50 border border-gray-200">
+                <div class="p-4">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="font-semibold text-gray-800">Your Cart</h3>
+                        <button onclick="event.stopPropagation(); document.getElementById('cartDropdownMobile').classList.add('hidden');" class="text-gray-500 hover:text-gray-700">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div id="cartItemsMobile" class="max-h-60 overflow-y-auto">
+                        <p class="text-gray-500 text-sm text-center py-4" id="emptyCartMessageMobile">Your cart is empty</p>
+                    </div>
+                    <div id="cartSummaryMobile" class="border-t border-gray-200 pt-3 mt-3 hidden">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium">Total:</span>
+                            <span id="cartTotalMobile" class="font-bold">$0.00</span>
+                        </div>
+                        <button onclick="proceedToCheckout()" class="w-full bg-primary text-white py-2 rounded-lg hover:bg-primary/90 transition-colors">
+                            Checkout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Breadcrumb -->
+    <div class="bg-gray-50 py-4">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="text-sm">
+                <ol class="flex items-center space-x-2">
+                    <li><a href="/" class="text-gray-500 hover:text-primary">Home</a></li>
+                    <li><span class="text-gray-400">/</span></li>
+                    <li><a href="../products/tea.html" class="text-gray-500 hover:text-primary">Tea Products</a></li>
+                    <li><span class="text-gray-400">/</span></li>
+                    <li class="text-primary font-medium">Jasmine Green Tea</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Product Section -->
+    <section class="py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Image Gallery -->
+                <div class="fade-in">
+                    <div class="space-y-4">
+                        <!-- Main Image -->
+                        <div class="main-image">
+                            <img id="mainImage" src="/assets/images/green-tea-jasmine.webp" alt="Jasmine Green Tea" class="w-full h-96 object-cover rounded-2xl shadow-lg" onclick="openModal(this.src)">
+                        </div>
+                        <!-- Thumbnails -->
+                        <div class="thumbnails-container">
+                            <img src="/assets/images/green-tea-jasmine.webp" alt="Jasmine Green Tea - Main" class="thumbnail object-cover rounded-lg" onclick="changeMainImage('/assets/images/green-tea-jasmine.webp')">
+                            <img src="/assets/images/green-tea-jasmine-1.webp" alt="Green Tea Fannings" class="thumbnail object-cover rounded-lg" onclick="changeMainImage('/assets/images/green-tea-jasmine-1.webp')">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Information -->
+                <div class="fade-in">
+                    <div class="mb-6">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Naturally Scented</span>
+                            <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm font-medium">Premium Quality</span>
+                        </div>
+                        <h1 class="text-4xl font-bold text-gray-900 mb-4">Jasmine Green Tea</h1>
+                        <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                            Our Jasmine Green Tea is a harmonious blend of carefully selected Indonesian green tea leaves, infused with the delicate essence of fresh jasmine blossoms. This tea offers a captivating floral aroma paired with the refreshing, subtly sweet, and slightly grassy notes characteristic of fine green tea. The traditional scenting process involves layering the dried green tea leaves with blooming jasmine flowers, allowing the tea to naturally absorb the enchanting fragrance, resulting in a perfectly balanced and aromatic brew.
+                        </p>
+                    </div>
+
+                    <!-- Key Features -->
+                    <div class="mb-8">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-4">What Makes This Tea Special</h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-primary rounded-full"></div>
+                                <span class="text-gray-700">Naturally scented with fresh jasmine blossoms</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-primary rounded-full"></div>
+                                <span class="text-gray-700">High-quality Indonesian green tea base</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-primary rounded-full"></div>
+                                <span class="text-gray-700">Exquisite floral aroma</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-primary rounded-full"></div>
+                                <span class="text-gray-700">Refreshing, crisp, and clean flavor</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-primary rounded-full"></div>
+                                <span class="text-gray-700">Traditional craftsmanship</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-primary rounded-full"></div>
+                                <span class="text-gray-700">Lab tested for safety</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Main CTAs -->
+                    <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                        <a href="https://wa.me/6282246632200?text=Hello%20TropicaFarm%2C%20I%20would%20like%20to%20inquire%20about%20Jasmine%20Green%20Tea%20for%20wholesale%20export" target="_blank" class="w-full text-white bg-primary hover:bg-accent py-3 px-6 rounded-lg font-medium transition-colors flex items-center justify-center">
+                            <i class="fab fa-whatsapp mr-2"></i> Make an Inquiry
+                        </a>
+                        <button 
+                            onclick="cart.addItem({
+                                id: 'jasmine-green-tea-100g',
+                                name: 'Jasmine Green Tea - 100g (Sample Pack)',
+                                price: 10,
+                                image: '/assets/images/green-tea-jasmine.webp'
+                            })" 
+                            class="w-full bg-secondary hover:bg-secondary/90 text-white py-3 px-6 rounded-lg font-medium transition-colors flex items-center justify-center"
+                        >
+                            <i class="fas fa-shopping-cart mr-2"></i> Buy Sample (100g)
+                        </button>
+                    </div>
+
+                    <!-- Quick Specs -->
+                    <div class="bg-gray-50 rounded-xl p-6">
+                        <h2 class="text-lg font-semibold text-gray-900 mb-4">Quick Specifications</h2>
+                        <div class="grid grid-cols-2 gap-4 text-sm">
+                            <div>
+                                <span class="text-gray-600">Caffeine:</span>
+                                <span class="font-medium text-gray-900 ml-2">Low to Medium (20-40 mg/cup)</span>
+                            </div>
+                            <div>
+                                <span class="text-gray-600">Aroma:</span>
+                                <span class="font-medium text-gray-900 ml-2">Strongly floral, sweet jasmine</span>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-gray-200">
+                            <div class="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-2">
+                                <p class="text-sm text-blue-800">
+                                    <i class="fas fa-eye mr-2"></i>
+                                    Detailed specifications, moisture content, processing methods and lab analysis revealed to qualified buyers
+                                </p>
+                            </div>
+                            <a href="https://wa.me/6282246632200?text=Hello%20TropicaFarm%2C%20I%27m%20interested%20in%20Jasmine%20Green%20Tea%20detailed%20specifications" target="_blank" class="text-primary hover:text-accent font-medium text-xs">
+                                <i class="fas fa-unlock mr-1"></i>Request Complete Specs
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Health Benefits & Quality Assurance -->
+    <section class="py-12 bg-gray-50" itemscope itemtype="https://schema.org/Product">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Health Benefits -->
+                <div class="lg:col-span-2">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Health Benefits</h2>
+                    <div class="bg-green-50 border border-green-200 rounded-lg p-3 mb-2">
+                        <p class="text-sm text-green-800">
+                            <i class="fas fa-star mr-2"></i>
+                            <strong>Rich in Antioxidants:</strong> High in catechins and polyphenols from the green tea, which combat free radicals and support cellular health.
+                        </p>
+                    </div>
+                    <div class="mb-4">
+                        <a href="https://wa.me/6282246632200?text=Hello%20TropicaFarm%2C%20I%27m%20interested%20in%20Jasmine%20Green%20Tea%20lab%20results" target="_blank" class="text-primary hover:text-accent font-medium text-xs">
+                            <i class="fas fa-flask mr-1"></i>Get Lab Analysis Report
+                        </a>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-leaf text-green-600 text-xs"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 text-sm">Promotes Relaxation & Stress Reduction</h3>
+                                <p class="text-gray-600 text-sm">The calming aroma of jasmine combined with L-theanine in green tea helps soothe the mind and reduce stress.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-heart text-green-600 text-xs"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 text-sm">Supports Heart Health</h3>
+                                <p class="text-gray-600 text-sm">May contribute to cardiovascular wellness by helping to lower cholesterol and improve circulation.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-brain text-green-600 text-xs"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 text-sm">Aids Digestion</h3>
+                                <p class="text-gray-600 text-sm">Can promote healthy digestion and alleviate discomfort.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-bolt text-green-600 text-xs"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 text-sm">Boosts Metabolism</h3>
+                                <p class="text-gray-600 text-sm">Green tea is known to support a healthy metabolism.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-seedling text-green-600 text-xs"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 text-sm">Natural Anti-Aging Support</h3>
+                                <p class="text-gray-600 text-sm">Antioxidants help protect skin from environmental damage and support overall healthy aging.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-lightbulb text-green-600 text-xs"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 text-sm">Enhances Mental Alertness</h3>
+                                <p class="text-gray-600 text-sm">Provides a gentle boost in focus and concentration without the jitters associated with higher caffeine beverages.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certifications -->
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Certifications</h2>
+                    <div class="bg-white rounded-xl p-4 shadow-sm">
+                        <div class="grid grid-cols-2 gap-3 mb-4">
+                            <div class="text-center">
+                                <img src="/assets/images/halal-logo.webp" alt="Halal Certified" class="w-12 h-12 mx-auto mb-1 object-contain">
+                                <p class="text-xs text-gray-600">Halal Certified</p>
+                            </div>
+                            <div class="text-center">
+                                <img src="/assets/images/haccp.jpg" alt="HACCP Certified" class="w-12 h-12 mx-auto mb-1 object-contain">
+                                <p class="text-xs text-gray-600">HACCP Certified</p>
+                            </div>
+                        </div>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-700">Certificate of Analysis (COA)</span>
+                                <i class="fas fa-check text-green-600"></i>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-700">Phytosanitary Certificate</span>
+                                <i class="fas fa-check text-green-600"></i>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-700">Additional Testing Reports</span>
+                                <i class="fas fa-lock text-amber-600"></i>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-700">Safety Certificates</span>
+                                <i class="fas fa-lock text-amber-600"></i>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-gray-200">
+                            <div class="bg-amber-50 border border-amber-200 rounded-lg p-2 mb-2">
+                                <p class="text-xs text-amber-800">
+                                    <i class="fas fa-shield-alt mr-1"></i>
+                                    Complete documentation available for serious buyers only
+                                </p>
+                            </div>
+                            <a href="https://wa.me/6282246632200?text=Hello%20TropicaFarm%2C%20I%27m%20interested%20in%20Jasmine%20Green%20Tea%20and%20would%20like%20to%20see%20complete%20certificates%20and%20test%20reports" target="_blank" class="text-primary hover:text-accent font-medium text-xs">
+                                <i class="fas fa-key mr-1"></i>Request Complete Certificates
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Export Supply Information -->
+    <section class="py-8 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Export Supply Information</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- Minimum Order -->
+                <div class="bg-white rounded-lg p-4 border border-gray-100">
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 bg-primary/5 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-box text-primary text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium text-gray-800 text-sm">Minimum Order</h3>
+                            <p class="text-gray-500 text-xs mb-2">Competitive MOQ</p>
+                            <a href="https://wa.me/6282246632200?text=Hello%20TropicaFarm%2C%20I%27d%20like%20to%20know%20the%20minimum%20order%20for%20Jasmine%20Green%20Tea" 
+                               target="_blank" 
+                               class="inline-block text-primary hover:text-accent text-xs font-medium">
+                                Get MOQ Details →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lead Time -->
+                <div class="bg-white rounded-lg p-4 border border-gray-100">
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 bg-primary/5 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-clock text-primary text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-800 text-sm">Lead Time</h3>
+                            <p class="text-primary font-semibold text-sm">7 Days <span class="text-gray-500 font-normal">(10 tons)</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Export Terms -->
+                <div class="bg-white rounded-lg p-4 border border-gray-100">
+                    <div class="flex items-start">
+                        <div class="w-8 h-8 bg-primary/5 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                            <i class="fas fa-globe-americas text-primary text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-800 text-sm mb-2">Global Shipping</h3>
+                            <ul class="space-y-2 text-xs text-gray-600 mb-3">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-1.5 w-3"></i>
+                                    <span>FOB & CIF Available</span>
+                                </li>
+                            </ul>
+                            <a href="https://wa.me/6282246632200?text=Hello%20TropicaFarm%2C%20I%27d%20like%20to%20discuss%20shipping%20options%20for%20Jasmine%20Green%20Tea" 
+                               target="_blank" 
+                               class="inline-flex items-center text-primary hover:text-accent text-xs font-medium">
+                                <i class="fab fa-whatsapp mr-1"></i> Discuss Shipping
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-12 sm:py-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p>&copy; 2025 TropicaFarm. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <div class="fixed bottom-8 right-8 flex items-center gap-3 z-50">
+        <div class="mr-2 bg-white/90 backdrop-blur-sm text-primary font-medium px-4 py-2 rounded-full shadow-lg whitespace-nowrap transition-all duration-300 transform translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100">
+            Chat with us
+        </div>
+        <a href="https://wa.me/6282246632200?text=Hello%20TropicaFarm%2C%20I%20need%20your%20help" target="_blank" class="group bg-green-500 hover:bg-green-600 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl">
+            <i class="fab fa-whatsapp text-3xl"></i>
+        </a>
+    </div>
+
+    <!-- Cart Drawer Overlay -->
+    <div id="cartOverlay" class="cart-overlay"></div>
+    <!-- Cart Drawer Panel -->
+    <div id="cartDrawer" class="cart-panel">
+        <div class="p-6 flex flex-col h-full">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="font-semibold text-gray-800 text-lg">Your Cart</h3>
+                <button id="closeCartDrawer" class="text-gray-500 hover:text-gray-700 text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="cartItemsDrawer" class="flex-1 max-h-80 overflow-y-auto mb-4">
+                <p class="text-gray-500 text-sm text-center py-4" id="emptyCartMessageDrawer">Your cart is empty</p>
+            </div>
+            <div id="cartSummaryDrawer" class="border-t border-gray-200 pt-3 mt-3 hidden">
+                <div class="flex justify-between mb-2">
+                    <span class="font-medium">Total:</span>
+                    <span id="cartTotalDrawer" class="font-bold">$0.00</span>
+                </div>
+                <button onclick="proceedToCheckout()" class="w-full bg-primary text-white py-2 rounded-lg hover:bg-primary/90 transition-colors mt-2">
+                    Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <div class="nav-arrow prev" onclick="navigateImage(-1)">❮</div>
+        <img id="modalImage" class="modal-content" src="" alt="Enlarged view">
+        <div class="nav-arrow next" onclick="navigateImage(1)">❯</div>
+    </div>
+
+    <script>
+        // Store all image sources and current index
+        let imageSources = [];
+        let currentImageIndex = 0;
+
+        // Image gallery functionality
+        function changeMainImage(src) {
+            const mainImage = document.getElementById('mainImage');
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            
+            // Update main image source
+            mainImage.src = src;
+            
+            // Update current index
+            currentImageIndex = imageSources.indexOf(src);
+            
+            // Update active thumbnail
+            updateThumbnails();
+        }
+
+        function updateThumbnails() {
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            thumbnails.forEach((thumb, index) => {
+                if (index === currentImageIndex) {
+                    thumb.classList.add('ring-2', 'ring-primary', 'ring-offset-2');
+                } else {
+                    thumb.classList.remove('ring-2', 'ring-primary', 'ring-offset-2');
+                }
+            });
+        }
+
+        // Function to open modal with clicked image
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            
+            // Get all image sources from thumbnails
+            imageSources = Array.from(document.querySelectorAll('.thumbnail')).map(thumb => 
+                thumb.getAttribute('onclick').match(/'([^']+)'/)[1]
+            );
+            
+            // Find current index
+            currentImageIndex = imageSources.indexOf(imageSrc);
+            if (currentImageIndex === -1) currentImageIndex = 0;
+            
+            // Show current image
+            showImageInModal();
+            
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            
+            // Add keyboard event listeners
+            document.addEventListener('keydown', handleKeyDown);
+        }
+
+        function showImageInModal() {
+            const modalImg = document.getElementById('modalImage');
+            modalImg.style.opacity = '0';
+            
+            setTimeout(() => {
+                modalImg.src = imageSources[currentImageIndex];
+                modalImg.style.opacity = '1';
+                
+                // Update main image and thumbnails
+                const mainImage = document.getElementById('mainImage');
+                mainImage.src = imageSources[currentImageIndex];
+                updateThumbnails();
+            }, 150);
+        }
+
+        function navigateImage(direction) {
+            currentImageIndex += direction;
+            
+            // Loop around if at the end/beginning
+            if (currentImageIndex >= imageSources.length) {
+                currentImageIndex = 0;
+            } else if (currentImageIndex < 0) {
+                currentImageIndex = imageSources.length - 1;
+            }
+            
+            showImageInModal();
+        }
+
+        // Function to close modal
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            
+            // Remove keyboard event listeners
+            document.removeEventListener('keydown', handleKeyDown);
+        }
+
+        function handleKeyDown(e) {
+            if (e.key === 'ArrowLeft') {
+                navigateImage(-1);
+            } else if (e.key === 'ArrowRight') {
+                navigateImage(1);
+            } else if (e.key === 'Escape') {
+                closeModal();
+            }
+        }
+
+        // Close modal when clicking outside the image
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Initialize the main image click handler
+        document.addEventListener('DOMContentLoaded', function() {
+            const mainImage = document.getElementById('mainImage');
+            
+            // Add click handler for main image to open modal
+            mainImage.addEventListener('click', function() {
+                openModal(this.src);
+            });
+            
+            // Initialize thumbnails
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            thumbnails.forEach((thumb, index) => {
+                // Only update main image on thumbnail click, don't open modal
+                thumb.addEventListener('click', function(event) {
+                    event.stopPropagation();
+                    const imgSrc = this.getAttribute('onclick').match(/'([^']+)'/)[1];
+                    changeMainImage(imgSrc);
+                });
+            });
+            
+            // Initialize first thumbnail as active
+            if (thumbnails.length > 0) {
+                thumbnails[0].classList.add('ring-2', 'ring-primary', 'ring-offset-2');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Hamburger menu toggle for mobile
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+
+        if (mobileMenuButton && mobileMenu && closeMobileMenu) {
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.remove('-translate-y-full');
+                mobileMenu.classList.add('translate-y-0');
+            });
+            closeMobileMenu.addEventListener('click', function() {
+                mobileMenu.classList.add('-translate-y-full');
+                mobileMenu.classList.remove('translate-y-0');
+            });
+            // Optional: close menu on outside click
+            window.addEventListener('click', function(e) {
+                if (mobileMenu.classList.contains('translate-y-0') && !mobileMenu.contains(e.target) && e.target !== mobileMenuButton) {
+                    mobileMenu.classList.add('-translate-y-full');
+                    mobileMenu.classList.remove('translate-y-0');
+                }
+            });
+        }
+    </script>
+
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Jasmine Green Tea Indonesia",
+      "description": "Our Jasmine Green Tea is a harmonious blend of carefully selected Indonesian green tea leaves, infused with the delicate essence of fresh jasmine blossoms. This tea offers a captivating floral aroma paired with the refreshing, subtly sweet, and slightly grassy notes characteristic of fine green tea. The traditional scenting process involves layering the dried green tea leaves with blooming jasmine flowers, allowing the tea to naturally absorb the enchanting fragrance, resulting in a perfectly balanced and aromatic brew.",
+      "brand": {
+        "@type": "Brand",
+        "name": "TropicaFarm"
+      },
+      "category": "Green Tea",
+      "image": [
+        "https://tropicafarm.com/assets/images/green-tea-jasmine.jpg",
+        "https://tropicafarm.com/assets/images/green-tea-fannings.jpg",
+        "https://tropicafarm.com/assets/images/green-tea-chun-mee.jpg"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "priceSpecification": {
+            "@type": "PriceSpecification",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "description": "Contact for wholesale pricing",
+        "seller": {
+          "@type": "Organization",
+          "name": "TropicaFarm",
+          "url": "https://tropicafarm.com"
+        },
+        "url": "https://tropicafarm.com/products/green-tea-jasmine.html"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "127"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Origin",
+          "value": "Indonesia"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Processing Method",
+          "value": "Traditional jasmine scenting"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Aroma",
+          "value": "Strongly floral, sweet jasmine"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Certification",
+          "value": "Halal, HACCP"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://tropicafarm.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tea Products",
+          "item": "https://tropicafarm.com/products/tea.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Jasmine Green Tea",
+          "item": "https://tropicafarm.com/products/green-tea-jasmine.html"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "TropicaFarm",
+      "url": "https://tropicafarm.com",
+      "logo": "https://tropicafarm.com/assets/images/tropicafarm-logo.png",
+      "description": "Premium Indonesian tea supplier specializing in wholesale export of high-quality white tea, green tea, and specialty teas from West Java highlands.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "ID",
+        "addressRegion": "West Java"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "telephone": "+62-822-4663-2200",
+        "availableLanguage": "English"
+      }
+    }
+    </script>
+
+    <!-- Event snippet for Page view conversion page -->
+    <script>
+        gtag('event', 'conversion', {
+            'send_to': 'AW-17055870584/ZZrYCO2Tr8IaEPjc78Q_',
+            'value': 1.0,
+            'currency': 'IDR'
+        });
+    </script>
+</body>
+</html>
