@@ -156,7 +156,7 @@
         }
         
         .hero-gradient {
-            background: linear-gradient(90deg, #0e2207 0%, rgba(14, 34, 7, 0) 100%);
+            background: linear-gradient(90deg, #0e2207 0%, rgba(14, 34, 7, 0) 70%);
         }
         
         .hero-bg {
@@ -165,6 +165,17 @@
             background-position: 60% center;
             background-repeat: no-repeat;
         }
+
+        @media (max-width: 768px) {
+            .hero-gradient {
+              background: linear-gradient(360deg, #0e2207b3 40%, #0e220700 60%);
+            }
+          
+            .hero-bg {
+              background-position: 75% top;
+            }
+        }
+          
         
         .video-bg {
             background-image: url('/assets/images/indonesian-map-sketch.jpg');
@@ -361,9 +372,6 @@
 }
 
 @media (max-width: 768px) {
-    .hero-bg {
-        background-position: 75% center;
-    }
     .connection-container {
         flex-direction: column;
         height: auto;
@@ -467,13 +475,6 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative grid lg:grid-cols-2 items-end h-full h-full">
             <!-- Left Content -->
             <div class="text-white space-y-5 h-full flex flex-col justify-end mb-8 md:mb-12">
-                <!-- Badge -->
-                 <!-- <div>
-                     <div class="inline-flex items-center gap-2 mb-2">
-                         <div class="w-2 h-8 bg-yellow-400 rounded-full"></div>
-                         <span class="text-yellow-400 text-sm font-medium">Exporting Tea since 2014</span>
-                     </div>
-                 </div> -->
                 
                 <!-- Main Heading -->
                 <div class="space-y-8">
@@ -494,12 +495,6 @@ for your business
                         <i class="fab fa-youtube text-xl"></i>
                         <span>Watch Our Journey</span>
                     </button>
-                    <!-- <button class="border-2 border-yellow-400 text-yellow-400 px-6 sm:px-8 py-4 rounded-full font-semibold hover:bg-yellow-400 hover:text-black transition-all hover-scale flex items-center justify-center space-x-2">
-                        <span>See All Products</span>
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                        </svg>
-                    </button> -->
                 </div>
             </div>
             
