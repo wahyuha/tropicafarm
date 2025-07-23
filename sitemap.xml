@@ -99,4 +99,20 @@
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
+
+    <!-- Blog Index Page -->
+    <url>
+        <loc>https://tropicafarm.com/blog/</loc>
+        <lastmod>2024-07-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Blog Article: White Tea Health Benefits -->
+    <url>
+        <loc>https://tropicafarm.com/blog/white-tea-health-benefits.html</loc>
+        <lastmod>2024-07-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
 </urlset>
