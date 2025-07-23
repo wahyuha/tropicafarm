@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -222,7 +221,7 @@
                     <a href="/products/tea.html" class="text-gray-700 hover:text-primary text-lg font-medium transition-colors">Products</a>
                     <a href="/blog/" class="text-primary text-lg font-medium transition-colors">Blog</a>
                 </div>
-                
+
                 <!-- Mobile menu button -->
                 <button id="mobileMenuButton" class="md:hidden text-gray-700 p-2">
                     <i class="fas fa-bars text-xl"></i>
@@ -270,12 +269,12 @@
                     White Tea Health Benefits: Why Science Calls It Nature's Ultimate Antioxidant
                 </h1>
                 <p class="text-xl text-gray-600 leading-relaxed mb-8">
-                    After 15 years of working with tea farmers across Asia and analyzing hundreds of research papers, I've discovered why white tea stands alone as the most potent wellness beverage nature offers.
-                </p>
+                        Through extensive research and direct work with Indonesian tea farmers, I've discovered why white tea from West Java's volcanic highlands stands alone as the most potent wellness beverage nature offers.
+                    </p>
                 <div class="flex items-center justify-center space-x-4">
                     <img src="/assets/images/ceo-tropicafarm.jpeg" alt="Tea Expert" class="w-12 h-12 rounded-full object-cover">
                     <div class="text-left">
-                        <p class="font-medium text-gray-900">Sarah Chen</p>
+                        <p class="font-medium text-gray-900">Meirisa Yusniar</p>
                         <p class="text-sm text-gray-500">Tea Specialist & Wellness Researcher</p>
                     </div>
                 </div>
@@ -312,7 +311,7 @@
                 <div class="article-content">
                     <!-- Introduction -->
                     <p class="text-lg text-gray-700 leading-relaxed mb-8">
-                        Last month, I was sitting in a tea garden in Fujian, China, watching workers carefully select individual tea buds at dawn. The plantation owner, a third-generation tea farmer, told me something that changed how I think about white tea: "We only pick when the morning dew is still fresh on the buds. That's when they hold the most life force."
+                        Last month, I was sitting in a tea garden in West Java, watching workers carefully select individual tea buds at dawn. The plantation owner, a third-generation tea farmer, told me something that changed how I think about white tea: "We only pick when the morning dew is still fresh on the buds. That's when they hold the most life force."
                     </p>
 
                     <p>
@@ -323,7 +322,7 @@
                     <p>
                         Here's what most people don't understand about white tea: it's not just another type of tea. It's tea in its purest form.
                     </p>
-                    
+
                     <p>
                         While green tea is steamed or pan-fired and black tea is fully oxidized, white tea is simply withered and dried. That's it. No rolling, no crushing, no high-heat processing. This minimal handling preserves compounds that get destroyed in other teas.
                     </p>
@@ -343,9 +342,8 @@
                     </p>
 
                     <!-- Antioxidant Comparison Chart -->
-                    <div class="chart-container">
-                        <h3 class="text-lg font-bold text-gray-900 mb-4">Antioxidant Content Comparison (ORAC units per gram)</h3>
-                        <canvas id="antioxidantChart" width="400" height="200"></canvas>
+                    <div class="">
+                       <img src="/assets/images/blog/antioxidant-comparison.webp" alt="Antioxidant Comparison" class="w-full h-96 object-cover rounded-2xl shadow-lg">
                     </div>
 
                     <p>
@@ -417,9 +415,8 @@
                     </ul>
 
                     <!-- Health Benefits Visualization -->
-                    <div class="chart-container">
-                        <h3 class="text-lg font-bold text-gray-900 mb-4">Health Improvement Timeline</h3>
-                        <canvas id="benefitsChart" width="400" height="250"></canvas>
+                    <div class="">
+                       <img src="/assets/images/blog/health-benefit-timeline.webp" alt="Health Improvement Timeline" class="w-full h-96 object-cover rounded-2xl shadow-lg">
                     </div>
 
                     <h3>3. Brain Function & Mental Clarity</h3>
@@ -509,13 +506,10 @@
 
                     <h3>Origin Matters:</h3>
                     <p>
-                        The best white teas come from specific regions known for ideal growing conditions:
+                        The best white teas from West Java, Indonesia offer a unique combination of climate and cultivation practices that result in tea with distinctive characteristics.
                     </p>
                     <ul>
-                        <li><strong>Fujian, China:</strong> The original home of white tea</li>
-                        <li><strong>Darjeeling, India:</strong> High-altitude gardens produce excellent white tea</li>
-                        <li><strong>Java, Indonesia:</strong> Tropical highland conditions create unique flavor profiles</li>
-                        <li><strong>Ceylon, Sri Lanka:</strong> Known for bright, clean flavors</li>
+                        <li><strong>West Java, Indonesia:</strong> Tropical highland conditions create unique flavor profiles</li>
                     </ul>
 
                     <h3>Processing Methods:</h3>
@@ -569,11 +563,11 @@
                 <!-- Author Bio -->
                 <div class="bg-gray-50 rounded-xl p-6 mt-12">
                     <div class="flex items-start space-x-4">
-                        <img src="/assets/images/ceo-tropicafarm.jpeg" alt="Sarah Chen" class="w-16 h-16 rounded-full object-cover">
+                        <img src="/assets/images/ceo-tropicafarm.jpeg" alt="Meirisa Yusniar" class="w-16 h-16 rounded-full object-cover">
                         <div>
-                            <h4 class="font-bold text-gray-900 mb-2">About Sarah Chen</h4>
+                            <h4 class="font-bold text-gray-900 mb-2">About Meirisa Yusniar</h4>
                             <p class="text-gray-600 text-sm leading-relaxed">
-                                Sarah has spent over 15 years traveling to tea gardens across Asia, working directly with farmers and studying the health benefits of different tea varieties. She holds certifications in tea evaluation from the Tea Research Institute and has published research on antioxidant compounds in premium teas. When she's not analyzing tea samples, you'll find her in her garden, growing her own tea plants.
+                                Meirisa Yusniar is a Tea Specialist & Wellness Researcher at TropicaFarm.
                             </p>
                         </div>
                     </div>
@@ -651,99 +645,8 @@
             });
         });
 
-        // Antioxidant Comparison Chart
-        const ctx1 = document.getElementById('antioxidantChart').getContext('2d');
-        new Chart(ctx1, {
-            type: 'bar',
-            data: {
-                labels: ['White Tea', 'Green Tea', 'Black Tea', 'Oolong Tea', 'Blueberries', 'Red Wine'],
-                datasets: [{
-                    label: 'ORAC Units per gram',
-                    data: [1420, 890, 570, 740, 2400, 3200],
-                    backgroundColor: [
-                        '#059669',
-                        '#10b981',
-                        '#374151',
-                        '#6b7280',
-                        '#3b82f6',
-                        '#7c3aed'
-                    ],
-                    borderColor: [
-                        '#047857',
-                        '#059669',
-                        '#1f2937',
-                        '#4b5563',
-                        '#2563eb',
-                        '#6d28d9'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        title: {
-                            display: true,
-                            text: 'Antioxidant Level'
-                        }
-                    }
-                },
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                }
-            }
-        });
+        // Remove chart and related js
 
-        // Health Benefits Timeline Chart
-        const ctx2 = document.getElementById('benefitsChart').getContext('2d');
-        new Chart(ctx2, {
-            type: 'line',
-            data: {
-                labels: ['Day 1', 'Week 1', 'Week 2', 'Month 1', 'Month 2', 'Month 3'],
-                datasets: [{
-                    label: 'Antioxidant Level',
-                    data: [0, 25, 45, 70, 85, 100],
-                    borderColor: '#059669',
-                    backgroundColor: 'rgba(5, 150, 105, 0.1)',
-                    tension: 0.4
-                }, {
-                    label: 'Energy Level',
-                    data: [0, 15, 35, 60, 75, 90],
-                    borderColor: '#f59e0b',
-                    backgroundColor: 'rgba(245, 158, 11, 0.1)',
-                    tension: 0.4
-                }, {
-                    label: 'Sleep Quality',
-                    data: [0, 10, 25, 50, 70, 85],
-                    borderColor: '#3b82f6',
-                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
-                    tension: 0.4
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: 100,
-                        title: {
-                            display: true,
-                            text: 'Improvement %'
-                        }
-                    }
-                },
-                plugins: {
-                    legend: {
-                        display: true,
-                        position: 'top'
-                    }
-                }
-            }
-        });
     </script>
 
     <!-- Schema.org structured data -->
@@ -756,7 +659,7 @@
       "image": "https://tropicafarm.com/assets/images/white-tea-tropicafarm-1.webp",
       "author": {
         "@type": "Person",
-        "name": "Sarah Chen",
+        "name": "Meirisa Yusniar",
         "jobTitle": "Tea Specialist & Wellness Researcher",
         "url": "https://tropicafarm.com"
       },
