@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIHAS 2025 Special - Premium White Tea | Swarna Agro Noesantara</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1a3a5c;
+            --secondary-blue: #2d5aa0;
+            --accent-orange: #ff6b35;
+            --accent-gradient: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.8);
+            --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --shadow-xl: 0 35px 60px -15px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #000;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 50%, #1a3a5c 100%);
+            z-index: -2;
+        }
+
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            background: var(--accent-gradient);
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0.1;
+            animation: float 20s infinite linear;
+        }
+
+        .shape:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: -10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            top: 60%;
+            right: -5%;
+            animation-delay: -7s;
+        }
+
+        .shape:nth-child(3) {
+            width: 400px;
+            height: 400px;
+            top: 30%;
+            left: 50%;
+            animation-delay: -14s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-30px) rotate(120deg); }
+            66% { transform: translateY(30px) rotate(240deg); }
+        }
+
+        /* Glassmorphism Elements */
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            color: var(--text-primary);
+            padding: 4rem 0 2rem;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .event-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .mihas-brand {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .mihas-logo-container {
+            position: relative;
+        }
+
+        .mihas-badge {
+            background: var(--accent-gradient);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mihas-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            50% { left: 100%; }
+            100% { left: 100%; }
+        }
+
+        .event-info {
+            text-align: right;
+        }
+
+        .event-info h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .event-info p {
+            opacity: 0.8;
+            font-size: 1.1rem;
+        }
+
+        .hero-main {
+            text-align: center;
+            margin: 2rem 0 3rem;
+        }
+
+        .company-logo-container {
+            margin-bottom: 1.5rem;
+        }
+
+        .company-logo {
+            width: 300px;
+            height: auto;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff 0%, #ff6b35 50%, #f7931e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            line-height: 1.4;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--text-secondary);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        /* Special Offer Section - Mobile First */
+        .offer-section {
+            padding: 2.5rem 1rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .offer-container {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .countdown-timer {
+            display: flex;
+            justify-content: space-between;
+            gap: 0.5rem;
+            margin: 1rem 0 1.5rem;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .countdown-item {
+            background: #fff;
+            border-radius: 8px;
+            padding: 0.5rem 0.25rem;
+            flex: 1;
+            min-width: 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .countdown-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            line-height: 1.2;
+        }
+        
+        .countdown-label {
+            font-size: 0.65rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            color: #666;
+            margin-top: 0.25rem;
+            letter-spacing: 0.5px;
+        }
+        
+        @media (min-width: 480px) {
+            .offer-section {
+                padding: 3rem 1.5rem;
+            }
+            .countdown-timer {
+                gap: 0.75rem;
+                max-width: 500px;
+            }
+            .countdown-item {
+                padding: 0.75rem 0.5rem;
+            }
+            .countdown-value {
+                font-size: 1.5rem;
+            }
+            .countdown-label {
+                font-size: 0.7rem;
+            }
+        }
+
+        .offer-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .offer-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 2rem;
+            letter-spacing: -1px;
+        }
+
+        .pricing-display {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .price-old {
+            font-size: 2.5rem;
+            text-decoration: line-through;
+            opacity: 0.6;
+            font-weight: 400;
+        }
+
+        .price-new {
+            font-size: clamp(4rem, 8vw, 6rem);
+            font-weight: 900;
+            color: #fff200;
+            text-shadow: 0 0 30px rgba(255, 242, 0, 0.5);
+            position: relative;
+        }
+
+        .discount-tag {
+            background: #ff1744;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.3rem;
+            box-shadow: 0 10px 30px rgba(255, 23, 68, 0.4);
+            position: relative;
+        }
+
+        .discount-tag::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 20px;
+            height: 20px;
+            background: #fff200;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .cta-primary {
+            background: linear-gradient(135deg, #4caf50 0%, #8bc34a 100%);
+            color: white;
+            padding: 1.5rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-lg);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-primary:hover::before {
+            left: 100%;
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Product Section */
+        .product-section {
+            padding: 8rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .product-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .product-image-container {
+            position: relative;
+        }
+
+        .tea-visualization {
+            width: 100%;
+            max-width: 500px;
+            height: 500px;
+            margin: 0 auto;
+            background: radial-gradient(circle at center, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .tea-cup {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+            border-radius: 50%;
+            box-shadow: 
+                inset 0 20px 40px rgba(0,0,0,0.1),
+                0 30px 60px rgba(0,0,0,0.2);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tea-liquid {
+            width: 80%;
+            height: 80%;
+            background: linear-gradient(135deg, #f5f5dc 0%, #daa520 100%);
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tea-steam {
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 100px;
+        }
+
+        .steam-particle {
+            position: absolute;
+            width: 4px;
+            height: 20px;
+            background: rgba(255,255,255,0.6);
+            border-radius: 50px;
+            animation: steam 3s infinite ease-in-out;
+        }
+
+        .steam-particle:nth-child(1) { left: 30%; animation-delay: 0s; }
+        .steam-particle:nth-child(2) { left: 50%; animation-delay: 0.5s; }
+        .steam-particle:nth-child(3) { left: 70%; animation-delay: 1s; }
+
+        @keyframes steam {
+            0% { transform: translateY(0) scale(1); opacity: 0; }
+            50% { transform: translateY(-30px) scale(1.2); opacity: 1; }
+            100% { transform: translateY(-60px) scale(0.8); opacity: 0; }
+        }
+
+        .product-info h2 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 2rem;
+            letter-spacing: -1px;
+        }
+
+        .product-description {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-gradient);
+            transition: left 0.3s ease;
+            z-index: 1;
+            opacity: 0.1;
+        }
+
+        .feature-card:hover::before {
+            left: 0;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--accent-orange);
+            box-shadow: 0 25px 50px rgba(255, 107, 53, 0.2);
+        }
+
+        .feature-card > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .feature-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-blue);
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            padding: 8rem 0;
+            background: var(--primary-blue);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefits-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="hexagon" patternUnits="userSpaceOnUse" width="100" height="100"><polygon points="50,0 93.3,25 93.3,75 50,100 6.7,75 6.7,25" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23hexagon)"/></svg>');
+            opacity: 0.5;
+        }
+
+        .benefits-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .benefits-title {
+            text-align: center;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 4rem;
+            letter-spacing: -1px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .benefit-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            padding: 3rem;
+            border-radius: 25px;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--accent-orange);
+        }
+
+        .benefit-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .benefit-card i {
+            color: var(--accent-orange);
+            font-size: 2rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--accent-orange) 0%, #f7931e 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .contact-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 2rem;
+        }
+
+        .contact-description {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+
+        .whatsapp-btn {
+            background: #25d366;
+            color: white;
+            padding: 1.5rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .whatsapp-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.2);
+            transition: left 0.3s ease;
+        }
+
+        .whatsapp-btn:hover::before {
+            left: 100%;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .contact-details {
+            margin-top: 3rem;
+            opacity: 0.8;
+        }
+
+        .contact-details p {
+            margin-bottom: 0.5rem;
+        }
+
+        .terms {
+            font-size: 0.95rem;
+            margin-top: 2rem;
+            opacity: 0.7;
+            line-height: 1.4;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-container {
+                padding: 0 1rem;
+            }
+            
+            .event-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .product-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .pricing-display {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tea-visualization {
+                height: 400px;
+            }
+            
+            .tea-cup {
+                width: 250px;
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .mihas-badge {
+                font-size: 1.2rem;
+                padding: 0.8rem 1.5rem;
+            }
+            
+            .company-logo {
+                width: 250px;
+            }
+        }
+
+        /* Custom animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Loading animation */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 107, 53, 0.3);
+            border-top: 3px solid var(--accent-orange);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <!-- Event Header -->
+            <div class="event-header" data-aos="fade-down" data-aos-duration="1000">
+                <div class="mihas-brand">
+                    <div class="mihas-logo-container">
+                        <div class="mihas-badge">MIHAS 2025</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 1rem; opacity: 0.9; margin-bottom: 0.5rem;">Malaysia International Halal Showcase</div>
+                        <div style="font-weight: 700; font-size: 1.1rem;">Pinnacle of Halal Excellence</div>
+                    </div>
+                </div>
+                <div class="event-info">
+                    <h3>17-20 Sept 2025</h3>
+                    <p>MITEC, Kuala Lumpur</p>
+                </div>
+            </div>
+
+            <!-- Hero Main Content -->
+            <div class="hero-main">
+                <div class="company-logo-container" data-aos="zoom-in" data-aos-delay="300">
+                    <svg class="company-logo" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#ffd700;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#ffed4a;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Enhanced geometric flower design -->
+                        <g transform="translate(60,60)">
+                            <path d="M0 0 L-20 -20 Q-10 -30 0 -20 Q10 -30 20 -20 L0 0 Z" fill="url(#goldGrad)" stroke="#228B22" stroke-width="2"/>
+                            <path d="M0 0 L20 -20 Q30 -10 20 0 Q30 10 20 20 L0 0 Z" fill="url(#goldGrad)" stroke="#228B22" stroke-width="2"/>
+                            <path d="M0 0 L20 20 Q10 30 0 20 Q-10 30 -20 20 L0 0 Z" fill="url(#goldGrad)" stroke="#228B22" stroke-width="2"/>
+                            <path d="M0 0 L-20 20 Q-30 10 -20 0 Q-30 -10 -20 -20 L0 0 Z" fill="url(#goldGrad)" stroke="#228B22" stroke-width="2"/>
+                        </g>
+                        
+                        <text x="130" y="35" font-family="Inter, sans-serif" font-size="18" font-weight="bold" fill="#ffffff">PT. SWARNA AGRO NOESANTARA</text>
+                        
+                        <!-- Modern stars -->
+                        <g fill="#ffd700">
+                            <polygon points="140,45 142,51 148,51 143,55 145,61 140,57 135,61 137,55 132,51 138,51" />
+                            <polygon points="160,45 162,51 168,51 163,55 165,61 160,57 155,61 157,55 152,51 158,51" />
+                            <polygon points="180,45 182,51 188,51 183,55 185,61 180,57 175,61 177,55 172,51 178,51" />
+                            <polygon points="200,45 202,51 208,51 203,55 205,61 200,57 195,61 197,55 192,51 198,51" />
+                            <polygon points="220,45 222,51 228,51 223,55 225,61 220,57 215,61 217,55 212,51 218,51" />
+                        </g>
+                        
+                        <text x="130" y="80" font-family="Inter, sans-serif" font-size="16" font-style="italic" fill="rgba(255,255,255,0.8)">SWARNA GROUP</text>
+                    </svg>
+                </div>
+                
+                <h1 class="hero-title" data-aos="fade-up" data-aos-delay="600">
+                    Exclusive MIHAS Deal
+                </h1>
+                <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="800">
+                    Premium White Tea from West Java Highlands • Limited Time Offer
+                </p>
+            </div>
+
+            <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="1000">
+                <i class="fas fa-chevron-down" style="font-size: 1.5rem;"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offer Section -->
+    <section class="offer-section">
+        <div class="offer-container">
+            <div class="offer-badge" data-aos="zoom-in">
+                🎯 MIHAS 2025 EXCLUSIVE
+            </div>
+            
+            <h2 class="offer-title" data-aos="fade-up" data-aos-delay="200">
+                Limited-Time Special Pricing
+            </h2>
+            
+            <div class="pricing-display" data-aos="fade-up" data-aos-delay="400">
+                <span class="price-old">$90</span>
+                <span class="price-new">$70</span>
+                <div class="discount-tag">SAVE $20</div>
+            </div>
+            
+            <div class="countdown-timer" data-aos="fade-up" data-aos-delay="400">
+                <div class="countdown-item">
+                    <div id="days" class="countdown-value">00</div>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-item">
+                    <div id="hours" class="countdown-value">00</div>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-item">
+                    <div id="minutes" class="countdown-value">00</div>
+                    <span class="countdown-label">Minutes</span>
+                </div>
+                <div class="countdown-item">
+                    <div id="seconds" class="countdown-value">00</div>
+                    <span class="countdown-label">Seconds</span>
+                </div>
+            </div>
+            
+            <div data-aos="fade-up" data-aos-delay="500">
+                <p style="font-size: 1rem; font-weight: 500; margin-bottom: 0.5rem;">
+                    ✅ Minimum Order: 1kg | ⏰ Valid until Sept 20, 2024 23:59
+                </p>
+                <div class="compact-countdown" style="display: flex; justify-content: center; gap: 0.5rem; margin: 0.5rem 0 1rem; font-size: 0.9rem; color: #444;">
+                    <span id="compact-days">0d</span> : 
+                    <span id="compact-hours">00h</span> : 
+                    <span id="compact-minutes">00m</span> : 
+                    <span id="compact-seconds">00s</span>
+                    <span>left</span>
+                </div>
+                <p style="font-size: 0.95rem; opacity: 0.9; margin-bottom: 1.5rem;">
+                    Secure your premium white tea at this exclusive MIHAS price
+                </p>
+            </div>
+            
+            <a href="#contact" class="cta-primary" data-aos="zoom-in" data-aos-delay="800">
+                <i class="fas fa-bolt"></i>
+                Claim Your $20 Discount
+            </a>
+        </div>
+    </section>
+
+    <!-- Product Section -->
+    <section class="product-section">
+        <div class="product-container">
+            <div class="product-grid">
+                <!-- Product Visualization -->
+                <div class="product-image-container" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="tea-visualization">
+                        <img src="/assets/images/white-tea-brewed.jpeg" alt="Premium White Tea Brewed" style="width: 100%; max-width: 600px; height: auto; border-radius: 15px; box-shadow: 0 15px 30px rgba(0,0,0,0.2);">
+                    </div>
+                </div>
+                
+                <!-- Product Info -->
+                <div class="product-info" data-aos="fade-left" data-aos-duration="1000">
+                    <h2>Premium White Tea</h2>
+                    <p class="product-description">
+                        Delicately hand-picked young tea buds from the highlands of West Java. Our White Tea offers a smooth, floral profile with natural sweetness, high in antioxidants and processed with oven-dehydrator to preserve maximum nutrition.
+                    </p>
+                    
+                    <div class="features-container" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-top: 1.5rem;">
+                        <div class="feature-item" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem; background: #f8f9fa; border-radius: 8px;">
+                            <span style="font-size: 1.25rem;">🌿</span>
+                            <div>
+                                <div style="font-weight: 600; font-size: 0.9rem;">100% Pure</div>
+                                <div style="font-size: 0.8rem; color: #666;">Camellia sinensis</div>
+                            </div>
+                        </div>
+                        <div class="feature-item" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem; background: #f8f9fa; border-radius: 8px;">
+                            <span style="font-size: 1.25rem;">🔥</span>
+                            <div>
+                                <div style="font-weight: 600; font-size: 0.9rem;">Oven-Dried</div>
+                                <div style="font-size: 0.8rem; color: #666;">Premium process</div>
+                            </div>
+                        </div>
+                        <div class="feature-item" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem; background: #f8f9fa; border-radius: 8px;">
+                            <span style="font-size: 1.25rem;">⚡</span>
+                            <div>
+                                <div style="font-weight: 600; font-size: 0.9rem;">High in Antioxidants</div>
+                                <div style="font-size: 0.8rem; color: #666;">Rich in EGCG</div>
+                            </div>
+                        </div>
+                        <div class="feature-item" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem; background: #f8f9fa; border-radius: 8px;">
+                            <span style="font-size: 1.25rem;">🧪</span>
+                            <div>
+                                <div style="font-weight: 600; font-size: 0.9rem;">Lab Tested</div>
+                                <div style="font-size: 0.8rem; color: #666;">Quality assured</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="benefits-container">
+            <h2 class="benefits-title" data-aos="fade-up">
+                Why Visit Our Booth?
+            </h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="100">
+                    <h3>
+                        <i class="fas fa-crown"></i>
+                        Premium Products
+                    </h3>
+                    <p>Discover Indonesia's finest products with our premium selection of teas and spices, carefully sourced and crafted for exceptional quality.</p>
+                </div>
+                
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
+                    <h3>
+                        <i class="fas fa-handshake"></i>
+                        B2B Opportunities
+                    </h3>
+                    <p>Expand your sourcing and connect with our export team to explore profitable business partnerships and exclusive trade opportunities.</p>
+                </div>
+                
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
+                    <h3>
+                        <i class="fas fa-globe"></i>
+                        Global Reach
+                    </h3>
+                    <p>Trusted by partners across Asia, Middle East, and Europe - experience our international quality standards and reliable supply chain.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <h2 class="contact-title" data-aos="fade-up">
+                Ready to Order?
+            </h2>
+            
+            <p class="contact-description" data-aos="fade-up" data-aos-delay="200">
+                Don't miss this exclusive MIHAS 2025 offer! Contact us now to secure your premium white tea at the special price.
+            </p>
+            
+            <a href="https://wa.me/6282246632200?text=Hi! I'm interested in the MIHAS 2025 White Tea special offer at $70/kg. Please provide more details about this exclusive deal." 
+               class="whatsapp-btn" data-aos="zoom-in" data-aos-delay="400">
+                <i class="fab fa-whatsapp"></i>
+                WhatsApp Us Now
+            </a>
+            
+            <div class="contact-details" data-aos="fade-up" data-aos-delay="600">
+                <p style="font-size: 1.2rem; font-weight: 600;">+62 822-4663-2200</p>
+                
+                <div class="terms">
+                    <p><strong>Terms & Conditions:</strong></p>
+                    <p>• Special pricing valid only during MIHAS 2025 (September 17-20, 2025)</p>
+                    <p>• Minimum order quantity: 1kg</p>
+                    <p>• Limited stock available at show price</p>
+                    <p>• First come, first served basis</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        // Countdown Timer
+        let countdownInterval; // Declare the variable at the top
+        
+        function updateCountdown() {
+            const endDate = new Date('2025-09-20T23:59:59').getTime();
+            const now = new Date().getTime();
+            const distance = endDate - now;
+
+            // Calculate time units
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Update the main countdown display
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+            
+            // Update compact countdown display
+            document.getElementById('compact-days').textContent = `${days}d`;
+            document.getElementById('compact-hours').textContent = `${String(hours).padStart(2, '0')}h`;
+            document.getElementById('compact-minutes').textContent = `${String(minutes).padStart(2, '0')}m`;
+            document.getElementById('compact-seconds').textContent = `${String(seconds).padStart(2, '0')}s`;
+
+            // If the countdown is over
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                document.querySelector('.countdown-timer').innerHTML = '<div style="font-size: 1.5rem; font-weight: 700; color: #d32f2f;">OFFER HAS ENDED</div>';
+            }
+        }
+
+        // Initialize countdown
+        updateCountdown();
+        countdownInterval = setInterval(updateCountdown, 1000);
+
+        // Loading animation
+        window.addEventListener('load', function() {
+            const loadingOverlay = document.getElementById('loadingOverlay');
+            setTimeout(() => {
+                loadingOverlay.style.opacity = '0';
+                setTimeout(() => {
+                    loadingOverlay.style.display = 'none';
+                }, 500);
+            }, 1500);
+        });
+
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 100
+        });
+
+        // GSAP Animations
+        gsap.registerPlugin();
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    gsap.to(window, {
+                        duration: 1.5,
+                        scrollTo: target,
+                        ease: "power2.inOut"
+                    });
+                }
+            });
+        });
+
+        // Enhanced card interactions
+        const cards = document.querySelectorAll('.feature-card, .benefit-card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                gsap.to(this, {
+                    duration: 0.3,
+                    y: -10,
+                    scale: 1.02,
+                    boxShadow: '0 25px 50px rgba(255, 107, 53, 0.2)',
+                    ease: 'power2.out'
+                });
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                gsap.to(this, {
+                    duration: 0.3,
+                    y: 0,
+                    scale: 1,
+                    boxShadow: '0 15px 35px rgba(0,0,0,0.1)',
+                    ease: 'power2.out'
+                });
+            });
+        });
+
+        // Button hover effects
+        const buttons = document.querySelectorAll('.cta-primary, .whatsapp-btn');
+        buttons.forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                gsap.to(this, {
+                    duration: 0.3,
+                    y: -3,
+                    scale: 1.05,
+                    ease: 'power2.out'
+                });
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                gsap.to(this, {
+                    duration: 0.3,
+                    y: 0,
+                    scale: 1,
+                    ease: 'power2.out'
+                });
+            });
+        });
+
+        // Parallax effect for floating shapes
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const shapes = document.querySelectorAll('.shape');
+            
+            shapes.forEach((shape, index) => {
+                const speed = 0.5 + (index * 0.2);
+                gsap.to(shape, {
+                    duration: 0.3,
+                    y: scrolled * speed,
+                    ease: 'none'
+                });
+            });
+        });
+
+        // Tea cup animation
+        const teaCup = document.querySelector('.tea-cup');
+        if (teaCup) {
+            gsap.to(teaCup, {
+                duration: 4,
+                rotation: 360,
+                repeat: -1,
+                ease: 'none',
+                transformOrigin: 'center center'
+            });
+        }
+
+        // Intersection Observer for enhanced animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.feature-card, .benefit-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Dynamic pricing animation
+        const priceNew = document.querySelector('.price-new');
+        if (priceNew) {
+            gsap.fromTo(priceNew, 
+                { scale: 0.8, opacity: 0 },
+                { 
+                    scale: 1, 
+                    opacity: 1, 
+                    duration: 1,
+                    ease: 'bounce.out',
+                    delay: 0.5,
+                    scrollTrigger: {
+                        trigger: priceNew,
+                        start: 'top 80%'
+                    }
+                }
+            );
+        }
+
+        // Mobile menu handling (if needed for future expansion)
+        const isMobile = window.innerWidth <= 768;
+        if (isMobile) {
+            // Mobile-specific optimizations
+            document.body.style.overflowX = 'hidden';
+        }
+
+        // Preload critical assets
+        const criticalImages = [
+            // Add any critical image URLs here if using real images
+        ];
+
+        criticalImages.forEach(src => {
+            const img = new Image();
+            img.src = src;
+        });
+
+        // Performance monitoring
+        window.addEventListener('load', () => {
+            const loadTime = performance.now();
+            console.log(`Page loaded in ${loadTime.toFixed(2)}ms`);
+        });
+    </script>
+</body>
+</html>
