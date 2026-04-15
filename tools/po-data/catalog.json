@@ -1,0 +1,35 @@
+{
+  "currency": "IDR",
+  "products": [
+    { "sku": "BT-OP-A", "name": "Black Tea Orange Pekoe (OP A)", "unit": "kg", "moq": 100 },
+    { "sku": "BT-BOP",     "name": "Black Tea BOP (Broken Orange Pekoe)", "unit": "kg", "moq": 500 },
+    { "sku": "BT-BOPF",    "name": "Black Tea BOPF (Broken Orange Pekoe Fannings)", "unit": "kg", "moq": 500 },
+    { "sku": "BT-CTC",     "name": "Black Tea CTC (Crush Tear Curl)", "unit": "kg", "moq": 500 },
+    { "sku": "BT-FAN",     "name": "Black Tea Fannings", "unit": "kg", "moq": 500 },
+    { "sku": "BT-PF",      "name": "Black Tea Pekoe Fannings", "unit": "kg", "moq": 500 },
+    { "sku": "GT-FAN",     "name": "Green Tea Fannings", "unit": "kg", "moq": 300 },
+    { "sku": "GT-GP",      "name": "Green Tea Gunpowder", "unit": "kg", "moq": 300 },
+    { "sku": "GT-JAS",     "name": "Jasmine Green Tea", "unit": "kg", "moq": 300 },
+    { "sku": "WT-PREM",    "name": "White Tea Premium", "unit": "kg", "moq": 100 }
+  ],
+  "priceTiers": {
+    "wedrink": {
+      "BT-OP-A": 154955
+    },
+    "wholesale-A": {
+      "BT-OP-A": 165000,
+      "BT-BOP": 85000, "BT-BOPF": 78000, "BT-CTC": 72000, "BT-FAN": 68000, "BT-PF": 70000,
+      "GT-FAN": 95000, "GT-GP": 120000, "GT-JAS": 135000, "WT-PREM": 450000
+    },
+    "wholesale-B": {
+      "BT-OP-A": 175000,
+      "BT-BOP": 92000, "BT-BOPF": 84000, "BT-CTC": 78000, "BT-FAN": 74000, "BT-PF": 76000,
+      "GT-FAN": 102000, "GT-GP": 130000, "GT-JAS": 145000, "WT-PREM": 480000
+    },
+    "retail": {
+      "BT-OP-A": 210000,
+      "BT-BOP": 110000, "BT-BOPF": 100000, "BT-CTC": 92000, "BT-FAN": 88000, "BT-PF": 90000,
+      "GT-FAN": 120000, "GT-GP": 155000, "GT-JAS": 175000, "WT-PREM": 550000
+    }
+  }
+}

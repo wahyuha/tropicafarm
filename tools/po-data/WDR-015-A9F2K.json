@@ -1,0 +1,32 @@
+{
+  "code": "WDR-015-A9F2K",
+  "active": true,
+  "expiresAt": "2026-12-31",
+  "client": {
+    "companyName": "PT Runxiang International Indonesia (We Drink)",
+    "address": "Blok D No.56, Ruko Crown Golf (Sebelah BORNGA), Jl. Pantai Indah Kapuk No.57, Kamal Muara, Kec. Penjaringan, Jakarta Utara, DKI Jakarta 14440",
+    "phone": "",
+    "email": "",
+    "pic": "",
+    "picTitle": "",
+    "npwp": "",
+    "logoUrl": "../assets/images/clients/logo-wedrink.webp"
+  },
+  "terms": {
+    "paymentTerms": "Net 30",
+    "deliveryAddress": "Blok D No.56, Ruko Crown Golf, Jl. Pantai Indah Kapuk No.57, Kamal Muara, Jakarta Utara 14440",
+    "currency": "IDR",
+    "taxRate": 11,
+    "priceIncludesTax": false,
+    "defaultNotes": ""
+  },
+  "pricing": {
+    "tier": "wedrink",
+    "priceLocked": true
+  },
+  "preOrder": [
+    { "sku": "BT-OP-A", "qty": 500 }
+  ],
+  "locked":   [],
+  "editable": ["companyName", "address", "phone", "email", "pic", "picTitle", "npwp", "deliveryAddress", "notes"]
+}
