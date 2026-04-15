@@ -350,26 +350,11 @@
   .logo-actions .btn { font-size: 12px; padding: 5px 12px; }
 
   @media print {
-    @page { margin: 10mm; }
-    html, body { background: white !important; margin: 0; padding: 0; }
-    body * { visibility: hidden !important; }
-    #previewModal, #previewModal * { visibility: visible !important; }
-    #previewModal {
-      position: absolute !important;
-      inset: 0 !important;
-      background: white !important;
-      padding: 0 !important;
-      display: block !important;
-      overflow: visible !important;
-    }
-    .modal-header, .modal-footer { display: none !important; }
-    .modal-content {
-      box-shadow: none !important;
-      border-radius: 0 !important;
-      max-width: 100% !important;
-      width: 100% !important;
-    }
-    .po-preview { padding: 0 !important; }
+    body { background: white; }
+    .app-header, .container, .modal-header, .modal-footer { display: none !important; }
+    .modal-overlay { position: static; background: none; padding: 0; display: block !important; }
+    .modal-content { box-shadow: none; border-radius: 0; }
+    .po-preview { padding: 20px; }
   }
 </style>
 </head>
@@ -605,7 +590,7 @@
     <div class="modal-body" id="previewBody"></div>
     <div class="modal-footer">
       <button class="btn btn-outline" onclick="closeModal()">Tutup</button>
-      <button class="btn btn-success" onclick="downloadPDF()">&#128229; Download PDF</button>
+      <button class="btn btn-success" onclick="downloadPDF(event)">&#128229; Download PDF</button>
       <button class="btn btn-outline" onclick="printPO()">&#128424; Cetak</button>
     </div>
   </div>
@@ -1109,8 +1094,7 @@
   function closeModal() { document.getElementById('previewModal').classList.remove('active'); }
   function printPO() { window.print(); }
 
-  function downloadPDF() {
-    const element = document.getElementById('previewBody');
+  async function downloadPDF(ev) {
     const companyName = document.getElementById('companyName').value || 'Client';
     const parens = companyName.match(/\(([^)]+)\)/);
     const shortName = (parens ? parens[1] : companyName.replace(/^PT\.?\s+/i, '').split(/\s+/)[0])
@@ -1118,21 +1102,45 @@
     const poDate = document.getElementById('poDate').value || new Date().toISOString().split('T')[0];
     const dateStr = poDate.replace(/-/g, '');
     const filename = `PO_TropicaFarm_${shortName}_${dateStr}.pdf`;
-    const btn = event.target.closest('button');
-    const originalText = btn.innerHTML;
-    btn.innerHTML = 'Generating...';
-    btn.disabled = true;
-    html2pdf().set({
-      margin: 0,
-      filename: filename,
-      image: { type: 'jpeg', quality: 0.95 },
-      html2canvas: { scale: 2, useCORS: true, letterRendering: true },
-      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-      pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
-    }).from(element).save().finally(() => {
-      btn.innerHTML = originalText;
-      btn.disabled = false;
-    });
+
+    const btn = (ev && ev.target && ev.target.closest('button')) || null;
+    const originalText = btn ? btn.innerHTML : '';
+    if (btn) { btn.innerHTML = 'Generating...'; btn.disabled = true; }
+
+    // Clone preview into an off-screen, fixed-width container so html2canvas
+    // gets a fully-laid-out element regardless of the modal's rendering context.
+    const source = document.querySelector('#previewBody .po-preview');
+    const wrapper = document.createElement('div');
+    wrapper.style.cssText = 'position:fixed; left:-10000px; top:0; width:794px; background:#fff; z-index:-1;';
+    const clone = source.cloneNode(true);
+    clone.style.padding = '40px';
+    wrapper.appendChild(clone);
+    document.body.appendChild(wrapper);
+
+    try {
+      // Wait for any images inside the clone to finish loading
+      const imgs = Array.from(clone.querySelectorAll('img'));
+      await Promise.all(imgs.map(img =>
+        img.complete && img.naturalWidth
+          ? Promise.resolve()
+          : new Promise(res => { img.onload = img.onerror = res; })
+      ));
+
+      await html2pdf().set({
+        margin: [10, 10, 10, 10],
+        filename: filename,
+        image: { type: 'jpeg', quality: 0.95 },
+        html2canvas: { scale: 2, useCORS: true, allowTaint: true, logging: false, backgroundColor: '#ffffff' },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+        pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+      }).from(clone).save();
+    } catch (e) {
+      console.error('PDF generation failed:', e);
+      alert('Gagal membuat PDF. Silakan coba lagi atau gunakan tombol Cetak.');
+    } finally {
+      wrapper.remove();
+      if (btn) { btn.innerHTML = originalText; btn.disabled = false; }
+    }
   }
 
   function resetForm() {
