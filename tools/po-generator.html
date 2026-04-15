@@ -361,8 +361,8 @@
 
 <div class="app-header">
   <div>
-    <h1>&#127803; TropicaFarm PO Generator</h1>
-    <span>Buat Purchase Order untuk pemesanan teh</span>
+    <h1>TropicaFarm PO Generator</h1>
+    <span>Buat Purchase Order untuk pemesanan produk kami</span>
   </div>
   <div id="clientBadge" class="client-badge"></div>
 </div>
@@ -599,7 +599,7 @@
   const TROPICAFARM = {
     name: 'TropicaFarm',
     contact: 'Meirisa Yusniar',
-    address: 'Indonesia',
+    address: 'Purwakarta, Jawa Barat, Indonesia',
     phone: '+62 812 1256 0026',
     email: 'meirisa.yusniar@tropicafarm.com'
   };
@@ -627,7 +627,7 @@
         currency: 'IDR',
         taxRate: 11,
         priceIncludesTax: false,
-        defaultNotes: ''
+        defaultNotes: 'Jadwal pengiriman akan disesuaikan dengan proses produksi, dengan waktu maksimal 30 (tiga puluh) hari kalender sejak pembayaran down payment diterima.'
       },
       pricing: { tier: 'wedrink', priceLocked: true },
       preOrder: [
@@ -799,9 +799,10 @@
 
     // PO details
     document.getElementById('poNumber').value = generatePONumber();
-    document.getElementById('poDate').value = new Date().toISOString().split('T')[0];
-    const d = new Date(); d.setDate(d.getDate() + 14);
-    document.getElementById('deliveryDate').value = d.toISOString().split('T')[0];
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('poDate').value = today;
+    document.getElementById('deliveryDate').value = addDays(today, 30);
+    document.getElementById('poDate').addEventListener('change', syncDeliveryDate);
 
     document.getElementById('paymentTerms').value = t.paymentTerms || 'Net 30';
     document.getElementById('shipAddress').value = t.deliveryAddress || '';
@@ -835,6 +836,17 @@
     else notes.push('Harga satuan dapat Anda sesuaikan bila diperlukan.');
     if (t.priceIncludesTax) notes.push(`Harga sudah termasuk PPN ${t.taxRate || 11}%.`);
     document.getElementById('pricingNote').textContent = notes.join(' ');
+  }
+
+  function addDays(isoDate, days) {
+    const d = new Date(isoDate + 'T00:00:00');
+    d.setDate(d.getDate() + days);
+    return d.toISOString().split('T')[0];
+  }
+
+  function syncDeliveryDate() {
+    const po = document.getElementById('poDate').value;
+    if (po) document.getElementById('deliveryDate').value = addDays(po, 30);
   }
 
   function generatePONumber() {

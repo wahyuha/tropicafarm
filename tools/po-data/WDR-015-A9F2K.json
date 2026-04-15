@@ -18,7 +18,7 @@
     "currency": "IDR",
     "taxRate": 11,
     "priceIncludesTax": false,
-    "defaultNotes": ""
+    "defaultNotes": "Jadwal pengiriman akan disesuaikan dengan proses produksi, dengan waktu maksimal 30 (tiga puluh) hari kalender sejak pembayaran down payment diterima."
   },
   "pricing": {
     "tier": "wedrink",
