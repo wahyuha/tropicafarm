@@ -802,11 +802,19 @@
     // PO details
     document.getElementById('poNumber').value = generatePONumber();
     const today = new Date().toISOString().split('T')[0];
-    document.getElementById('poDate').value = today;
-    document.getElementById('deliveryDate').value = addDays(today, 30);
-    document.getElementById('poDate').addEventListener('change', syncDeliveryDate);
+    const poDateEl = document.getElementById('poDate');
+    const delDateEl = document.getElementById('deliveryDate');
+    poDateEl.value = today;
+    delDateEl.value = addDays(today, 30);
+    poDateEl.readOnly = true;
+    poDateEl.classList.add('locked');
+    delDateEl.readOnly = true;
+    delDateEl.classList.add('locked');
 
-    document.getElementById('paymentTerms').value = t.paymentTerms || 'Net 30';
+    const payEl = document.getElementById('paymentTerms');
+    payEl.value = t.paymentTerms || 'Net 30';
+    payEl.disabled = true;
+    payEl.classList.add('locked');
     document.getElementById('shipAddress').value = t.deliveryAddress || '';
     document.getElementById('notes').value = t.defaultNotes || '';
 
