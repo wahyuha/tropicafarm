@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PO Generator - TropicaFarm</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <style>
   :root {
     --primary: #1a56db;
@@ -589,7 +590,8 @@
     <div class="modal-body" id="previewBody"></div>
     <div class="modal-footer">
       <button class="btn btn-outline" onclick="closeModal()">Tutup</button>
-      <button class="btn btn-success" onclick="printPO()">&#128424; Cetak / Save PDF</button>
+      <button class="btn btn-success" onclick="downloadPDF()">&#128229; Download PDF</button>
+      <button class="btn btn-outline" onclick="printPO()">&#128424; Cetak</button>
     </div>
   </div>
 </div>
@@ -1091,6 +1093,32 @@
 
   function closeModal() { document.getElementById('previewModal').classList.remove('active'); }
   function printPO() { window.print(); }
+
+  function downloadPDF() {
+    const element = document.getElementById('previewBody');
+    const companyName = document.getElementById('companyName').value || 'Client';
+    const parens = companyName.match(/\(([^)]+)\)/);
+    const shortName = (parens ? parens[1] : companyName.replace(/^PT\.?\s+/i, '').split(/\s+/)[0])
+      .replace(/[^A-Za-z0-9]/g, '');
+    const poDate = document.getElementById('poDate').value || new Date().toISOString().split('T')[0];
+    const dateStr = poDate.replace(/-/g, '');
+    const filename = `PO_TropicaFarm_${shortName}_${dateStr}.pdf`;
+    const btn = event.target.closest('button');
+    const originalText = btn.innerHTML;
+    btn.innerHTML = 'Generating...';
+    btn.disabled = true;
+    html2pdf().set({
+      margin: 0,
+      filename: filename,
+      image: { type: 'jpeg', quality: 0.95 },
+      html2canvas: { scale: 2, useCORS: true, letterRendering: true },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+      pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+    }).from(element).save().finally(() => {
+      btn.innerHTML = originalText;
+      btn.disabled = false;
+    });
+  }
 
   function resetForm() {
     if (!confirm('Reset semua item pesanan?')) return;
