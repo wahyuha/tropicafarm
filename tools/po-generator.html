@@ -350,11 +350,26 @@
   .logo-actions .btn { font-size: 12px; padding: 5px 12px; }
 
   @media print {
-    body { background: white; }
-    .app-header, .container, .modal-header, .modal-footer { display: none !important; }
-    .modal-overlay { position: static; background: none; padding: 0; display: block !important; }
-    .modal-content { box-shadow: none; border-radius: 0; }
-    .po-preview { padding: 20px; }
+    @page { margin: 10mm; }
+    html, body { background: white !important; margin: 0; padding: 0; }
+    body * { visibility: hidden !important; }
+    #previewModal, #previewModal * { visibility: visible !important; }
+    #previewModal {
+      position: absolute !important;
+      inset: 0 !important;
+      background: white !important;
+      padding: 0 !important;
+      display: block !important;
+      overflow: visible !important;
+    }
+    .modal-header, .modal-footer { display: none !important; }
+    .modal-content {
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      max-width: 100% !important;
+      width: 100% !important;
+    }
+    .po-preview { padding: 0 !important; }
   }
 </style>
 </head>
