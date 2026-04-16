@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PO Generator - TropicaFarm</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
 <style>
   :root {
     --primary: #1a56db;
@@ -609,29 +609,29 @@
   // ===== Mock fallback (used when fetch fails, e.g. opening via file://) =====
   // On production (served from tropicafarm.com) fetch() will load the real JSON files.
   const MOCK_CLIENTS = {
-    'WDR-015-A9F2K': {
-      code: 'WDR-015-A9F2K',
+    '000-000': {
+      code: '000-000',
       active: true,
       expiresAt: '2026-12-31',
       client: {
-        companyName: 'PT Runxiang International Indonesia (We Drink)',
-        address: 'Blok D No.56, Ruko Crown Golf (Sebelah BORNGA), Jl. Pantai Indah Kapuk No.57, Kamal Muara, Kec. Penjaringan, Jakarta Utara, DKI Jakarta 14440',
+        companyName: '',
+        address: '',
         phone: '',
         email: '',
         pic: '',
         picTitle: '',
         npwp: '',
-        logoUrl: '../assets/images/clients/logo-wedrink.webp'
+        logoUrl: ''
       },
       terms: {
         paymentTerms: 'DP 50%',
-        deliveryAddress: 'Blok D No.56, Ruko Crown Golf, Jl. Pantai Indah Kapuk No.57, Kamal Muara, Jakarta Utara 14440',
+        deliveryAddress: '',
         currency: 'IDR',
         taxRate: 11,
         priceIncludesTax: false,
-        defaultNotes: 'Jadwal pengiriman akan disesuaikan dengan proses produksi, dengan waktu maksimal 30 (tiga puluh) hari kalender sejak pembayaran down payment diterima.'
+        defaultNotes: ''
       },
-      pricing: { tier: 'wedrink', priceLocked: true },
+      pricing: { tier: '', priceLocked: true },
       preOrder: [
         { sku: 'BT-OP-A', qty: 500 }
       ],
@@ -655,7 +655,6 @@
       { sku: 'WT-PREM', name: 'White Tea Premium', unit: 'kg', moq: 100 }
     ],
     priceTiers: {
-      'wedrink':     { 'BT-OP-A':154955 },
       'wholesale-A': { 'BT-OP-A':165000,'BT-BOP':85000,'BT-BOPF':78000,'BT-CTC':72000,'BT-FAN':68000,'BT-PF':70000,'GT-FAN':95000,'GT-GP':120000,'GT-JAS':135000,'WT-PREM':450000 },
       'wholesale-B': { 'BT-OP-A':175000,'BT-BOP':92000,'BT-BOPF':84000,'BT-CTC':78000,'BT-FAN':74000,'BT-PF':76000,'GT-FAN':102000,'GT-GP':130000,'GT-JAS':145000,'WT-PREM':480000 },
       'retail':      { 'BT-OP-A':210000,'BT-BOP':110000,'BT-BOPF':100000,'BT-CTC':92000,'BT-FAN':88000,'BT-PF':90000,'GT-FAN':120000,'GT-GP':155000,'GT-JAS':175000,'WT-PREM':550000 }
@@ -702,7 +701,7 @@
     err.classList.remove('active');
 
     if (!/^[A-Z]{2,4}-\d{3}-[A-Z0-9]{5}$/.test(raw)) {
-      err.textContent = 'Format kode tidak valid. Contoh: WDR-015-A9F2K';
+      err.textContent = 'Format kode tidak valid. Contoh: 000-000';
       err.classList.add('active');
       return;
     }
@@ -1102,7 +1101,32 @@
   function closeModal() { document.getElementById('previewModal').classList.remove('active'); }
   function printPO() { window.print(); }
 
+  // Convert img src (including WebP / external) to a PNG data URL so
+  // html2canvas renders it reliably.
+  function imgToPngDataUrl(src) {
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.onload = () => {
+        try {
+          const canvas = document.createElement('canvas');
+          canvas.width = img.naturalWidth || img.width;
+          canvas.height = img.naturalHeight || img.height;
+          canvas.getContext('2d').drawImage(img, 0, 0);
+          resolve(canvas.toDataURL('image/png'));
+        } catch (e) { resolve(null); }
+      };
+      img.onerror = () => resolve(null);
+      img.src = src;
+    });
+  }
+
   async function downloadPDF(ev) {
+    if (typeof html2pdf === 'undefined') {
+      alert('Library PDF belum termuat. Periksa koneksi internet lalu refresh halaman.');
+      return;
+    }
+
     const companyName = document.getElementById('companyName').value || 'Client';
     const parens = companyName.match(/\(([^)]+)\)/);
     const shortName = (parens ? parens[1] : companyName.replace(/^PT\.?\s+/i, '').split(/\s+/)[0])
@@ -1115,36 +1139,49 @@
     const originalText = btn ? btn.innerHTML : '';
     if (btn) { btn.innerHTML = 'Generating...'; btn.disabled = true; }
 
-    // Clone preview into an off-screen, fixed-width container so html2canvas
-    // gets a fully-laid-out element regardless of the modal's rendering context.
+    // Clone the preview into an on-screen (but behind) wrapper with explicit
+    // A4-width dimensions — html2canvas needs a properly laid-out element.
     const source = document.querySelector('#previewBody .po-preview');
-    const wrapper = document.createElement('div');
-    wrapper.style.cssText = 'position:fixed; left:-10000px; top:0; width:794px; background:#fff; z-index:-1;';
     const clone = source.cloneNode(true);
+    clone.style.width = '794px';
     clone.style.padding = '40px';
+    clone.style.background = '#ffffff';
+    clone.style.boxSizing = 'border-box';
+
+    const wrapper = document.createElement('div');
+    wrapper.style.cssText = 'position:absolute; top:0; left:0; width:794px; background:#ffffff; z-index:-1; pointer-events:none;';
     wrapper.appendChild(clone);
     document.body.appendChild(wrapper);
 
     try {
-      // Wait for any images inside the clone to finish loading
+      // Pre-convert every <img> to PNG data URL (handles WebP + CORS edges).
       const imgs = Array.from(clone.querySelectorAll('img'));
-      await Promise.all(imgs.map(img =>
-        img.complete && img.naturalWidth
-          ? Promise.resolve()
-          : new Promise(res => { img.onload = img.onerror = res; })
-      ));
+      await Promise.all(imgs.map(async (img) => {
+        const dataUrl = await imgToPngDataUrl(img.src);
+        if (dataUrl) img.src = dataUrl;
+      }));
+
+      // Let layout settle.
+      await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
 
       await html2pdf().set({
         margin: [10, 10, 10, 10],
         filename: filename,
         image: { type: 'jpeg', quality: 0.95 },
-        html2canvas: { scale: 2, useCORS: true, allowTaint: true, logging: false, backgroundColor: '#ffffff' },
+        html2canvas: {
+          scale: 2,
+          useCORS: true,
+          allowTaint: true,
+          logging: false,
+          backgroundColor: '#ffffff',
+          windowWidth: 794
+        },
         jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-        pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+        pagebreak: { mode: ['css', 'legacy'] }
       }).from(clone).save();
     } catch (e) {
       console.error('PDF generation failed:', e);
-      alert('Gagal membuat PDF. Silakan coba lagi atau gunakan tombol Cetak.');
+      alert('Gagal membuat PDF: ' + (e.message || e) + '\n\nSilakan coba tombol Cetak.');
     } finally {
       wrapper.remove();
       if (btn) { btn.innerHTML = originalText; btn.disabled = false; }
